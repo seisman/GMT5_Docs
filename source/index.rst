@@ -8,6 +8,8 @@
    :maxdepth: 3
    :hidden:
 
+   basics
+
 -  这是\ `GMT5官方文档 <http://gmt.soest.hawaii.edu/doc/latest/index.html>`_\ 的中文译本吗？
 
    不是。之所以选择写一份全新的文档而不是完全翻译GMT的官方文档，原因有两个：
