@@ -2,7 +2,6 @@
 ########
 
 .. toctree::
-   :hidden:
 
    colors
    pen
