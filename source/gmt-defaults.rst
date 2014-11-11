@@ -2,3 +2,5 @@
 ########
 
 .. toctree::
+
+   defaults-ps
