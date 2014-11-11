@@ -3,5 +3,6 @@
 
 .. toctree::
 
+   postscript
    colors
    pen
