@@ -90,7 +90,7 @@ PS：最细的画笔可以通过设置笔宽为\ ``0p``\ 或\ ``faint``\ 来实�
 除了上面提到的三个画笔属性之外，还有一些PostScript设置可以影响线条的外观。这些可以通过GMT的几个默认参数来控制：
 
 - :ref:`PS_LINE_CAP <PS_LINE_CAP>` ：控制线段顶端的绘制方式；
-- :ref:`PS_LINE_JOIN <PS_LINE_JOIN>` ：控制线段相交点的绘制方式；
-- :ref:`PS_MITER_LIMIT <PS_MITER_LIMIT>` ：控制线段相交点\ ``miter``\ 模式下的阈值；
+- :ref:`PS_LINE_JOIN <PS_LINE_JOIN>` ：控制线段拐点的绘制方式；
+- :ref:`PS_MITER_LIMIT <PS_MITER_LIMIT>` ：控制线段拐点在\ ``miter``\ 模式下的阈值；
 
 这三个默认参数控制了线段端点以及交点的绘制方式。默认情况下，线段的端点为矩形，可以通过修改\ :ref:`PS_LINE_CAP <PS_LINE_CAP>`\ 为\ ``round``\ 将其端点设置为圆头，当\ ``PS_LINE_CAP=round``\ 时，长度为0的线段将以圆的形式出现，这可以用于创建圆点线，此时将同一条线绘制两次，每次使用不同的相移和颜色，则可以创建颜色变化的线型。
