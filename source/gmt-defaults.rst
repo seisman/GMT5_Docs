@@ -3,4 +3,5 @@
 
 .. toctree::
 
+   defaults
    defaults-ps
