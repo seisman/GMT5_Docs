@@ -2,3 +2,6 @@
 ####
 
 .. toctree::
+
+   how-to-choose
+
