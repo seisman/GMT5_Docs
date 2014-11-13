@@ -4,4 +4,5 @@
 .. toctree::
 
    defaults
+   gmtset
    defaults-ps
