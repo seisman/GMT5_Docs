@@ -5,4 +5,5 @@
 
    defaults
    gmtset
+   gmtget
    defaults-ps
