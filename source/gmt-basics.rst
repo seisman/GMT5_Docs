@@ -6,3 +6,5 @@
    postscript
    colors
    pen
+   fill
+
