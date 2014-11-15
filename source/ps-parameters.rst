@@ -4,7 +4,14 @@ PostScript参数
 ==============
 
 :Create Date: 2014-11-10
-:Last Updated: 2014-11-11
+:Last Updated: 2014-11-15
+
+.. _PS_CHAR_ENCODING:
+
+PS_CHAR_ENCODING
+----------------
+
+选择GMT在处理文本中的八进制码时所使用的字符集编码方式，可选值包括：\ ``Standard``\ 、\ ``Standard+``\ 、\ ``ISOLatin1``\ 、\ ``ISOLatin1+``\ 和\ ``ISO-8859-x``\ （其中x取值为[1-10]或[13-15]）。若安装GMT时使用SI单位制，则默认值为ISOLatin1编码；否则使用Standard+编码。详情参见\ :doc:`ps-parameters`\ 。
 
 .. _PS_LINE_CAP:
 

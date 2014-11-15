@@ -7,4 +7,4 @@
    gmtdefaults
    gmtset
    gmtget
-   defaults-ps
+   ps-parameters
