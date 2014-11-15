@@ -3,7 +3,7 @@
 
 .. toctree::
 
-   defaults
+   intro-to-gmt-conf
    gmtdefaults
    gmtset
    gmtget
