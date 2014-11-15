@@ -7,4 +7,5 @@
    colors
    pen
    fill
+   text
 
