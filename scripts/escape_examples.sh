@@ -21,14 +21,14 @@ gmt pstext -R -J -Bg1 -Bwsen -F+f -K -O -N >> $PS << EOF
 0.5  3.5 10p,8,black Thi is @@_underline@@_
 1.5  3.5 -,-,black This is @_underline@_
 
-0.5  4.5 10p,8,black @@%1%Use @@%23%different @@%8%fonts@@%%
-1.5  4.5 -,-,black @%1%Use @%23%different @%8%fonts@%%
+0.5  4.5 10p,8,black @@%1%Use@@%% @@%23%different@@%% @@%8%fonts@@%%
+1.5  4.5 -,-,black @%1%Use@%% @%23%different@%% @%8%fonts@%%
 
-0.5  5.5 10p,8,black @@:10p:Use @@:20:different @@:15:size
-1.5  5.5 -,-,black @:10p:Use @:20:different @:15:size
+0.5  5.5 10p,8,black @@:10:Use@@:: @@:20:different@@:: @@:15:size@@::
+1.5  5.5 -,-,black @:10:Use@:: @:20:different@:: @:15:size@::
 
-# 0.5  6.5 10p,8,black ad
-# 1.5  6.5 -,-,black @;red;Use @;blue;different @;green;colors @;;
+0.5  6.5 10p,8,black @@\;red;Colorful@@;; @@\;blue;text@@;;
+1.5  6.5 -,-,black @;red;Colorful@;; @;blue;text@;;
 
 0.5  7.5 10p,8,black @@!CV @@@@
 1.5  7.5 -,-,black @!CV @@
