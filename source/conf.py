@@ -39,7 +39,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'GMT5参考手册'
-copyright = '2014, SeisMan'
+copyright = '2014-2015, SeisMan'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
