@@ -6,3 +6,4 @@ GMT简介
    intro-to-gmt
    features
    how-to-choose
+   philosophy
