@@ -38,6 +38,6 @@ Linux or Windows
 GMT可以运行在Linux以及Windows下（还有Mac），但更推荐在Linux下使用。原因如下：
 
 - GMT是在Linux下开发的，后移植到Windows下，相对来说，Windows版本有更多的bug；
-- Linux下有众多辅助工具：\ ``awk``\ 、\ ``cut``\ 、\ ``paste``\ ；
+- Linux下有众多辅助工具：\ ``gawk``\ 、\ ``cut``\ 、\ ``paste``\ ；
 - Windows下的命令行太难用，测试GMT命令太麻烦；
 - Windows的bat脚本功能单一；
