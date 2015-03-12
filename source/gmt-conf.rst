@@ -8,3 +8,4 @@
    gmtset
    gmtget
    ps-parameters
+   projection-parameters
