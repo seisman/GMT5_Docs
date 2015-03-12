@@ -97,3 +97,36 @@ GMT还允许用户自定义椭球，用户只需按照固定的格式对椭球�
 - ``a,inv_f``\ ：\ ``inv_f``\ 为扁率的倒数，比如\ ``6378137,298.257223563``\ ；
 - ``a,b=semi_minor``\ ：\ ``semi_minor``\ 为半短轴长度，单位为\ ``m``\ 。比如\ ``6378137,b=6356752.3142``\ ；
 - ``a,f=flattening``\ ：\ ``flattening``\ 为扁率，比如\ ``6378137,f=0.0033528``\ ；
+
+.. _PROJ_AUX_LATITUDE:
+
+PROJ_AUX_LATITUDE
+-----------------
+
+仅当测地线被近似为等效球体的大圆路径时使用。可选值包括\ ``authalic``\ ，\ ``geocentric``\  ，\ ``conformal``\ ，\ ``meridional``\ 、\ ``parametric``\ 和\ ``none``\ 。默认值为\ ``authalic``\ 。当其值不为\ ``none``\ 时，GMT会在计算距离之前，将大圆距离计算过程中使用的的任意一个纬度作为辅助纬度。
+
+.. _PROJ_MEAN_RADIUS:
+
+PROJ_MEAN_RADIUS
+-----------------
+
+仅当测地线被近似为等效球体的大圆路径时或扣死啊没区域面积时使用。可选值包括\ ``mean(R_1)``\、\ ``authalic(R_2)``\ 、\ ``volumetric(R_3)``\ 、\ ``meridional``\ 或\ ``quadratic``\ 。默认值为\ ``authalic``\ 。
+
+
+.. _PROJ_LENGTH_UNIT:
+
+PROJ_LENGTH_UNIT
+----------------
+
+设置默认的长度单位，可以取\ ``c``\ 、\ ``i``\ 、\ ``p``\ 。SI单位制下默认值为\ ``c``\ ，US单位制下默认为\ ``i``\ 。
+
+.. _PROJ_SCALE_FACTOR:
+
+PROJ_SCALE_FACTOR
+-----------------
+
+修改某些投影的地图缩放因子以减小面积失真。
+
+- Polar Stereographic：默认值为0.9996
+- UTM：默认值为0.9996
+- Transverse Mercator：默认值为1
