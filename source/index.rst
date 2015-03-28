@@ -12,6 +12,7 @@
    gmt-intro
    gmt-basics
    gmt-conf
+   standard-options
 
 -  这是\ `GMT5官方文档 <http://gmt.soest.hawaii.edu/doc/latest/index.html>`_\ 的中文译本吗？
 
