@@ -9,3 +9,4 @@
    gmtget
    ps-parameters
    projection-parameters
+   map-paramaters
