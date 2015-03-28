@@ -4,7 +4,7 @@ PS文件
 ======
 
 :Create Date: 2014-11-10
-:Last Updated: 2015-02-07
+:Last Updated: 2015-03-13
 
 画图的第一步，是要准备好纸张。PostScript就是GMT所使用的纸张。
 
@@ -66,11 +66,3 @@ PS解释器，或称PS阅读器，是用于查看PS文件的软件。
 - Linux：\ ``ghostscript``\
 - Windows：\ ``ghostscript``\ + \ ``gsview``\
 
-纸张属性
---------
-
-仅仅知道PS是GMT的御用纸张是不够的，还需要对纸张进一步的定制化。GMT提供了一堆参数可以用于调整纸张的属性。
-
-- :ref:`PS_MEDIA <PS_MEDIA>` ：控制纸张尺寸，默认为A4，即210mmx297mm；
-- :ref:`PS_PAGE_COLOR` ：纸张的背景色，默认为白色；
-- :ref:`PS_PAGE_ORIENTATION` ：纸张的方向，默认值为lanscape；
