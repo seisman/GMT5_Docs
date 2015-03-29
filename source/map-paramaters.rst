@@ -4,7 +4,7 @@ MAP参数
 =======
 
 :Create Date: 2015-03-28
-:Last Updated: 2015-03-28
+:Last Updated: 2015-03-29
 
 .. _MAP_FRAME_PEN:
 
@@ -40,3 +40,20 @@ MAP_LOGO_POS
 ------------
 
 设置GMT logo相对于当前绘图的左下角的对齐方式与位置。默认值为\ ``BL/-54p/-54p``\ 。
+
+.. _MAP_FRAME_TYPE:
+
+MAP_FRAME_TYPE
+--------------
+
+设置底图边框类型，可选值包括\ ``inside``\ 、\ ``plain``\ 、\ ``graph``\ 、\ ``fancy``\ 以及\ ``fancy+``\ ，默认值为\ ``fancy``\。
+
+一般情况下，\ ``fancy``\ 边框类型仅适用于投影后的X、Y方向平行于经度纬度方向的情况下，比如rectangular投影、polar投影。对于某些投影，只能使用plain底图，即便MAP_BASEMAP_TYPE被设置为fancy。
+
+下图给出了不同的底图边框类型的效果：
+
+.. figure:: /images/map_basemap_type.*
+   :width: 600px
+   :align: center
+
+   不同的底图边框类型的效果图
