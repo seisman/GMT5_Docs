@@ -9,4 +9,5 @@
    gmtget
    ps-parameters
    projection-parameters
-   map-paramaters
+   map-parameters
+   gmt-parameters
