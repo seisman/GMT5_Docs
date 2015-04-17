@@ -6,3 +6,4 @@ GMT标准选项
    R-option
    B-option
    P-option
+   colon-option
