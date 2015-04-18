@@ -10,7 +10,7 @@
 
 下图给出了Standard+和ISOLatin1+编码下不同字符所对应的八进制表示：
 
-.. figure:: /images/GMT_stand+_iso+.jpg
+.. figure:: /images/GMT_stand+_iso+.*
    :width: 600px
    :align: center
 
