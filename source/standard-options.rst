@@ -6,6 +6,7 @@ GMT的每个命令都有很多的选项，这些选项五花八门，不同的�
 .. toctree::
 
    R-option
+   J-option
    B-option
    P-option
    V-option
