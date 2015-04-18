@@ -10,4 +10,5 @@
    ps-parameters
    projection-parameters
    map-parameters
+   time-parameters
    gmt-parameters
