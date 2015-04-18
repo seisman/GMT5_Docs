@@ -10,5 +10,19 @@ GMT的每个命令都有很多的选项，这些选项五花八门，不同的�
    B-option
    P-option
    V-option
+   U-option
+   KO-option
+   XY-option
+   a-option
+   b-option
+   c-option
+   f-option
+   g-option
+   h-option
+   io-option
+   n-option
+   r-option
+   p-option
+   s-option
    t-option
    colon-option
