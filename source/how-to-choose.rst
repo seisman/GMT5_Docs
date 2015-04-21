@@ -1,8 +1,8 @@
-选择题
-======
+选择
+====
 
-:Create Date: 2014-11-13
-:Last Updated: 2014-11-13
+:ctime: 2014-11-13
+:mtime: 2015-04-21
 
 CLI or GUI
 ----------
@@ -28,16 +28,20 @@ GMT于2013年11月发布了GMT5的第一个正式版本5.1.0，自此，GMT目�
 
 选择GMT5的理由：
 
-- GMT5相对于GMT4有很多改进，命令风格上更友好；
+- GMT5相对于GMT4有很多改进，命令语法更统一；
 - GMT5相对于GMT4加入了更多的新功能；
 - GMT5是GMT的未来；
+
+推荐新用户学习并使用GMT5，本文档也仅介绍GMT5。
 
 Linux or Windows
 ----------------
 
-GMT可以运行在Linux以及Windows下（还有Mac），但更推荐在Linux下使用。原因如下：
+GMT可以运行在Linux以及Windows下，当然也可以运行在Mac下，这里姑且认为Mac跟Linux是相同的。
 
-- GMT是在Linux下开发的，后移植到Windows下，相对来说，Windows版本有更多的bug；
+推荐在Linux下使用GMT，原因如下：
+
+- GMT是在Linux下开发的，后移植到Windows下。因而，Windows版本的GMT相对来说有更多的bug；
 - Linux下有众多辅助工具：\ ``gawk``\ 、\ ``cut``\ 、\ ``paste``\ ；
 - Windows下的命令行太难用，测试GMT命令太麻烦；
 - Windows的bat脚本功能单一；
