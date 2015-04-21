@@ -1,15 +1,14 @@
 阅读须知
 ========
 
-:Author: SeisMan
-:Create Date: 2014-06-22
-:Last Updated: 2015-01-23
+:ctime: 2014-06-22
+:mtime: 2015-04-21
 
 .. toctree::
    :maxdepth: 3
    :hidden:
 
-   gmt-intro
+   gmt-introduction
    gmt-basics
    gmt-conf
    standard-options
@@ -43,7 +42,7 @@
 
    #. 提意见和建议。不管是错别字、语句不通，还是概念不清，欢迎指出；
    #. 帮助完善未完成的部分。可以在\ `GitHub <https://github.com/seisman/GMT5_Docs>`_\ 上fork该项目的源码，完善文档并提交pull request；也可以直接将你完成的部分邮件给我。文档是否接收以及文档修订的解释权完全属于SeisMan。
-   #. 给我捐赠，详情见 http://seisman.info/donations.html
+   #. 给我\ `捐赠 <http://seisman.info/donations.html>`_\
 
 快捷链接
 ========
