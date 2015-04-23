@@ -6,4 +6,5 @@ GMT简介
    intro-to-gmt
    how-to-choose
    install-gmt
+   directory-tree
    philosophy
