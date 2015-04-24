@@ -8,3 +8,4 @@ GMT简介
    install-gmt
    directory-tree
    philosophy
+   linux-basics
