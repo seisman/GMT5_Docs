@@ -3,6 +3,7 @@
 
 .. toctree::
 
+   paper
    colors
    pen
    fill
