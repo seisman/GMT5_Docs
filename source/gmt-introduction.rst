@@ -9,3 +9,4 @@ GMT简介
    directory-tree
    philosophy
    linux-basics
+   postscript

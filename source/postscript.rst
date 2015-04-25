@@ -1,14 +1,14 @@
 .. index:: ! postscript
 
-PS文件
-======
+PostScript
+==========
 
-:Create Date: 2014-11-10
-:Last Updated: 2015-03-13
+:ctime: 2014-11-10
+:mtime: 2015-04-24
 
-画图的第一步，是要准备好纸张。PostScript就是GMT所使用的纸张。
+前面已经多次提到了PostScript（简写为PS），这一节将简单介绍一下PS语言与PS格式。
 
-PostScript是什么
+PS是什么
 ----------------
 
 PostScript是一种用于描述\ **矢量图形**\ 的页面描述语言。简单的说，PostScript是一种图形格式，一般文件后缀用\ ``ps``\ ，简称为PS文件。
@@ -32,7 +32,7 @@ PostScript是一种用于描述\ **矢量图形**\ 的页面描述语言。简�
       %%EOF
 
 #. 将该文件保存为\ ``simple.ps``\ ；
-#. Linux下用命令\ ``gs simple.ps``\ 查看该文件；Windows下应该直接双击就可以看到 ；
+#. Linux下用命令\ ``gs simple.ps``\ 查看该文件；Windows下应该直接双击就可以看到；
 
 解释一下这个文件:
 
@@ -44,8 +44,10 @@ PostScript是一种用于描述\ **矢量图形**\ 的页面描述语言。简�
 
 这就是一个最简单的PS文件。
 
-PostScript的优点
-----------------
+PS的优点
+--------
+
+GMT所有的绘图模块都只能生成PostScript代码，需要将这些PS代码保存到PS文件中，才能完成绘图。
 
 不管当初GMT是以什么理由选择PostScript作为图像格式的，就今天来看，PS文件具有如下优势：
 
@@ -66,3 +68,4 @@ PS解释器，或称PS阅读器，是用于查看PS文件的软件。
 - Linux：\ ``ghostscript``\
 - Windows：\ ``ghostscript``\ + \ ``gsview``\
 
+当然，除此之外还有很多其他的PS阅读器，比如Linux下的zathura以及Windows下的Sumatra。

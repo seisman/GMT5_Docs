@@ -3,7 +3,6 @@
 
 .. toctree::
 
-   postscript
    colors
    pen
    fill
