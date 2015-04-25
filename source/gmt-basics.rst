@@ -3,6 +3,7 @@
 
 .. toctree::
 
+   units
    paper
    colors
    pen
@@ -10,4 +11,4 @@
    text
    more-characters
    character-escape
-   units
+   calculate-distance
