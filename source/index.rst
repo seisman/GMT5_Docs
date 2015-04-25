@@ -10,8 +10,8 @@
 
    gmt-introduction
    gmt-basics
-   gmt-conf
    standard-options
+   gmt-conf
    format-conversion-modules
    faq
 
