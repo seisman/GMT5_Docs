@@ -12,6 +12,7 @@
    gmt-basics
    standard-options
    gmt-conf
+   plot-modules
    format-conversion-modules
    faq
 
