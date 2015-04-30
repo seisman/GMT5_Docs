@@ -37,7 +37,7 @@ angles，而\ ``-Sw``\ 指定的方向则会保存不变。
    2 2 0 45
    EOF
 
-   gmt psxy -R$R -J$J -Sw3c -Glightblue -K -O >> $PS << EOF
+   gmt psxy -R$R -J$J -SW3c -Glightblue -K -O >> $PS << EOF
    6 2 0 45
    EOF
    gmt psxy -R$R -J$J -T -O >> $PS
