@@ -1,4 +1,6 @@
-all: $(addsuffix .png, $(basename $(wildcard *.sh)))
+PNG = $(addsuffix .png, $(basename $(wildcard *.sh)))
+
+all: $(PNG)
 
 %.ps: %.sh
 	sh $<
