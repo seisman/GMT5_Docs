@@ -9,6 +9,7 @@ GMT模块众多，每个模块的具体效果，由模块的众多选项来决�
 
    J-option
    R-option
+   JR-option
    B-option
    P-option
    V-option
