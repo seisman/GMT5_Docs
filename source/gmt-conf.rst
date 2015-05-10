@@ -8,6 +8,7 @@
    gmtset
    gmtget
    ps-parameters
+   format-parameters
    projection-parameters
    map-parameters
    time-parameters

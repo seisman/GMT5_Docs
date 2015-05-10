@@ -3,8 +3,8 @@
 PostScript参数
 ==============
 
-:Create Date: 2014-11-10
-:Last Updated: 2015-02-07
+:ctime: 2014-11-10
+:mtime: 2015-02-07
 
 .. _PS_CHAR_ENCODING:
 

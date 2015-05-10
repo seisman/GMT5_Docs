@@ -3,8 +3,10 @@
 MAP参数
 =======
 
-:Create Date: 2015-03-28
-:Last Updated: 2015-03-29
+:ctime: 2015-03-28
+:mtime: 2015-03-29
+
+.. _MAP_FRAME_TYPE:
 
 MAP_FRAME_TYPE
 --------------
@@ -62,6 +64,3 @@ MAP_LOGO_POS
 ------------
 
 设置GMT logo相对于当前绘图的左下角的对齐方式与位置。默认值为\ ``BL/-54p/-54p``\ 。
-
-.. _MAP_FRAME_TYPE:
-
