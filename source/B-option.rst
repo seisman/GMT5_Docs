@@ -1,38 +1,69 @@
 B选项
 =====
 
-:Create Date: 2015-03-28
-:Last Updated: 2015-04-18
+:ctime: 2015-03-28
+:mtime: 2015-05-08
 
--B选项用于控制底图的边框以及轴的显示。针对边框以及轴，-B选项拥有不同的语法，所以在一个命令中可能会多次出现-B选项。
+B选项用于控制底图边框的显示效果。
 
--B选项的用法写起来有些难度，多试试就理解了。
+对于整个底图边框和每对坐标轴，B选项拥有不同的语法，所以在一个命令中可能会多次出现B选项。
+
+当命令中没有出现B选项，则默认不绘制底图边框。
 
 边框设置
 --------
+B选项对于边框设置有一套专门的语法：
 
 **-B**\ [*axes*][**+b**][**+g**\ *fill*][**+o**\ *lon/lat*][**+t**\ *title*]
+
+其中：
+
+- ``axes``\ 用于控制显示哪些坐标轴；
+- ``+b``\ 用于在3D绘图中根据R选项指定的范围绘制长方体的12条边；
+- ``+g``\ 用于在底图内部填色；
+- ``+o``\ 用于指定网格线的参考点；
+- ``+t``\ 用于指定当前底图的标题；
+
+通常情况下，只需要使用axes和+t选项。
 
 axes
 ~~~~
 
-*axes*\ 控制要绘制哪些轴以及这些轴是否有标注。对于一般的图而言，有四条边，分别用W、E、S、N表示地图左右上下四条边。每条边可以有三种状态：
+*axes*\ 控制要绘制哪些轴以及这些轴是否显示标注。对于一般的二维图而言，有上下左右四条轴，这四条轴分别用四个方向的英文单词首字母表示，即上北（N）下南（S）左西（W）右东（E）。对于每条轴都有三种状态：
 
-#. 用大写字母表示：绘制这条边，且该边有刻度、有标注
-#. 用小写字母表示：绘制这条边，但该边只有刻度
-#. 不出现该字母表示：不绘制这条边
+#. 不出现该字母表示不绘制这条边
+#. 用大写字母表示绘制这条边，且该边有刻度、有标注
+#. 用小写字母表示绘制这条边，但该边有刻度、无标注
 
 下面给出一些具体的示例，解释一下\ *axes*\ 取不同值的效果：
 
 #. ``WSEN``\ ：绘制四条边，且每条边都有刻度和标注
 #. ``WSn``\ ：绘制左、下、上三条边，不绘制右边。其中左边和下边有刻度和标注，上边无标注；
 
-对于3D绘图来说，还可以加上一个Z。同理，大写的Z表示有刻度和标注，小写的z表示无标注。默认情况下，只会绘制一条垂直的边，可以使用\ ``1234``\ 的任意组合来表示要绘制哪些垂直边。其中1表示左下角的垂直边，其他垂直边按逆时针顺序编号。加上\ ``+b``\ 子选项，会绘制一个由-R选项决定的box，并且会在xz和yz平面内显示网格线。
+下面两个命令，分别使用了不同的B选项，可以自己执行，查看绘图效果并试着理解axes的用法::
+
+    gmt psbasemap -R0/10/0/10 -JX5c -B2 -BWSEN > test1.ps
+    gmt psbasemap -R0/10/0/10 -JX5c -B2 -BWSn > test2.ps
+
+对于3D绘图来说，axes还可以加上一个\ ``Z``\ 。同理，大写的Z表示有刻度和标注，小写的z表示无标注。默认情况下，只会绘制一条垂直的边，可以使用\ ``1234``\ 的任意组合来表示要绘制哪些垂直边。其中1表示左下角的垂直边，其他垂直边按逆时针顺序编号。加上\ ``+b``\ 子选项，会绘制一个由R选项范围决定的长方体的12条边，即相当于一个box。如果Z轴有指定网格间距，则会在xz和yz平面内显示网格线。
+
+下面的命令展示了3D绘图中B选项的不同用法，读者可以自己一一测试，根据绘图效果理解B选项中各字母的含义。命令中的某些选项还没有介绍过，暂时可以不必理会其含义::
+
+    gmt psbasemap -R0/10/0/10/0/10 -JX5c -JZ5c -Bz2 -BWSENZ -p45/45 > test1.ps
+    gmt psbasemap -R0/10/0/10/0/10 -JX5c -JZ5c -Bz2 -BWSENZ1234 -p45/45 > test2.ps
+    gmt psbasemap -R0/10/0/10/0/10 -JX5c -JZ5c -Bz2 -BWSEN+b -p45/45 > test3.ps
+    gmt psbasemap -R0/10/0/10/0/10 -JX5c -JZ5c -Bz2 -B+b -p45/45 > test4.ps
+    gmt psbasemap -R0/10/0/10/0/10 -JX5c -JZ5c -Bz2 -B+b -p45/45 > test5.ps
+    gmt psbasemap -R0/10/0/10/0/10 -JX5c -JZ5c -B2 -Bz2 -BwSEnZ+b -p45/45 > test6.ps
 
 +g
 ~~
 
-\ 用于对边框内部进行填充，默认情况下是不填充的。
+用于对边框内部进行填充，默认情况下是不填充的。关于颜色填充，参考\ :doc:`fill`\ 一节。
+
+::
+
+    gmt psbasemap -R0/10/0/10 -JX5c -B2 -BWSEN+glightblue > test.ps
 
 +o
 ~~
@@ -42,60 +73,68 @@ axes
 +t
 ~~
 
-图标题，位于边框的上方。
+``+t``\ 用于给当前底图加标题，该标题位于底图的上方中部。标题可以是任意字符串，如果是字符串中有空格，则必须用引号将字符串括起来（没有空格的时候也可以括起来）。
+
+::
+
+    gmt psbasemap -R0/10/0/10 -JX5c -Ba2g2 -BWSEN+glightblue+ttitle > test.ps
+    gmt psbasemap -R0/10/0/10 -JX5c -Ba2g2 -BWSEN+glightblue+t"This is title" > test2.ps
 
 轴设置
 ------
 
-每对边的属性可以用如下语法控制：
+X轴、Y轴、Z轴，每条轴都有很多属性，包括刻度间隔、网格线间隔、轴标签以及标注的间隔、前缀和单位。轴属性可以用如下语法控制：
 
 **-B**\ [**p**\|\ **s**][**x**\|\ **y**\|\ **z**]\ *intervals*\ [\ **+l**\ *label*][**+p**\ *prefix*][**+u**\ *unit*]
 
 为了更加清晰，以上的语法也可以被分为如下两句：
 
-- **-B**\ [**p**\|\ **s**][**x**\|\ **y**\|\ **z**][**+l**\ *label*][**+p**\ *prefix*][*     *+u**\ *unit*]
+- **-B**\ [**p**\|\ **s**][**x**\|\ **y**\|\ **z**][**+l**\ *label*][**+p**\ *prefix*][**+u**\ *unit*]
 - **-B**\ [**p**\|\ **s**][**x**\|\ **y**\|\ **z**]\ *intervals*
 
 p|s
 ~~~
 
-对于每个轴来说，都有两级注释、两级刻度以及两级网格，分别称之为p（Primary）和s（Secondary）。Primary是指比较靠近轴的注释，而secondary是离轴稍远的注释。对于地理坐标来说，通常只需要默认的轴，即Primary轴。Secondary主要用于坐标轴为时间轴的情况下，此时可以用p和s分别指定不同尺度的时间间隔。
+对于每个轴来说，都有两个等级的属性可以设置，分别称为p（Primary）和s（Secondary）。
+
+对于地理坐标而言，通常只需要使用默认的Primary属性即可。而Secondary则主要用于坐标轴为时间轴的情况下，此时p和s分别用于指定不同尺度的时间间隔。在GMT默认的情况下，p属性的标注比较靠近坐标轴，而s属性的标注离坐标轴稍远。p和s的用法与区别，可以参考后面给出的例子。
 
 x|y|z
 ~~~~~
 
 要设置哪些边的信息，默认值为xy，即同时设置X轴和Y轴的信息。可以指定单个轴（比如只有x），也可以同时指定多个轴（比如xy和xyz）。如果想要不同轴有不同的设置，则需要多次使用-B选项，每个指定不同的轴。
 
-+l
-~~
+子选项
+~~~~~~
 
-给选中的轴加标签
-
-+p
-~~
-
-给选中的轴的标注加前缀
-
-+u
-~~
-
-给选中的轴的标注加单位。对于地图而言，标注的单位为度，该符号是自动添加的，由\ :ref:`FORMAT_GEO_MAP <FORMAT_GEO_MAP>`\ 控制。
+- ``+l``\ ：给选中的轴加标签；
+- ``+p``\ ：给选中的轴的标注加前缀；
+- ``+u``\ ：给选中的轴的标注加单位。对于地图而言，标注的单位为度，该符号是自动添加的，由\ :ref:`FORMAT_GEO_MAP <FORMAT_GEO_MAP>`\ 控制。
 
 interval
 ~~~~~~~~
 
-interval控制了注释、刻度以及网格线的间隔，是一个或若干个[**t**]\ *stride*\ [*phase*][**u**]的组合。
+每个轴都有三个属性，分别是标注（annotation）、刻度（frame）和网格线（grid）。下图展示了这三个名词在绘图时的具体含义。
 
-其中t可以取a（注释）、f（刻度）、g（网格线），表明了要设置轴的哪部分的间隔，stride设置了间隔，phase可以用于空竹注释、刻度或网格线的起算点。u是间隔的单位。
+.. figure:: /images/GMT_-B_afg.*
+   :width: 500px
+   :align: center
 
-``-Bafg``\ 会根据当前的区域大小等信息自动计算合适的间隔，\ ``-Bafg/afg``\ 则会对X轴和Y轴分别计算合适的间隔。
+*interval*\ 可以用于设置这三个属性的间隔，它是一个或多个[**t**]\ *stride*\ [*phase*][**u**]的组合。
+
+- **t**\ 可以取a（标注）、f（刻度）、g（网格线），表明了要设置轴的哪部分的间隔
+- **stride**\ 用于设置间隔
+- **phase**\ 可以用于控制标注、刻度或网格线的起算点
+- **u**\ 是间隔的单位
+
+比如：\ ``-Ba30f15g15``\ ，\ ``-Bxa10 -Bya15``\ 等等。
+
+B选项还有一个可以自动计算间隔的功能，\ ``-Bafg``\ 会根据当前的区域大小等信息自动计算合适的间隔，\ ``-Bafg/afg``\ 则会对X轴和Y轴分别计算合适的间隔。
 
 地理底图
 --------
 
-地理底图与一般的坐标轴不同，其可以使用fancy形式。
-
-:ref:`MAP_FRAME_TYPE <MAP_FRAME_TYPE>`\ 、:ref:`FORAMT_GEO_MAP <FORMAT_GEO_MAP>`\ 、\ :ref:`MAP_DEGREE_SYMBOL <MAP_DEGREE_SYMBOL>`\ 等可以用于修改地理底图的外观。
+地理底图与一般的坐标轴不同，其底图类型\ :ref:`MAP_FRAME_TYPE`\ 使用\ ``fancy``\ 形式。
 
 .. _basemap_border:
 
@@ -105,7 +144,7 @@ interval控制了注释、刻度以及网格线的间隔，是一个或若干个
 
    地理底图
 
-下图同时使用了p注释和s注释，p注释用于显示度，s注释用于显示弧分。
+下图同时使用了p和s两级属性。这里p属性用于显示弧度，s属性用于显示弧分。
 
 .. _complex_basemap:
 
@@ -113,12 +152,12 @@ interval控制了注释、刻度以及网格线的间隔，是一个或若干个
    :width: 500 px
    :align: center
 
-   同时使用P注释和S注释的地理底图
+   同时使用P和S两级属性的地理底图
 
 笛卡尔线性轴
 ------------
 
-对于一般的线性轴而言，注释的格式由:ref:`FORMAT_FLOAT_OUT <FORMAT_FLOAT_OUT>`\ 决定，其默认值为“%g”，即根据数据的大小决定用一般表示还是指数表示，小数位的数目会根据\ *stride*\ 自动决定。若设置:ref:`FORMAT_FLOAT_OUT <FORMAT_FLOAT_OUT>`\ 为其他值，则会严格使用其定义的格式，比如“%.2f”表示显示两位小数。
+对于一般的线性轴而言，标注的格式由\ :ref:`FORMAT_FLOAT_OUT <FORMAT_FLOAT_OUT>`\ 决定，其默认值为\ ``%g``\ ，即根据数据的大小决定用一般表示还是指数表示，小数位的数目会根据\ *stride*\ 自动决定。若设置\ :ref:`FORMAT_FLOAT_OUT <FORMAT_FLOAT_OUT>`\ 为其他值，则会严格使用其定义的格式，比如\ ``%.2f``\ 表示显示两位小数。
 
 .. _axis_label_basemap:
 
@@ -132,22 +171,17 @@ interval控制了注释、刻度以及网格线的间隔，是一个或若干个
 笛卡尔log\ :sub:`10`\ 轴
 ------------------------
 
-Due to the logarithmic nature of annotation spacings, the *stride*
-parameter takes on specific meanings. The following concerns are
-specific to log axes (see Figure :ref:`Logarithmic projection axis
-<Log_projection>`):
+由于对数坐标的特殊性，\ *stride*\ 参数具有特殊的含义。下面说明\ *stride*\ 在对数坐标下的特殊性：
 
-*  *stride* must be 1, 2, 3, or a negative integer -n.
-   Annotations/ticks will then occur at 1, 1-2-5, or 1,2,3,4,...,9,
-   respectively, for each magnitude range. For *-n* the
-   annotations will take place every *n*\ 'th magnitude.
+- *stride*\ 必须是1、2、3或负整数-n。
 
-*  Append **l** to *stride*. Then, log\ :sub:`10` of the annotation
-   is plotted at every integer log\ :sub:`10` value (e.g.,
-   *x = 100* will be annotated as "2") [Default annotates *x* as is].
+  - ``1``\ ：每10的指数；
+  - ``2``\ ：每10的指数的1、2、5倍；
+  - ``3``\ ：每10的指数的0.1倍；
+  - ``-n``\ ：每10的n次方出现一次；
 
-*  Append **p** to *stride*. Then, annotations appear as 10 raised to
-   log\ :sub:`10` of the value (e.g., 10\ :sup:`-5`).
+- 在\ *stride*\ 后加\ ``l``\ ，则标注会以log\ :sub:`10`\ 的值显示，比如100会显示成2.
+- 在\ *stride*\ 后加\ ``p``\ ，则标注会以10的n次方的形式显示，比如10\ :sup:`-5`
 
 .. _Log_projection:
 
@@ -155,27 +189,15 @@ specific to log axes (see Figure :ref:`Logarithmic projection axis
    :width: 500 px
    :align: center
 
-   Logarithmic projection axis using separate values for annotation,
-   frame, and grid intervals.  (top) Here, we have chosen to annotate the actual
-   values.  Interval = 1 means every whole power of 10, 2 means 1, 2, 5 times
-   powers of 10, and 3 means every 0.1 times powers of 10.  We used
-   -R1/1000/0/1 -JX3il/0.25i -Ba1f2g3. (middle) Here, we have chosen to
-   annotate :math:`\log_{10}` of the actual values, with -Ba1f2g3l.
-   (bottom) We annotate every power of 10 using :math:`\log_{10}` of the actual
-   values as exponents, with -Ba1f2g3p.
+   对数坐标轴。
+   (上) \ ``-R1/1000/0/1 -JX3il/0.25i -Ba1f2g3``\
+   (中) \ ``-R1/1000/0/1 -JX3il/0.25i -Ba1f2g3l``\
+   (下) \ ``-R1/1000/0/1 -JX3il/0.25i -Ba1f2g3p``\
 
 笛卡尔指数轴
 ------------
 
-Normally, *stride* will be used to create equidistant (in the user's
-unit) annotations or ticks, but because of the exponential nature of the
-axis, such annotations may converge on each other at one end of the
-axis. To avoid this problem, you can append **p** to *stride*, and the
-annotation interval is expected to be in transformed units, yet the
-annotation itself will be plotted as un-transformed units (see Figure
-:ref:`Power projection axis <Pow_projection>`). E.g., if
-*stride* = 1 and power = 0.5 (i.e., sqrt), then equidistant annotations
-labeled 1, 4, 9, ... will appear.
+正常情况下，\ *stride* \ 用于生成等间隔的标注或刻度，但是由于指数函数的特性，这样的标注会在坐标轴的某一端挤在一起。为了避免这个问题，可以在\ *stride*\ 后加\ ``p``\ ，则标注会按照转换后的值等间隔出现，而标注本身依然使用未转换的值。比如，若stride=1，pow=0.5（即sqrt），则在1、4、处会出现标注。
 
 .. _Pow_projection:
 
@@ -183,35 +205,21 @@ labeled 1, 4, 9, ... will appear.
    :width: 500 px
    :align: center
 
-   Exponential or power projection axis. (top) Using an exponent of 0.5
-   yields a :math:`sqrt(x)` axis.  Here, intervals refer to actual data values,
-   in -R0/100/0/0.9 -JX3ip0.5/0.25i -Ba20f10g5.
-   (bottom) Here, intervals refer to projected values, although the annotation
-   uses the corresponding unprojected values, as in -Ba3f2g1p.
+   指数投影坐标轴。
+   (上) ``-R0/100/0/0.9 -JX3ip0.5/0.25i -Ba20f10g5``
+   (下) ``-R0/100/0/0.9 -JX3ip0.5/0.25i -Ba3f2g1p``
 
-笛卡尔时间轴
-------------
+时间轴
+------
 
-What sets time axis apart from the other kinds of plot axes is the
-numerous ways in which we may want to tick and annotate the axis. Not
-only do we have both primary and secondary annotation items but we also
-have interval annotations versus tickmark annotations, numerous time
-units, and several ways in which to modify the plot. We will demonstrate
-this flexibility with a series of examples. While all our examples will
-only show a single *x*\ -axis (south, selected via **-BS**), time-axis
-annotations are supported for all axes.
+时间轴与其他轴不同的地方在于，时间轴可以有多种不同的标注方式。下面会用一系列示例来演示时间轴的灵活性。在下面的例子中，尽管只绘制了X轴（绘图时使用了-BS），实际上时间轴标注的各种用法使用于全部轴。
 
-Our first example shows a time period of almost two months in Spring
-2000. We want to annotate the month intervals as well as the date at the start of each week:
-
-   ::
+第一个例子展示了2000年春天的两个月，想要将这两个月的每周的第一天的日期标注出来::
 
      gmt set FORMAT_DATE_MAP=-o FONT_ANNOT_PRIMARY +9p
      gmt psbasemap -R2000-4-1T/2000-5-25T/0/1 -JX5i/0.2i -Bpa7Rf1d -Bsa1O -BS -P > GMT_-B_time1.ps
 
-These commands result in Figure :ref:`Cartesian time axis <cartesian_axis1>`.
-Note the leading hyphen in the :ref:`FORMAT_DATE_MAP <FORMAT_DATE_MAP>`
-removes leading zeros from calendar items (e.g., 02 becomes 2).
+绘图效果如图\ :ref:`Cartesian time axis <cartesian_axis1>`\ 所示，需要注意\ :ref:`FORMAT_DATE_MAP <FORMAT_DATE_MAP>`\ 前的破折号会去掉日期前面的前置零（即02变成2）。
 
 .. _cartesian_axis1:
 
@@ -219,21 +227,15 @@ removes leading zeros from calendar items (e.g., 02 becomes 2).
    :width: 500 px
    :align: center
 
-   Cartesian time axis, example 1
+   时间轴示例1
 
-The next example shows two different ways to annotate an axis portraying 2 days in July 1969:
-
-   ::
+下面的例子用两种不同的方式标注了1969年的两天::
 
      gmt set FORMAT_DATE_MAP "o dd" FORMAT_CLOCK_MAP hh:mm FONT_ANNOT_PRIMARY +9p
      gmt psbasemap -R1969-7-21T/1969-7-23T/0/1 -JX5i/0.2i -Bpa6Hf1h -Bsa1K -BS -P -K > GMT_-B_time2.ps
      gmt psbasemap -R -J -Bpa6Hf1h -Bsa1D -BS -O -Y0.65i >> GMT_-B_time2.ps
 
-The lower example (Figure :ref:`cartesian_axis2`) chooses to annotate the weekdays (by
-specifying **a**\ 1\ **K**) while the upper example choses dates (by
-specifying **a**\ 1\ **D**). Note how the clock format only selects
-hours and minutes (no seconds) and the date format selects a month name,
-followed by one space and a two-digit day-of-month number.
+绘图效果如图\ :ref:`cartesian_axis2`\ 所示。图中下面的例子使用周来标注，上面的例子使用日期来标注。
 
 .. _cartesian_axis2:
 
@@ -241,22 +243,14 @@ followed by one space and a two-digit day-of-month number.
    :width: 500 px
    :align: center
 
-   Cartesian time axis, example 2
+   时间轴示例2
 
-The third example (Figure :ref:`cartesian_axis3`) presents two years, annotating
-both the years and every 3rd month.
-
-   ::
+第三个例子展示了两年的时间，并标注了每年以及每三个月::
 
      gmt set FORMAT_DATE_MAP o FORMAT_TIME_PRIMARY_MAP Character FONT_ANNOT_PRIMARY +9p
      gmt psbasemap -R1997T/1999T/0/1 -JX5i/0.2i -Bpa3Of1o -Bsa1Y -BS -P > GMT_-B_time3.ps
 
-Note that while the year annotation is centered on the 1-year interval,
-the month annotations must be centered on the corresponding month and
-*not* the 3-month interval. The :ref:`FORMAT_DATE_MAP <FORMAT_DATE_MAP>` selects month name
-only and :ref:`FORMAT_TIME_PRIMARY_MAP <FORMAT_TIME_PRIMARY_MAP>` selects the 1-character, upper
-case abbreviation of month names using the current language (selected by
-:ref:`TIME_LANGUAGE <TIME_LANGUAGE>`).
+年标注位于一年间隔的中间，月标注位于对应月的中间而不是三个月间隔的中间。
 
 .. _cartesian_axis3:
 
@@ -264,14 +258,9 @@ case abbreviation of month names using the current language (selected by
    :width: 500 px
    :align: center
 
-   Cartesian time axis, example 3
+   时间示例3
 
-The fourth example (Figure :ref:`cartesian_axis4`) only shows a few hours of a day, using
-relative time by specifying **t** in the **-R** option while the
-:ref:`TIME_UNIT <TIME_UNIT>` is **d** (for days). We select both primary and secondary
-annotations, ask for a 12-hour clock, and let time go from right to left:
-
-   ::
+第四个例子展示了一天中的几个小时，通过在R选项中指定\ ``t``\ 来使用相对时间坐标。这里使用了p属性和s属性，12小时制，时间从右向左增加::
 
      gmt set FORMAT_CLOCK_MAP=-hham FONT_ANNOT_PRIMARY +9p
      gmt psbasemap -R0.2t/0.35t/0/1 -JX-5i/0.2i -Bpa15mf5m -Bsa1H -BS -P > GMT_-B_time4.ps
@@ -282,14 +271,9 @@ annotations, ask for a 12-hour clock, and let time go from right to left:
    :width: 500 px
    :align: center
 
-   Cartesian time axis, example 4
+   时间轴示例4
 
-The fifth example shows a few weeks of time (Figure :ref:`cartesian_axis5`). The lower axis
-shows ISO weeks with week numbers and abbreviated names of the weekdays.
-The upper uses Gregorian weeks (which start at the day chosen by
-:ref:`TIME_WEEK_START <TIME_WEEK_START>`); they do not have numbers.
-
-   ::
+第五个例子用两种方式展示了几周的时间::
 
     gmt set FORMAT_DATE_MAP u FORMAT_TIME_PRIMARY_MAP Character \
            FORMAT_TIME_SECONDARY_MAP full FONT_ANNOT_PRIMARY +9p
@@ -303,13 +287,9 @@ The upper uses Gregorian weeks (which start at the day chosen by
    :width: 500 px
    :align: center
 
-   Cartesian time axis, example 5
+   时间轴示例5
 
-Our sixth example (Figure :ref:`cartesian_axis6`) shows the first five months of
-1996, and we have annotated each month with an abbreviated, upper case name and
-2-digit year. Only the primary axes information is specified.
-
-   ::
+第六个例子展示了1996年的前5个月，每个月用月份的简写以及两位年份标注::
 
     gmt set FORMAT_DATE_MAP "o yy" FORMAT_TIME_PRIMARY_MAP Abbreviated
     gmt psbasemap -R1996T/1996-6T/0/1 -JX5i/0.2i -Ba1Of1d -BS -P > GMT_-B_time6.ps
@@ -320,16 +300,9 @@ Our sixth example (Figure :ref:`cartesian_axis6`) shows the first five months of
    :width: 500 px
    :align: center
 
-   Cartesian time axis, example 6
+   时间轴示例6
 
-Our seventh and final example (Figure :ref:`cartesian_axis7`) illustrates
-annotation of year-days. Unless we specify the formatting with a leading hyphen
-in :ref:`FORMAT_DATE_MAP <FORMAT_DATE_MAP>` we get 3-digit integer days. Note that
-in order to have the two years annotated we need to allow for the annotation of
-small fractional intervals; normally such truncated interval must be at
-least half of a full interval.
-
-   ::
+第七个例子::
 
     gmt set FORMAT_DATE_MAP jjj TIME_INTERVAL_FRACTION 0.05 FONT_ANNOT_PRIMARY +9p
     gmt psbasemap -R2000-12-15T/2001-1-15T/0/1 -JX5i/0.2i -Bpa5Df1d -Bsa1Y -BS -P > GMT_-B_time7.ps
@@ -340,32 +313,32 @@ least half of a full interval.
    :width: 500 px
    :align: center
 
-   Cartesian time axis, example 7
+   时间轴示例7
 
 自定义轴
 --------
 
-Irregularly spaced annotations or annotations based on
-look-up tables can be implemented using the *custom* annotation
-mechanism. Here, we given the **c** (custom) type to the **-B** option
-followed by a filename that contains the annotations (and
-tick/grid-lines specifications) for one axis. The file can contain any
-number of comments (lines starting with #) and any number of records of
-the format
+GMT允许用户定义标注来实现不规则间隔的标注，用法是\ ``-Bc``\ 后接标注文件名。
 
-| *coord* *type* [*label*]
+标注文件中以“#”开头的行为注释行，其余为记录行，记录行的格式为::
 
-The *coord* is the location of the desired annotation, tick, or
-grid-line, whereas *type* is a string composed of letters from **a**
-(annotation), **i** interval annotation, **f** frame tick, and **g**
-gridline. You must use either **a** or **i** within one file; no mixing
-is allowed. The coordinates should be arranged in increasing order. If
-*label* is given it replaces the normal annotation based on the *coord*
-value. Our last example (Figure :ref:`Custom and irregular annotations
-<Custom_annotations>`) shows such a custom basemap with an interval
-annotations on the *x*-axis and irregular annotations on the *y*-axis.
+    *coord* *type* [*label*]
 
-   ::
+- *coord*\ 是需要标注、刻度或网格线的位置；
+- *type*\ 是如下几个字符的组合
+
+  - ``a``\ 或\ ``i``\ 前者为annotation，后者表示interval annotation
+  - 在一个标注文件中，\ ``a``\ 和\ ``i``\ 只能出现其中的任意一个
+  - ``f``\ 表示刻度，即frame tick
+  - ``g``\ 表示网格线，即gridline
+
+- *label* \ 默认的标注为\ *coord*\ 的值，若指定label，则使用label的值
+
+需要注意，coord必须按递增顺序排列。
+
+下面的例子展示中展示了自定义标注的用法，xannots.txt和yannots.txt分别是X轴和Y轴的标注文件。
+
+::
 
     cat << EOF > xannots.txt
     416.0 ig Devonian
@@ -397,4 +370,4 @@ annotations on the *x*-axis and irregular annotations on the *y*-axis.
    :width: 500 px
    :align: center
 
-   Custom and irregular annotations, tick-marks, and gridlines.
+   自定义坐标轴
