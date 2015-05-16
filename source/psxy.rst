@@ -32,7 +32,8 @@ angles，而\ ``-Sw``\ 指定的方向则会保存不变。
    J=x1c
    PS=psxy_pie_wedge.ps
 
-   gmt psbasemap -R$R -J$J -Ba1g1 -K > $PS
+   gmt psxy -R$R -J$J -T -K > $PS
+   gmt psbasemap -R$R -J$J -Ba1g1 -K -O >> $PS
    gmt psxy -R$R -J$J -Sw2c -Glightblue -K -O >> $PS << EOF
    2 2 0 45
    EOF
@@ -50,3 +51,40 @@ angles，而\ ``-Sw``\ 指定的方向则会保存不变。
    :alt: psxy pie wedge
 
    左边-Sw，右边-SW；图中1格表示1cm。
+
+圆弧
+----
+
+``-Sm``\ 选项可以用于绘制一段数学圆弧。\ *size*\ 为矢量箭头的长度，圆弧的线宽由\ ``-W``\ 选项设定。同时还有一些子选项可以用于控制箭头的属性。\ ``-SM``\ 选项与\ ``-Sm``\ 完全相同，只是当圆弧的夹角恰好是90度是，\ ``-SM``\ 会用直角符号来表示。
+
+其要求的数据格式为::
+
+    X   Y   圆弧半径    起始方向(相对于水平方向逆时针的度数) 结束方向
+
+.. code-block:: bash
+
+   #!/bin/bash
+   R=0/4/0/3
+   J=x2c
+   PS=psxy_angle_arc.ps
+
+   gmt psxy -R$R -J$J -T -K > $PS
+   gmt psbasemap -R$R -J$J -Ba1g1 -BWSen -K -O >> $PS
+   gmt psxy -R$R -J$J -Sc0.15c -Gblack -K -O >> $PS << EOF
+   1 1
+   3 1
+   EOF
+   gmt psxy -R$R -J$J -Sm0.2c+b+e+g -Gblack -W0.5p,red -K -O >> $PS << EOF
+   1 1 1 10 60
+   EOF
+   gmt psxy -R$R -J$J -Sm0.2c+b+l -Gblack -W0.5p,blue -K -O >> $PS << EOF
+   3 1 1 10 150
+   EOF
+   gmt psxy -R$R -J$J -T -O >> $PS
+
+   rm gmt.*
+
+.. figure:: /images/psxy_angle_arc.*
+   :width: 500px
+   :align: center
+   :alt: psxy angle arc
