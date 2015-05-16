@@ -49,7 +49,9 @@ ps2raster
 
 利用一堆PS文件生成一个多页PDF::
 
+    # GMT 5.1.2下该命令有问题
     gmt ps2raster -TF -Fout.pdf *.ps
+
 
 输出文件名-F
 ------------
