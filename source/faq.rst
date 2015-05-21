@@ -2,7 +2,7 @@ FAQ
 ===
 
 :ctime: 2015-04-01
-:mtime: 2015-05-08
+:mtime: 2015-05-21
 
 Q1
 --
@@ -48,3 +48,12 @@ Q5
 在Windows下写了bat脚本，执行bat脚本时黑屏一闪而过，看不到出错信息。
 
 解决办法：在脚本的最后加上\ ``pause``\ 。
+
+Q6
+--
+
+出现如下错误::
+
+    Long input record (xxx bytes) was truncated to first xx bytes!
+
+出现该错误的原因是输入数据的一行超过特定的长度（一般是512字符），此时GMT会对输入数据做截断。
