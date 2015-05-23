@@ -120,7 +120,7 @@ interval
    :width: 500px
    :align: center
 
-*interval*\ 可以用于设置这三个属性的间隔，它是一个或多个[**t**]\ *stride*\ [*phase*][**u**]的组合。
+*interval*\ 可以用于设置这三个属性的间隔，它是一个或多个[**t**]\ *stride*\ [+-*phase*][**u**]的组合。
 
 - **t**\ 可以取a（标注）、f（刻度）、g（网格线），表明了要设置轴的哪部分的间隔
 - **stride**\ 用于设置间隔，stride为0，表示不绘制
