@@ -57,3 +57,12 @@ Q6
     Long input record (xxx bytes) was truncated to first xx bytes!
 
 出现该错误的原因是输入数据的一行超过特定的长度（一般是512字符），此时GMT会对输入数据做截断。
+
+Q7
+--
+
+::
+
+    gmtset: Warning: parameter xxxx is deprecated. Use xxx instead.
+
+出现该错误是因为GMT5重命名了几乎所有参数，而当前命令使用的是GMT4的老参数名。解决办法在警告信息中已经说了，使用GMT5的新参数名即可。
