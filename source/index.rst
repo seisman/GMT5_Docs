@@ -13,6 +13,7 @@
    standard-options
    gmt-conf
    plot-modules
+   grid-modules
    format-conversion-modules
    faq
 
