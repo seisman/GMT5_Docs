@@ -11,9 +11,9 @@
 颜色名
 ------
 
-通过颜色名指定颜色是最直观的方式了。常见的颜色如\ ``white``\ 、\ ``black``\ 、\ ``red``\ 、\ ``orange``\ 、\ ``yellow``\ 、\ ``green``\ 、\ ``cyan``\ 、\ ``blue``\ 、\ ``magenta``\ 、\ ``gray``\ （或\ ``grey``\ ）、\ ``brown``\ 。除\ ``white``\ 和\ ``black``\ 之外，其余的几种常见颜色名还可以加上前缀\ ``light``\ 或\ ``dark``\ ，以表示浅色和深色。比如\ ``lightblue``\ 、\ ``blue``\ 、\ ``darkblue``\ 分别表示\ ``浅蓝``\ 、\ ``蓝色``\ 和\ ``深蓝``\ 。
+通过颜色名指定颜色是最直观的方式了。常见的颜色如\ ``white``\ 、\ ``black``\ 、\ ``red``\ 、\ ``orange``\ 、\ ``yellow``\ 、\ ``green``\ 、\ ``cyan``\ 、\ ``blue``\ 、\ ``magenta``\ 、\ ``gray``\ （或\ ``grey``\ ）和\ ``brown``\等 。除\ ``white``\ 和\ ``black``\ 之外，其余的几种常见颜色名还可以加上前缀\ ``light``\ 或\ ``dark``\ ，以表示浅色和深色。比如\ ``lightblue``\ 、\ ``blue``\ 、\ ``darkblue``\ 分别表示\ ``浅蓝``\ 、\ ``蓝色``\ 和\ ``深蓝``\ 。
 
-GMT共支持663种颜色名。可以使用\ ``man gmtcolors``\ 命令查看GMT支持的颜色名列表，或直接查看GMT自带的颜色文档\ ``${GMTHOME}/share/doc/pdf/GMT_RGBchart_a4.pdf``\ 。
+GMT共支持663种颜色名。在Linux下，可以使用\ ``man gmtcolors``\ 命令查看GMT支持的颜色名列表，或直接查看GMT自带的颜色文档\ ``${GMTHOME}/share/doc/pdf/GMT_RGBchart_a4.pdf``\ 。
 
 所有的颜色名都是不区分大小写的，所以\ ``lightblue``\ 、\ ``LIGHTBLUE``\ 或者\ ``LightBlue``\ 都是合法的颜色名。
 
