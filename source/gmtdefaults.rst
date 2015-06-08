@@ -3,8 +3,8 @@
 gmtdefaults
 ===========
 
-:Create Date: 2014-11-14
-:Last Updated: 2014-11-14
+:ctime: 2014-11-14
+:mtime: 2014-11-14
 
 gmtdefaults用于列出GMT的当前默认参数。
 

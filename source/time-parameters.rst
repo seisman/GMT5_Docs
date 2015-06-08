@@ -3,8 +3,8 @@
 时间参数
 ========
 
-:Create Date: 2015-03-12
-:Last Updated: 2015-03-12
+:ctime: 2015-03-12
+:mtime: 2015-03-12
 
 .. _TIME_EPOCH:
 
