@@ -3,8 +3,8 @@
 gmtget
 ======
 
-:Create Date: 2014-11-14
-:Last Updated: 2014-11-14
+:ctime: 2014-11-14
+:mtime: 2014-11-14
 
 gmtset用于某个GMT默认参数的参数值。
 

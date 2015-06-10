@@ -3,8 +3,8 @@
 GMT参数
 ========
 
-:Create Date: 2015-04-17
-:Last Updated: 2015-04-17
+:ctime: 2015-04-17
+:mtime: 2015-04-17
 
 .. _GMT_VERBOSE:
 
