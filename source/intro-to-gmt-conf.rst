@@ -74,3 +74,20 @@ GMT系统自带的\ ``gmt.conf``\ 文件中对每个参数都给了一个合理�
    gmt psxy ...
 
    rm gmt.conf gmt.history # 要养成删除临时文件的习惯
+
+GMT配置示例
+-----------
+
+下面列出部分会影响到绘图效果的GMT参数。
+
+.. figure:: /images/GMT_Defaults_1a.*
+   :width: 400px
+   :align: center
+
+.. figure:: /images/GMT_Defaults_1b.*
+   :width: 400px
+   :align: center
+
+.. figure:: /images/GMT_Defaults_1c.*
+   :width: 400px
+   :align: center
