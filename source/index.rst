@@ -14,6 +14,7 @@
    gmt-conf
    plot-modules
    grid-modules
+   math-modules
    format-conversion-modules
    faq
 
