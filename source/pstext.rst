@@ -4,7 +4,7 @@ pstext
 ======
 
 :ctime: 2015-06-12
-:mtime: 2015-06-12
+:mtime: 2015-07-22
 
 pstext用于在纸上写文本。
 
@@ -37,7 +37,7 @@ pstext用于在纸上写文本。
 
 -F选项的语法是::
 
-    -F[+a[<angle>]][+c[<justify>]][+f[<font>]][+h|l][+j[<justify>]]
+    -F[+a[<angle>]][+j[<justify>]][+f[<font>]][+c[<justify>]][+l][+h]
 
 - ``+f<font>``\ 用于设置文本的字体，<font>的格式为\ ``size,fontname,color``\ 。
 - ``+a<angle>``\ 用于设置文本旋转的角度；
@@ -70,6 +70,21 @@ pstext用于在纸上写文本。
 
     x   y   angle   justification   font    text
 
+除此之外，+c、+h、+l选项的用法尚不明确。
+
+-D选项
+------
+
+使得文本在指定位置的基础上偏移\ ``dx/dy``\ ，默认值为\ ``0/0``\ ，即不偏移。
+
+使用pstext经常遇到的情况是在台站处标记台站名，此时传递给pstext的位置参数通常是台站坐标，因而pstext会将文本置于台站坐标处，该选择用于将文本稍稍偏离台站坐标位置。
+
+若不指定dy，则默认dy=dx。
+
+选项后加上\ **v**\ 表示会添加一条初始位置与偏移后的位置的连线，\ **v**\ 后加画笔属性可以控制连线的属性。
+
+另外，-Dj和-DJ含义尚不明确。
+
 -L: 字号列表
 ------------
 
@@ -95,6 +110,15 @@ pstext用于在纸上写文本。
 
 默认情况下，文本的角度是指沿水平方向逆时针旋转的角度，-A选项表明给定的角度是方位角，即相对于北向顺时针旋转的角度。
 
+-Z选项
+------
+
+仅用于3D投影中，需要在数据的第三列指定文本的Z位置，数据格式为::
+
+    X   Y   Z   Text
+
+此时强制使用-N选项。
+
 文本框及其相关选项
 ------------------
 
@@ -115,3 +139,37 @@ pstext用于在纸上写文本。
     3   1   Text1
     6   3   Text2
     EOF
+
+-G选项还有两个高级用法，即-Gc和-GC。其中，-Gc表示先绘制文本，然后将文本框裁剪出来，并打开clipping选项，之后的绘图命令都不会不会再覆盖文本，最后记得使用psclip的-C选项将clipping关闭。如果不想要绘制文本只想要激活clipping选项，可以使用-GC选项。
+
+-M选项
+------
+
+段落模式。文件必须是多段数据，每段之间需要用特殊的记录行分隔。
+
+特殊的记录行要满足：
+
+#. 第一个字符必须是标识符，默认为“>”
+#. 标识符后接文本段落的设置信息，其格式为::
+
+        X Y [font angle justify] linespace parwidth parjust
+
+其中，X、Y为文本位置，linespace为行间距，parwidth为段落宽度，parjust为段落对齐方式，可以取为l（左对齐）、c（居中对齐）、r（右对齐）、j（分散对齐）。
+
+.. code-block::
+
+   #!/bin/bash
+   gmt pstext -R0/3/0/5 -JX3i -F+f+a+j -B1 -M -N -Y4c << EOF > pstext_paragraph_mode.ps
+   > 0 -0.5 12p,black 0 LT 13p 3i j
+   @%5%Figure 1.@%% This illustration shows nothing useful, but it still needs
+   a figure caption. Highlighted in @;255/0/0;red@;; you can see the locations
+   of cities where it is @_impossible@_ to get any good Thai food; these are to be avoided.
+   EOF
+
+   rm gmt.*
+
+.. figure:: /images/pstext_paragraph_mode.*
+   :width: 600px
+   :align: center
+
+   段落模式示意图
