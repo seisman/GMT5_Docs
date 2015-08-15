@@ -1,3 +1,5 @@
+.. index:: !transparency
+
 t选项
 =====
 
