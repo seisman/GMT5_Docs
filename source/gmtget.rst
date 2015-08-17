@@ -8,19 +8,16 @@ gmtget
 
 gmtset用于某个GMT默认参数的参数值。
 
-必须选项
+最小示例
 --------
 
-PARAMETER
-    一个或多个GMT参数名
+gmtset后直接跟一个或多个参数名::
 
-    ::
+    gmt gmtget PS_COMMENTS
 
-        gmt gmtget PS_COMMENTS
+::
 
-    ::
-
-        gmt get MAP_GRID_CROSS_SIZE_PRIMARY MAP_GRID_CROSS_SIZE_SECONDARY
+    gmt get MAP_GRID_CROSS_SIZE_PRIMARY MAP_GRID_CROSS_SIZE_SECONDARY
 
 可选参数
 --------
