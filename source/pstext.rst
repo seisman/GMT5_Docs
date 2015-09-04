@@ -64,7 +64,7 @@ pstext用于在纸上写文本。
 
 ``-F+f+j+a``\ 表示所有数据都需要单独指定字体、对齐方式和角度，此时输入数据的格式为::
 
-    x   y   font    justification   font    text
+    x   y   font    justification   angle    text
 
 ``-F+a+j+f``\ 与前一个例子类似，唯一的区别在于子选项的顺序不同，而输入数据的格式要与子选项的顺序相匹配，此时输入数据的格式为::
 
