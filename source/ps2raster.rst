@@ -4,7 +4,7 @@ ps2raster
 =========
 
 :ctime: 2015-04-16
-:mtime: 2015-04-17
+:mtime: 2015-09-09
 
 ``ps2raster``\ 用于将GMT生成的PS/EPS文件转换为其他图片格式
 
@@ -130,7 +130,6 @@ ghostscript选项-C
 
     gmt ps2raster -C-sFONTPATH=C:\Windows\Fonts chinese.ps
 
-注意：GMT5.1.1有bug，-C选项不能与-A选项同时使用。
 
 PS文件列表-L
 ------------
@@ -160,3 +159,15 @@ ghostscript命令-S
 #. 若PS文件中使用了透明效果，则必须先将PS文件转换为透明的PDF文件，再转换为其他格式；
 #. 转换为PDF、PNG时使用DEFALTE压缩；转换为TIFF时使用LZW压缩；
 #. ps2raster还可以用于其他命令生成的PS文件；
+
+BUGS
+----
+
+- GMT 5.1.1
+
+  #. Windows下会自动为文件名加双引号，导致无法找到要转换的PS文件；
+  #. 使用-A选项时，-C选项无效，导致无法在Windows转换含中文的PS文件；
+
+- GMT 5.1.2
+
+  #. 不能使用-F选项，即不能生成多页PDF
