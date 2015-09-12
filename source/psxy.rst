@@ -4,7 +4,7 @@ psxy
 ====
 
 :ctime: 2015-04-30
-:mtime: 2015-08-19
+:mtime: 2015-09-12
 
 psxy模块用于在绘制线段、多边形和符号
 
@@ -274,6 +274,23 @@ angles，而\ ``-Sw``\ 指定的方向则会保存不变。
 
 -Sk用于绘制自定义的符号，其语法为\ ``-Sk<name>/<size>``\ ，会依次在当前目录、\ ``~/.gmt``\ 、\ ``$GMT_SHAREDIR``\ 目录中寻找自定义符号的定义文件\ ``<name>.def``\ 。定义文件中的符号默认其大小为1，然后会根据<size>对其进行缩放。关于如何自定义符号，请参考官方文档。
 
+其他
+~~~~
+
+-Sl用于绘制文本字符串，-Sq用于绘制quoted line，类似于带标注的等值线。
+
+详情阅读官方文档。
+
+-C选项
+------
+
+-C选项后跟一个cpt文件。若使用了-S选项，则符号的填充色由数据的第三列z值决定，其他数据列依次后移一列。若未指定-S选项，则用户需要在多段数据的头段中指定\ ``-Z<val>``\ ，然后从cpt文件中查找<val>所对应的颜色，以控制线段或多边形的线条颜色。
+
+-I选项
+------
+
+``-I<intens>``\ ，其中<intens>的取值范围为-1到1，用于对填充色做微调以模拟光照效果。正值表示亮色，负值表示暗色，零表示原色。
+
 -D选项
 ------
 
@@ -291,6 +308,16 @@ angles，而\ ``-Sw``\ 指定的方向则会保存不变。
 
 该选项常用于只写入PS文件头或只写入PS文件尾，详情参考-K和-O选项的说明。
 
+-W选项
+------
+
+-W选项用于设置线条或符号轮廓的画笔属性，具体参考\ :doc:`pen`\ 一节。
+
+A leading **+** will
+use the lookup color (via **-C**) for both symbol fill and outline
+pen color, while a leading **-** will set outline pen color and turn
+off symbol fill.
+
 -N选项
 ------
 
@@ -298,6 +325,24 @@ angles，而\ ``-Sw``\ 指定的方向则会保存不变。
 
 需要注意的是，该选项对线段或多边形无效。
 
+-E选项
+------
+
+``-E[x|y|X|Y][n][cap][/[-|+]pen]``
+
+-E选项用于绘制误差棒。默认会同时绘制X方向和Y方向的误差磅，使用x、y或X、Y则只绘制其中一个方向的误差棒。
+
+X和/或Y方向的误差信息必须紧跟在(x,y)对或(x,y,size)对之后。cap参数用于控制误差棒的端点的cap长度，默认值为7p。pen用于控制误差棒的画笔属性。pen前面+和-的含义与-W选项相同。
+
+If upper case **X** and/or **Y** is used we will instead draw
+"box-and-whisker" (or "stem-and-leaf") symbols. The x (or y) coordinate
+is then taken as the median value, and 4 more columns are expected to
+contain the minimum (0% quantile), the 25% quantile, the 75% quantile,
+and the maximum (100% quantile) values. The 25-75% box may be filled by
+using **-G**. If **n** is appended to **X** (or **Y**) we draw a notched
+"box-and-whisker" symbol where the notch width reflects the uncertainty
+in the median. Then a 5th extra data column is expected to contain the
+number of points in the distribution.
 
 多段数据
 --------
