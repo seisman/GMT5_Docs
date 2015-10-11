@@ -15,6 +15,7 @@
    plot-modules
    grid-modules
    math-modules
+   data-process-modules
    format-conversion-modules
    faq
 
