@@ -156,7 +156,7 @@ pstext用于在纸上写文本。
 
 其中，X、Y为文本位置，linespace为行间距，parwidth为段落宽度，parjust为段落对齐方式，可以取为l（左对齐）、c（居中对齐）、r（右对齐）、j（分散对齐）。
 
-.. code-block::
+.. code-block:: bash
 
    #!/bin/bash
    gmt pstext -R0/3/0/5 -JX3i -F+f+a+j -B1 -M -N -Y4c << EOF > pstext_paragraph_mode.ps

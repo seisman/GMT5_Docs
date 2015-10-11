@@ -2,7 +2,7 @@
 ========
 
 :ctime: 2014-06-22
-:mtime: 2015-04-21
+:mtime: 2015-10-11
 
 .. toctree::
    :maxdepth: 3
@@ -58,5 +58,5 @@ GMT4项目目前已经停止开发，只接受Bug修订，接下来必然会有�
 ========
 
 * :ref:`genindex`
-* `GMT主页 <gmt.soest.hawaii.edu>`_
+* `GMT主页 <http://gmt.soest.hawaii.edu>`_
 * `GMT官方文档 <http://gmt.soest.hawaii.edu/doc/latest/index.html>`_
