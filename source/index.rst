@@ -26,15 +26,11 @@
    :maxdepth: 3
    :hidden:
 
-   gmt-introduction
-   gmt-basics
+   introduction
+   basics
    standard-options
    gmt-conf
-   plot-modules
-   grid-modules
-   math-modules
-   data-process-modules
-   format-conversion-modules
+   modules
    faq
 
 快捷链接

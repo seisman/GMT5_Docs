@@ -76,3 +76,8 @@ FORMAT_TIME_PRIMARY_MAP
 
 FORMAT_TIME_SECONDARY_MAP
 -------------------------
+
+.. _FORMAT_TIME_STAMP:
+
+FORMAT_TIME_STAMP
+-----------------

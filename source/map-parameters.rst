@@ -6,6 +6,11 @@ MAP参数
 :ctime: 2015-03-28
 :mtime: 2015-05-24
 
+.. _MAP_DEFAULT_PEN:
+
+MAP_DEFAULT_PEN
+---------------
+
 .. _MAP_FRAME_TYPE:
 
 MAP_FRAME_TYPE
