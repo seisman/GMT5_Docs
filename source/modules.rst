@@ -21,4 +21,6 @@
    gmtmath
    grdmath
    psimage
-
+   gmtdefaults
+   gmtset
+   gmtget

@@ -3,9 +3,6 @@
 grdpaste
 ========
 
-:ctime: 2015-06-07
-:mtime: 2015-06-07
-
 `man grdpaste <http://gmt.soest.hawaii.edu/doc/latest/grdpaste.html>`_
 
 grdpaste用于将两个有共同边界的网格文件拼接成一个文件。
