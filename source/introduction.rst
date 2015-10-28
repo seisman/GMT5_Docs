@@ -1,12 +1,12 @@
-GMT简介
-#######
+引言
+####
 
 .. toctree::
 
    intro-to-gmt
-   how-to-choose
-   install-gmt
+   choices
+   install
    directory-tree
    philosophy
-   linux-basics
    postscript
+   linux-basics
