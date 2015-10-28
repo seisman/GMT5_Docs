@@ -1,9 +1,6 @@
 P选项
 =====
 
-:mtime: 2015-02-07
-:ctime: 2015-08-14
-
 在\ :doc:`paper`\ 一节中说过，画布有两种放置方式：Portrait模式和Landscape模式。
 
 .. figure:: /images/GMT_-P.*

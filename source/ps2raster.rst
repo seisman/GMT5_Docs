@@ -3,9 +3,6 @@
 ps2raster
 =========
 
-:ctime: 2015-04-16
-:mtime: 2015-09-09
-
 ``ps2raster``\ 用于将GMT生成的PS/EPS文件转换为其他图片格式
 
 最小示例

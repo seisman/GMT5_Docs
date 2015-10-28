@@ -1,9 +1,6 @@
 目录结构
 ========
 
-:ctime: 2015-04-23
-:mtime: 2015-04-23
-
 ``$GMTHOME``\ 表示GMT的安装路径，在Linux下一般是\ ``/usr/local/GMT5``\ 或\ ``/opt/GMT5``\ ，在Windows下一般是\ ``C:\programs\gmt5``\ 。
 
 ``$GMTHOME``\ 中包含了GMT的全部文件。下面列出了\ ``$GMTHOME``\ 的目录结构，并对其中重要的文件及目录做简单解释。GMT在Linux和Windows下的目录结构稍有不同，这里以Linux为准::

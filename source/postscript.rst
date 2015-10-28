@@ -3,9 +3,6 @@
 PostScript
 ==========
 
-:ctime: 2014-11-10
-:mtime: 2015-04-24
-
 前面已经多次提到了PostScript（简写为PS），这一节将简单介绍一下PS语言与PS格式。
 
 PS是什么

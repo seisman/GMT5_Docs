@@ -3,9 +3,6 @@
 grdinfo
 =======
 
-:ctime: 2015-06-07
-:mtime: 2015-06-07
-
 `man grdinfo <http://gmt.soest.hawaii.edu/doc/latest/grdinfo.html>`_
 
 grdinfo用于从2D网格文件中提取基本信息。

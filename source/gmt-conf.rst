@@ -277,9 +277,6 @@ MAP_SCALE_HEIGHT
 投影参数
 ========
 
-:ctime: 2015-03-12
-:mtime: 2015-03-12
-
 .. _PROJ_ELLIPSOID:
 
 PROJ_ELLIPSOID
@@ -407,9 +404,6 @@ PROJ_SCALE_FACTOR
 
 PostScript参数
 ==============
-
-:ctime: 2014-11-10
-:mtime: 2015-02-07
 
 .. _PS_CHAR_ENCODING:
 
