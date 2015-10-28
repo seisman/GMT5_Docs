@@ -4,12 +4,17 @@
 .. toctree::
 
    units
+   calculate-distance
    paper
    colors
    pen
    fill
    text
    justification
-   more-characters
+   special-fonts
+   special-characters
    character-escape
-   calculate-distance
+   data-format
+   history
+   syntax
+   input-output

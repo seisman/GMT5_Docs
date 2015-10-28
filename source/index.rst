@@ -32,7 +32,11 @@
    basics
    options
    configuration
+   cpt
+   grid
+   projections
    modules
+   appendix
    faq
 
 快捷链接

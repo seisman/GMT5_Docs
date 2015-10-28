@@ -1,3 +1,3 @@
 #!/bin/bash
-gmt psxy -R0/3/0/0.1 -Jx1i -P -U"optional command string or text here" -T > GMT_-U.ps
+gmt psbasemap -R0/10/0/5 -JX10c/3c -Bx1 -By1 -P -UBL/-1.5c/-1.5c/"This is a GMT logo" > GMT_-U.ps
 rm gmt.*

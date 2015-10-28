@@ -16,7 +16,6 @@
    gmt2kml
    gmt5syntax
    gmtcolors
-   gmt.conf
    gmtconnect
    gmtconvert
    gmtdefaults
@@ -27,7 +26,6 @@
    gmtmath
    gmtselect
    gmtset
-   gmt_shell_functions.sh
    gmtsimplify
    gmtspatial
    gmtswitch
@@ -138,8 +136,11 @@
 
 下面将所有命令按照功能分类，并用一句话简述其功能。
 
-绘图类模块
-==========
+已整理
+======
+
+待整理
+======
 
 #. :doc:`psbasemap`
 #. :doc:`psclip`
@@ -162,16 +163,10 @@
 #. :doc:`psxy`
 #. :doc:`psxyz`
 
-网格绘图类模块
-==============
-
 #. :doc:`grdcontour`
 #. :doc:`grdimage`
 #. :doc:`grdvector`
 #. :doc:`grdview`
-
-网格处理类
-==========
 
 #. :doc:`grd2cpt`
 #. :doc:`grd2rgb`
@@ -193,9 +188,6 @@
 #. :doc:`grdrotater`
 #. :doc:`grdsample`
 
-数据提取或转换
-==============
-
 #. :doc:`xyz2grd`
 #. :doc:`gmt2kml`
 #. :doc:`gmtconvert`
@@ -208,9 +200,6 @@
 #. :doc:`gmtinfo`
 #. :doc:`gmtset`
 
-数据滤波类
-==========
-
 #. :doc:`blockmean`
 #. :doc:`blockmedian`
 #. :doc:`blockmode`
@@ -218,32 +207,18 @@
 #. :doc:`grdfilter`
 #. :doc:`dimfilter`
 
-数学处理类
-==========
-
-#. :doc:`gmtmath`
 #. :doc:`trend1d`
 #. :doc:`trend2d`
 #. :doc:`fitcircle`
 #. :doc:`grdfft`
 #. :doc:`gmtconnect`
 
-
-投影类
-======
-
 #. :doc:`mapproject`
 #. :doc:`project`
-
-网格化工具
-==========
 
 #. :doc:`surface`
 #. :doc:`triangulate`
 #. :doc:`nearneighbor`
-
-mgd77补充包
-===========
 
 #. :doc:`mgd77convert`
 #. :doc:`mgd77info`
@@ -253,9 +228,6 @@ mgd77补充包
 #. :doc:`mgd77path`
 #. :doc:`mgd77sniffer`
 #. :doc:`mgd77track`
-
-x2sys补充包
-===========
 
 #. :doc:`x2sys_binlist`
 #. :doc:`x2sys_cross`
@@ -268,22 +240,14 @@ x2sys补充包
 #. :doc:`x2sys_report`
 #. :doc:`x2sys_solve`
 
-其他
-====
-
 #. :doc:`gmt`
 #. :doc:`gmt5syntax`
 #. :doc:`gmtcolors`
-#. :doc:`gmt.conf`
 #. :doc:`gmtwhich`
 #. :doc:`gmtswitch`
 #. :doc:`isogmt`
 #. :doc:`pslib`
 #. :doc:`gmtlogo`
-#. :doc:`gmt_shell_functions.sh`
-
-未分类
-======
 
 #. :doc:`backtracker`
 #. :doc:`gmtdefaults`

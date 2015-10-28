@@ -10,3 +10,8 @@
 -------------------
 
 参考 http://seisman.info/install-gmt5-under-windows.html
+
+GMT4和GMT5共存
+--------------
+
+http://seisman.info/multiple-versions-of-gmt.html
