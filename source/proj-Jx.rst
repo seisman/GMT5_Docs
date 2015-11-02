@@ -1,96 +1,70 @@
--Jx：Cartesian transformations
-==============================
+-Jx：笛卡尔变换
+===============
 
-GMT Cartesian coordinate transformations come in three flavors:
+GMT中笛卡尔坐标变换分为三类：
 
--  Linear coordinate transformation
+- 线性坐标变换
+- Log\ :math:`_{10}` 坐标变换
+- 指数坐标变换
 
--  Log\ :math:`_{10}` coordinate transformation
+在开始之前，先用 :doc:`gmtmath` 命令生成两个数据以供接下来示例使用::
 
--  Power (exponential) coordinate transformation
+    gmt gmtmath -T0/100/1  T SQRT = sqrt.d
+    gmt gmtmath -T0/100/10 T SQRT = sqrt.d10
 
-These transformations convert input coordinates *(x,y)* to
-locations *(x', y')* on a plot. There is no coupling between
-*x* and *y* (i.e., *x' = f(x)* and *y' = f(y)*);
-it is a **one-dimensional** projection. Hence, we may use separate
-transformations for the *x*- and *y*-axes (and
-*z*-axes for 3-D plots). Below, we will use the expression
-*u' = f(u)*, where *u* is either *x* or *y* (or
-*z* for 3-D plots). The coefficients in *f(u)* depend on the
-desired plot size (or scale), the chosen *(x,y)* domain, and the
-nature of *f* itself.
+笛卡尔线性变换
+--------------
 
-Two subsets of linear will be discussed separately; these are a polar
-(cylindrical) projection and a linear projection applied to geographic
-coordinates (with a 360º periodicity in the *x*-coordinate). We
-will show examples of all of these projections using dummy data sets
-created with :doc:`gmtmath`, a "Reverse
-Polish Notation" (RPN) calculator that operates on or creates table data:
+笛卡尔线性变换的使用场景可以分为三类：
 
-   ::
+#. 常规的浮点数坐标
+#. 地理坐标
+#. 日期时间坐标
 
-      gmt gmtmath -T0/100/1  T SQRT = sqrt.d
-      gmt gmtmath -T0/100/10 T SQRT = sqrt.d10
+常规浮点数坐标
+~~~~~~~~~~~~~~
 
-Cartesian linear transformation
--------------------------------
+对于常规的浮点型数据而言，选择笛卡尔线性坐标意味着对输入坐标做简单的线性变换 ``u'=au+b`` ，将输入坐标 ``u`` 投影到纸张坐标 ``u'`` 。
 
-There are in fact three different uses of the Cartesian linear
-transformation, each associated with specific command line options. The
-different manifestations result from specific properties of three kinds
-of data:
+线性投影可以通过四种方式指定：
 
-#. Regular floating point coordinates
+- ``-Jx<scale>`` X轴和Y轴拥有相同的比例尺 ``<scale>``
+- ``-JX<width>`` X轴和Y轴拥有相同的长度 ``<width>``
+- ``-Jx<xscale>/<yscale>`` 分别为X轴和Y轴指定不同的比例尺
+- ``-JX<width>/<height>`` 分别为X轴和Y轴指定不同的长度
 
-#. Geographic coordinates
+下面的命令用线性投影将函数 :math:`y=\sqrt{x}` 用笛卡尔线性变换画在图上::
 
-#. Calendar time coordinates
+    gmt psxy -R0/100/0/10 -JX3i/1.5i -Bag -BWSne+gsnow -Wthick,blue,- -P -K sqrt.d > GMT_linear.ps
+    gmt psxy -R -J -St0.1i -N -Gred -Wfaint -O sqrt.d10 >> GMT_linear.ps
 
-   Examples of Cartesian (left), circular (middle), and geo-vectors (right) for different
-   attribute specifications. Note that both full and half arrow-heads can be specified, as well as no head at all.
-
-Regular floating point coordinates
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Selection of the Cartesian linear transformation with regular floating
-point coordinates will result in a simple linear scaling
-*u' = au + b* of the input coordinates. The projection is defined
-by stating scale in inches/unit (**-Jx**) or axis length in inches (**-JX**).
-If the *y*-scale or *y*-axis length is different from that of the
-*x*-axis (which is most often the case), separate the two scales (or
-lengths) by a slash, e.g., **-Jx**\ 0.1i/0.5i or **-JX**\ 8i/5i. Thus,
-our :math:`y = \sqrt{x}` data sets will plot as shown in
-Figure :ref:`Linear transformation of Cartesian coordinates <GMT_linear>`.
-
-.. _GMT_linear:
+绘图效果如下图所示：
 
 .. figure:: /images/GMT_linear.*
    :width: 400 px
    :align: center
 
-   Linear transformation of Cartesian coordinates.
+   笛卡尔坐标的线性变换
 
+说明：
 
-The complete commands given to produce this plot were
+- 正常情况下，X轴向右递增，Y轴向上递增。有些时候可能需要X轴向左递增或者Y轴向下递增（比如Y轴是深度时），只要将轴的比例尺或者轴长度设置为负值即可。
+- 若指定X轴的长度，并设置Y轴的长度为0，则会根据X轴的长度和范围计算出X轴的比例尺，并对Y轴使用相同的比例尺，进而计算出Y轴的长度，即 ``-JX10c/0c`` ， ``-JX0c/10c`` 同理。
 
-   ::
+地理坐标
+~~~~~~~~
 
-    gmt psxy -R0/100/0/10 -JX3i/1.5i -Bag -BWSne+gsnow -Wthick,blue,- -P -K sqrt.d > GMT_linear.ps
-    gmt psxy -R -J -St0.1i -N -Gred -Wfaint -O sqrt.d10 >> GMT_linear.ps
+理论上地理坐标应该用地理投影画，而不应该用线性投影，但是有时候可能的确需要使用线性投影。用线性投影绘制地理坐标时会碰到一个问题，即经度有一个360度的周期性。因而在使用线性投影时需要通知GMT数据实际上是地理坐标。有三种办法：
 
-Normally, the user's *x*-values will increase to the right and the
-*y*-values will increase upwards. It should be noted that in many
-situations it is desirable to have the direction of positive coordinates
-be reversed. For example, when plotting depth on the *y*-axis it makes
-more sense to have the positive direction downwards. All that is
-required to reverse the sense of positive direction is to supply a
-negative scale (or axis length). Finally, sometimes it is convenient to
-specify the width (or height) of a map and let the other dimension be
-computed based on the implied scale and the range of the other axis. To
-do this, simply specify the length to be recomputed as 0.
+#. 在 ``-R`` 后、数据范围前加上 ``g`` 或 ``d`` ，比如 ``-Rg-55/305/-90/90``
+#. 在 ``-Jx`` 或 ``-JX`` 选项的最后加上 ``g`` 或 ``d`` ，比如 ``-JX10c/6cd``
+#. 使用 ``-fg`` 选项
 
-Geographic coordinates
-^^^^^^^^^^^^^^^^^^^^^^
+下面的例子用线性投影绘制了一个中心位于125ºE的世界地图::
+
+    gmt set MAP_GRID_CROSS_SIZE_PRIMARY 0.1i MAP_FRAME_TYPE FANCY FORMAT_GEO_MAP ddd:mm:ssF
+    gmt pscoast -Rg-55/305/-90/90 -Jx0.014i -Bagf -BWSen -Dc -A1000 -Glightbrown -Wthinnest \
+            -P -Slightblue > GMT_linear_d.ps
 
 .. _GMT_linear_d:
 
@@ -98,31 +72,21 @@ Geographic coordinates
    :width: 500 px
    :align: center
 
-   Linear transformation of map coordinates.
+   地理坐标的线性变换
 
+日期时间坐标
+~~~~~~~~~~~~
 
-While the Cartesian linear projection is primarily designed for regular
-floating point *x*,\ *y* data, it is sometimes necessary to plot
-geographical data in a linear projection. This poses a problem since
-longitudes have a 360º periodicity. GMT therefore needs to be informed
-that it has been given geographical coordinates even though a linear
-transformation has been chosen. We do so by adding a **g** (for
-geographical) or **d** (for degrees) directly after **-R** or by
-appending a **g** or **d** to the end of the **-Jx** (or **-JX**)
-option. As an example, we want to plot a crude world map centered on
-125ºE. Our command will be
+时间日期坐标也可以用线性投影绘制，此时需要告诉GMT输入坐标是绝对时间还是相对时间。
 
-  ::
+可以通过在 ``-Jx`` 或 ``-JX`` 的最后加上 ``T`` 或 ``t`` ，不过实际上 ``-R`` 选择中已经指定了时间范围，所以没有必要在 ``-J`` 和 ``-R`` 选项中都指定。当 ``-R`` 和 ``-J`` 选项给出的坐标类型相冲突时，GMT会给出警告，并以 ``-JX`` 选项为准。
 
-    gmt set MAP_GRID_CROSS_SIZE_PRIMARY 0.1i MAP_FRAME_TYPE FANCY FORMAT_GEO_MAP ddd:mm:ssF
-    gmt pscoast -Rg-55/305/-90/90 -Jx0.014i -Bagf -BWSen -Dc -A1000 -Glightbrown -Wthinnest \
-            -P -Slightblue > GMT_linear_d.ps
+::
 
-with the result reproduced in
-Figure :ref:`Linear transformation of map coordinates <GMT_Linear_d>`.
-
-Calendar time coordinates
-^^^^^^^^^^^^^^^^^^^^^^^^^
+    gmt set FORMAT_DATE_MAP o TIME_WEEK_START Sunday FORMAT_CLOCK_MAP=-hham \
+            FORMAT_TIME_PRIMARY_MAP full
+    gmt psbasemap -R2001-9-24T/2001-9-29T/T07:0/T15:0 -JX4i/-2i -Bxa1Kf1kg1d \
+                  -Bya1Hg1h -BWsNe+glightyellow -P > GMT_linear_cal.ps
 
 .. _GMT_linear_cal:
 
@@ -130,41 +94,18 @@ Calendar time coordinates
    :width: 400 px
    :align: center
 
-   Linear transformation of calendar coordinates.
+   日期时间坐标的线性变换
 
+笛卡尔对数投影
+--------------
 
-Several particular issues arise when we seek to make linear plots using
-calendar date/time as the input coordinates. As far as setting up the
-coordinate transformation we must indicate whether our input data have
-absolute time coordinates or relative time coordinates. For the former
-we append **T** after the axis scale (or width), while for the latter we
-append **t** at the end of the **-Jx** (or **-JX**) option. However,
-other command line arguments (like the **-R** option) may already
-specify whether the time coordinate is absolute or relative. An absolute
-time entry must be given as [*date*\ ]\ **T**\ [*clock*\ ] (with *date*
-given as *yyyy*\ [-*mm*\ [-*dd*]], *yyyy*\ [-*jjj*], or
-*yyyy*\ [-**W**\ *ww*\ [-*d*]], and *clock* using the
-*hh*\ [:*mm*\ [:*ss*\ [*.xxx*]]] 24-hour clock format) whereas the
-relative time is simply given as the units of time since the epoch
-followed by **t** (see :ref:`TIME_UNIT <TIME_UNIT>` and :ref:`TIME_EPOCH <TIME_EPOCH>` for
-information on specifying the time unit and the epoch). As a simple
-example, we will make a plot of a school week calendar
-(Figure :ref:`Linear transformation of calendar coordinates <GMT_linear_cal>`).
+对数变换 :math:`\log_{10}` 的数学表示是 :math:`u' = a \log_{10}(u) + b` ，可以通过在比例尺或轴长度后加上 ``l`` 指定。
 
-When the coordinate ranges provided by the **-R** option and the
-projection type given by **-JX** (including the optional **d**, **g**,
-**t** or **T**) conflict, GMT will warn the users about it. In
-general, the options provided with **-JX** will prevail.
+下面的命令绘制了一个X轴为对数轴Y轴为线性轴的图::
 
-   ::
-
-    gmt set FORMAT_DATE_MAP o TIME_WEEK_START Sunday FORMAT_CLOCK_MAP=-hham \
-            FORMAT_TIME_PRIMARY_MAP full
-    gmt psbasemap -R2001-9-24T/2001-9-29T/T07:0/T15:0 -JX4i/-2i -Bxa1Kf1kg1d \
-                  -Bya1Hg1h -BWsNe+glightyellow -P > GMT_linear_cal.ps
-
-Cartesian logarithmic projection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    gmt psxy -R1/100/0/10 -Jx1.5il/0.15i -Bx2g3 -Bya2f1g2 -BWSne+gbisque \
+             -Wthick,blue,- -P -K -h sqrt.d > GMT_log.ps
+    gmt psxy -R -J -Ss0.1i -N -Gred -W -O -h sqrt.d10 >> GMT_log.ps
 
 .. _GMT_log:
 
@@ -172,29 +113,20 @@ Cartesian logarithmic projection
    :width: 400 px
    :align: center
 
-   Logarithmic transformation of x--coordinates.
+   对数投影
 
+注意：若想要X轴和Y轴都使用对数投影，且X轴和Y轴比例尺不同，则必须在指定每个轴的比例尺时分别加上 ``l`` ，例如 ``-JX10cl/6cl``  。
 
-The :math:`\log_{10}` transformation is simply
-:math:`u' = a \log_{10}(u) + b` and is selected by appending an **l**
-(lower case L) immediately following the scale (or axis length) value.
-Hence, to produce a plot in which the *x*-axis is logarithmic (the
-*y*-axis remains linear, i.e., a semi-log plot), try (Figure :ref:`Logarithmic
-transformation <GMT_log>`)
+笛卡尔指数投影
+--------------
 
-   ::
+指数投影的函数表示是 :math:`u' = a u^b + c` ，使得用户可以绘制类似 :math:`x^p` vs :math:`y^q` 这样的函数关系。如果选 ``p=0.5`` 、 ``q=1`` 则相对于绘制 ``x`` 与 :math:`\sqrt{x}` 的函数曲线。
 
-    gmt psxy -R1/100/0/10 -Jx1.5il/0.15i -Bx2g3 -Bya2f1g2 -BWSne+gbisque \
-             -Wthick,blue,- -P -K -h sqrt.d > GMT_log.ps
-    gmt psxy -R -J -Ss0.1i -N -Gred -W -O -h sqrt.d10 >> GMT_log.ps
+要使用指数投影，需要在比例尺或轴长度后加上 ``p<exp>`` ，其中 ``<exp>`` 是要使用的指数。例如::
 
-Note that if *x*- and *y*-scaling are different and a
-:math:`\log_{10}-\log_{10}` plot is desired, the **l** must be
-appended twice: Once after the *x*-scale (before the /) and once after
-the *y*-scale.
-
-Cartesian power projection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    gmt psxy -R0/100/0/10 -Jx0.3ip0.5/0.15i -Bxa1p -Bya2f1 -BWSne+givory \
+             -Wthick -P -K sqrt.d > GMT_pow.ps
+    gmt psxy -R -J -Sc0.075i -Ggreen -W -O sqrt.d10 >> GMT_pow.ps
 
 .. _GMT_pow:
 
@@ -202,21 +134,4 @@ Cartesian power projection
    :width: 400 px
    :align: center
 
-   Exponential or power transformation of x--coordinates.
-
-
-This projection uses :math:`u' = a u^b + c` and allows us to explore
-exponential relationships like :math:`x^p` versus :math:`y^q`.
-While *p* and *q* can be any values, we will select *p
-= 0.5* and *q = 1* which means we will plot *x* versus
-:math:`\sqrt{x}`. We indicate this scaling by appending a **p** (lower
-case P) followed by the desired exponent, in our case 0.5. Since
-*q = 1* we do not need to specify **p**\ 1 since it is identical
-to the linear transformation. Thus our command becomes (Figure :ref:`Power
-transformation <GMT_pow>`)
-
-   ::
-
-    gmt psxy -R0/100/0/10 -Jx0.3ip0.5/0.15i -Bxa1p -Bya2f1 -BWSne+givory \
-             -Wthick -P -K sqrt.d > GMT_pow.ps
-    gmt psxy -R -J -Sc0.075i -Ggreen -W -O sqrt.d10 >> GMT_pow.ps
+   指数变换
