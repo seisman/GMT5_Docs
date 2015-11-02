@@ -3,29 +3,52 @@
 gmtget
 ======
 
-gmtset用于某个GMT默认参数的参数值。
+官方文档： :ref:`gmt:gmtget`
 
-最小示例
---------
+列出单个或多个GMT参数的当前值
 
-gmtset后直接跟一个或多个参数名::
-
-    gmt gmtget PS_COMMENTS
+语法
+----
 
 ::
 
-    gmt get MAP_GRID_CROSS_SIZE_PRIMARY MAP_GRID_CROSS_SIZE_SECONDARY
+    gmtget [-G<defaultsfile>] [-L] <PARAMETER1> [<PARAMETER2> ...]
 
-可选参数
---------
+``<PARAMETER>``
+---------------
 
-**-G**\ *defaultsfile*
-    要读取的默认参数文件的文件名。
+GMT的参数名，见 :doc:`configuration` 。
 
-**-L**
-    若有多个参数名，默认情况下将所有返回值在一行输出，各值之间以空格分隔；该选项是的所有返回值分别输出在不同行。
+``gmtset`` 后直接跟一个或多个参数名::
+
+    $ gmt gmtget PS_MEDIA
+    a4
+
+    $ gmt get MAP_GRID_CROSS_SIZE_PRIMARY MAP_GRID_CROSS_SIZE_SECONDARY
+    24p,Helvetica,black 16p,Helvetica,black fancy
+
+``-G<defaultsfile>``
+--------------------
+
+该命令寻找配置文件 ``gmt.conf`` 时的搜索优先顺序为::
+
+    ./gmt.conf  > ~/.gmt/gmt.conf > ~/gmt.conf > ${GMTHOME}/share/conf/gmt.conf
+
+该选项可以指定使用要读取哪一个GMT配置文件。
+
+``-L``
+------
+
+一次指定多个参数名时，默认会将所有返回值输出在一行，各值之间以空格分隔。该选项会一行只输出一个返回值。
+
+::
+
+    $ gmt get FONT_TITLE FONT_LABEL MAP_FRAME_TYPE -L
+    24p,Helvetica,black
+    16p,Helvetica,black
+    fancy
 
 相关
 ----
 
-:doc:`gmtset`, :doc:`gmtdefaults`
+:doc:`gmtset` 、 :doc:`gmtdefaults`

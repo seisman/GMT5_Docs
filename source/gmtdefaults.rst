@@ -3,26 +3,32 @@
 gmtdefaults
 ===========
 
-gmtdefaults用于列出GMT的当前默认参数。
+官方文档： :ref:`gmt:gmtdefaults`
 
-该命令会按照前面介绍的搜索顺序寻找\ ``gmt.conf``\ 文件，并列出参数值::
+列出所有GMT参数的当前值。
 
-    gmt gmtdefaults
+语法
+----
 
-可选选项
---------
+::
 
-**-D**
-    - **-D**\ ：列出\ ``${GMT}/share/conf/gmt.conf``\ 中的参数值；
-    - **-Du**\ ：列出\ ``${GMT}/share/conf/gmt_US.conf``\ 中的参数值；
-    - **-Ds**\ ：列出\ ``${GMT}/share/conf/gmt_SI.conf``\ 中的参数值；
+    gmtdefaults [-D[u|s]]
 
+``-D``
+------
 
-该命令可以获取GMT系统设置的一份拷贝::
+``-D`` 选项用于打印系统默认参数。
 
-    gmt gmtdefaults -D > gmt.conf
+- ``-D`` ：列出 ``${GMT}/share/conf/gmt.conf`` 中的参数值
+- ``-Du`` ：列出 ``${GMT}/share/conf/gmt_US.conf`` 中的参数值
+- ``-Ds`` ：列出 ``${GMT}/share/conf/gmt_SI.conf`` 中的参数值
+
+BUG
+----
+
+- ``-D`` 选项无效（v5.1.2）
 
 相关
 ----
 
-:doc:`gmtset`, :doc:`gmtget`
+:doc:`gmtset` 、 :doc:`gmtget`

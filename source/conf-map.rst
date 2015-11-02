@@ -78,3 +78,8 @@ MAP_SCALE_HEIGHT
 ----------------
 
 控制地图比例尺的高度，默认值为\ ``5p``\ 。
+
+.. _MAP_TICK_PEN:
+
+MAP_TICK_PEN
+------------

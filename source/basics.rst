@@ -15,6 +15,6 @@
    special-characters
    character-escape
    data-format
-   history
-   syntax
    input-output
+   syntax
+   history

@@ -3,9 +3,8 @@
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
 
    variables
    completion
    custom-fonts
-
+   style-guide

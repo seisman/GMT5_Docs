@@ -15,7 +15,6 @@
    gmt
    gmt2kml
    gmt5syntax
-   gmtcolors
    gmtconnect
    gmtconvert
    gmtdefaults
@@ -136,15 +135,53 @@
 
 下面将所有命令按照功能分类，并用一句话简述其功能。
 
-已整理
+主程序
 ======
+
+#. :doc:`gmt` ：GMT主程序
+#. :doc:`gmt5syntax` ：将旧的GMT脚本修改成新的 ``gmt <module>`` 语法
+#. :doc:`isogmt` ：在“隔离模式”下运行GMT命令或脚本
+#. :doc:`gmtlogo` ：将GMT的logo作为一个图层加到一个打开的PS文件中
+
+信息提取
+========
+
+#. :doc:`gmtget` ：列出单个或多个GMT参数的当前值
+#. :doc:`gmtset` ：修改单个或多个GMT参数的值
+#. :doc:`gmtdefaults` ：列出所有GMT参数的当前值
+#. :doc:`gmtinfo` ：从表数据中提取信息
+
+绘制1D数据
+==========
+
+#. :doc:`psbasemap` ：绘制底图
+#. :doc:`pscoast` ：在地图上绘制海岸线、河流、国界线
+#. :doc:`pstext` ：在图上写文本
+#. :doc:`psclip` ：打开或关闭多边形裁剪路径
+#. :doc:`psxy` ：在图上绘制线段、多边形和符号
+
+数据转换或提取
+==============
+
+#. :doc:`grdpaste` ：将两个网格沿着其共同边界拼接成一个文件
+#. :doc:`grdcut` ：从一个网格文件中裁剪出一个子区域
+#. :doc:`grdraster` ：从二进制数据中提取子区域并保存为GMT网格文件
+#. :doc:`kml2gmt` ：将Google Earth的KML文件转换为GMT表数据
+#. :doc:`grd2xyz` ：将网格文件转换成表数据
+
+格式转换工具
+============
+
+#. :doc:`ps2raster`　：将GMT生成的PS文件转换为其他图片格式
+
+2D数据的其他操作
+================
+
+#. :doc:`grdedit` ：修改网格文件的头段或内容
 
 待整理
 ======
 
-#. :doc:`psbasemap`
-#. :doc:`psclip`
-#. :doc:`pscoast`
 #. :doc:`pscontour`
 #. :doc:`pscoupe`
 #. :doc:`pshistogram`
@@ -157,10 +194,8 @@
 #. :doc:`psscale`
 #. :doc:`pssegy`
 #. :doc:`pssegyz`
-#. :doc:`pstext`
 #. :doc:`psvelo`
 #. :doc:`pswiggle`
-#. :doc:`psxy`
 #. :doc:`psxyz`
 
 #. :doc:`grdcontour`
@@ -172,15 +207,12 @@
 #. :doc:`grd2rgb`
 #. :doc:`grdblend`
 #. :doc:`grdclip`
-#. :doc:`grdcut`
-#. :doc:`grdedit`
 #. :doc:`grdgradient`
 #. :doc:`grdgravmag3d`
 #. :doc:`grdhisteq`
 #. :doc:`grdlandmask`
 #. :doc:`grdmask`
 #. :doc:`grdmath`
-#. :doc:`grdpaste`
 #. :doc:`grdpmodeler`
 #. :doc:`grdproject`
 #. :doc:`grdredpol`
@@ -193,12 +225,6 @@
 #. :doc:`gmtconvert`
 #. :doc:`grdinfo`
 #. :doc:`gmtselect`
-#. :doc:`grd2xyz`
-#. :doc:`grdraster`
-#. :doc:`ps2raster`
-#. :doc:`gmtget`
-#. :doc:`gmtinfo`
-#. :doc:`gmtset`
 
 #. :doc:`blockmean`
 #. :doc:`blockmedian`
@@ -240,17 +266,12 @@
 #. :doc:`x2sys_report`
 #. :doc:`x2sys_solve`
 
-#. :doc:`gmt`
-#. :doc:`gmt5syntax`
-#. :doc:`gmtcolors`
 #. :doc:`gmtwhich`
 #. :doc:`gmtswitch`
-#. :doc:`isogmt`
 #. :doc:`pslib`
 #. :doc:`gmtlogo`
 
 #. :doc:`backtracker`
-#. :doc:`gmtdefaults`
 #. :doc:`gmtgravmag3d`
 #. :doc:`gmtsimplify`
 #. :doc:`gmtspatial`
@@ -266,7 +287,6 @@
 #. :doc:`hotspotter`
 #. :doc:`img2google`
 #. :doc:`img2grd`
-#. :doc:`kml2gmt`
 #. :doc:`makecpt`
 #. :doc:`originator`
 #. :doc:`rotconverter`

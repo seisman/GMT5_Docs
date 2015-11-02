@@ -1,2 +1,22 @@
+.. index:: ! gmt
+
 gmt
-#################
+===
+
+官方文档：:ref:`gmt:gmt`
+
+``gmt`` 是GMT的主程序，也是GMT5中唯一的一个二进制文件。
+
+GMT的所有功能通过如下语法实现::
+
+    gmt <module> <module-options>
+
+其中， ``<module>`` 是GMT模块名。
+
+除此之外，还有一些其他选项可以使用：
+
+- ``gmt --help`` ：列出GMT的模块列表及其描述
+- ``gmt --version`` ：显示GMT版本
+- ``gmt --show-datadir`` ：显示GMT的share目录
+- ``gmt --show-bindir`` ：显示GMT的bin目录
+- ``gmt <module> =`` ：检测模块 ``<module>`` 是否存在，若存在则返回0，否则返回1

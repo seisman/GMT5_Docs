@@ -1,4 +1,4 @@
-投影参数
+PROJ参数
 ========
 
 .. _PROJ_ELLIPSOID:

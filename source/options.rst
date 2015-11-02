@@ -9,7 +9,6 @@ GMT中的选项都是以 ``-`` 加一个字符的形式构成，通常这个字�
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
 
    R-option
    J-option

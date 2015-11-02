@@ -5,7 +5,6 @@
 
 .. toctree::
    :maxdepth: 2
-   :hidden:
 
    intro-to-conf
    conf-color
