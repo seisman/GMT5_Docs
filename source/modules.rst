@@ -159,6 +159,7 @@
 #. :doc:`pstext` ：在图上写文本
 #. :doc:`psclip` ：打开或关闭多边形裁剪路径
 #. :doc:`psxy` ：在图上绘制线段、多边形和符号
+#. :doc:`psscale` ：在地图上绘制灰色或彩色色标
 
 数据转换或提取
 ==============
@@ -168,6 +169,7 @@
 #. :doc:`grdraster` ：从二进制数据中提取子区域并保存为GMT网格文件
 #. :doc:`kml2gmt` ：将Google Earth的KML文件转换为GMT表数据
 #. :doc:`grd2xyz` ：将网格文件转换成表数据
+#. :doc:`grdclip` ：对网格文件的Z值做裁剪
 
 格式转换工具
 ============
@@ -191,7 +193,6 @@
 #. :doc:`psmeca`
 #. :doc:`pspolar`
 #. :doc:`psrose`
-#. :doc:`psscale`
 #. :doc:`pssegy`
 #. :doc:`pssegyz`
 #. :doc:`psvelo`
@@ -206,7 +207,6 @@
 #. :doc:`grd2cpt`
 #. :doc:`grd2rgb`
 #. :doc:`grdblend`
-#. :doc:`grdclip`
 #. :doc:`grdgradient`
 #. :doc:`grdgravmag3d`
 #. :doc:`grdhisteq`

@@ -3,6 +3,8 @@
 project
 =======
 
+官方文档： :ref:`gmt:project`
+
 project可用于:
 
 - 沿着测线生成(r, s, t)值

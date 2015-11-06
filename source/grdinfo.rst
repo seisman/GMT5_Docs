@@ -3,7 +3,7 @@
 grdinfo
 =======
 
-`man grdinfo <http://gmt.soest.hawaii.edu/doc/latest/grdinfo.html>`_
+官方文档： :ref:`gmt:grdinfo`
 
 grdinfo用于从2D网格文件中提取基本信息。
 
