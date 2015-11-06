@@ -14,7 +14,7 @@ inventory_header = '''\
 # The remainder of this file is compressed with zlib.
 '''.encode('utf-8')
 
-modules = ['gmt', 'gmtlogo', 'gmt5syntax', 'isogmt',
+modules = ['gmt', 'gmtlogo', 'gmt5syntax', 'isogmt', 'gmtwhich',
 
            'blockmean', 'blockmedian', 'blockmode', 'filter1d', 'fitcircle',
            'gmt2kml', 'gmtconnect', 'gmtconvert', 'gmtdefaults', 'gmtget',
@@ -35,40 +35,36 @@ modules = ['gmt', 'gmtlogo', 'gmt5syntax', 'isogmt',
            'pslegend', 'psmask', 'psrose', 'psscale', 'pswiggle', 'psxyz',
 
            'sample1d', 'spectrum1d', 'sph2grd', 'sphdistance',
-           'sphinterpolate', 'sphtriangulate', 'splitxyz', 'triangulate',
-           'xyz2grd',
-
-           'gshhg',
-
-           'img2google', 'img2grd',
-
-           'pscoupe', 'psmeca', 'pspolar', 'psvelo',
-
-           'mgd77info', 'mgd77magref', 'mgd77path', 'mgd77track',
-           'mgd77convert', 'mgd77list', 'mgd77manage', 'mgd77sniffer',
-
-           'dimfilter',
-
-           'gmtgravmag3d', 'gravfft', 'grdgravmag3d', 'grdredpol', 'grdseamount',
-
-           'pssegy', 'pssegyz', 'segy2grd',
-
-           'backtracker', 'grdpmodeler', 'grdspotter', 'originator',
-           'grdrotater', 'hotspotter', 'rotconverter',
-
-           'x2sys_cross', 'x2sys_init', 'x2sys_put', 'x2sys_datalist',
-           'x2sys_list', 'x2sys_report', 'x2sys_binlist', 'x2sys_get',
-           'x2sys_merge', 'x2sys_solve',
+           'sphinterpolate', 'sphtriangulate', 'splitxyz', 'surface',
+           'triangulate', 'trend1d', 'trend2d', 'xyz2grd',
            ]
 
-inventory_payload = ''.join(['{0} std:label -1 {0}.html {0}\n'.format(i) for i in modules]).encode('utf-8')
+supplements = {
+    'gshhg' : ['gshhg'],
+    'img'   : ['img2google', 'img2grd'],
+    'meca'  : ['pscoupe', 'psmeca', 'pspolar', 'psvelo'],
+    'mgd77' : ['mgd77info', 'mgd77magref', 'mgd77path', 'mgd77track',
+               'mgd77convert', 'mgd77list', 'mgd77manage', 'mgd77sniffer'],
+    'misc'  : ['dimfilter'],
+    'potential': ['gmtgravmag3d', 'gravfft', 'grdgravmag3d', 'grdredpol',
+                  'grdseamount'],
+    'segy'  : ['pssegy', 'pssegyz', 'segy2grd'],
+    'spotter': ['backtracker', 'grdpmodeler', 'grdspotter', 'originator',
+                'grdrotater', 'hotspotter', 'rotconverter'],
+    'x2sys' :  ['x2sys_cross', 'x2sys_init', 'x2sys_put', 'x2sys_datalist',
+                'x2sys_list', 'x2sys_report', 'x2sys_binlist', 'x2sys_get',
+                'x2sys_merge', 'x2sys_solve'],
+}
 
-#inventory_payload = '''\
-#pscoast std:label -1 pscoast.html pscoast
-#psxy std:label -1 psxy.html psxy
-#gmt std:label -1 gmt.html gmt
-#'''.encode('utf-8')
-#print(inventory_payload)
+payload_list = []
+for item in modules:
+    payload_list.append('{0} std:label -1 {0}.html {0}\n'.format(item))
+
+for key, value in supplements.items():
+    for item in value:
+        payload_list.append('{1} std:label -1 supplements/{0}/{1}.html {1}\n'.format(key, item))
+
+inventory_payload = ''.join(payload_list).encode('utf-8')
 
 # inventory_payload lines spec:
 #   name domainname:type priority uri dispname
