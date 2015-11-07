@@ -13,21 +13,21 @@
 
 通过如下方式即可实现本地编译：
 
-#. 安装相关依赖
+1. 安装相关依赖
 
    ~~~bash
    $ pip install sphinx sphinx_rtd_theme
    $ git clone https://github.com/seisman/GMT5_Docs.git
    ~~~
 
-#. 编译生成HTML：
+2. 编译生成HTML：
 
    ~~~bash
    $ make html
    $ firefox build/html/index.html&
    ~~~
 
-#. 编译生成PDF（要求安装TeXLive 2015）
+3. 编译生成PDF（要求安装TeXLive 2015）
 
    ~~~bash
    $ make xelatexpdf
