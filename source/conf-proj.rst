@@ -125,3 +125,8 @@ PROJ_SCALE_FACTOR
 - Polar Stereographic：默认值为0.9996
 - UTM：默认值为0.9996
 - Transverse Mercator：默认值为1
+
+.. _PROJ_GEODESIC:
+
+PROJ_GEODESIC
+-------------
