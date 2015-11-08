@@ -9,9 +9,8 @@
 # This script assumes GMT_App_F_stand+.sh and GMT_App_F_iso+.sh have
 # both been run previously.
 
-sh GMT_stand+.sh GMT_iso+.sh
-gmt ps2raster -Te -P -A -D. GMT_stand+.ps
-gmt ps2raster -Te -P -A -D. GMT_iso+.ps
-gmt psimage GMT_stand+.eps -W3i -P -K > GMT_stand+_iso+.ps
-gmt psimage GMT_iso+.eps -W3i -O -X3.2i >> GMT_stand+_iso+.ps
-rm GMT_stand+.eps GMT_iso+.eps
+gmt psconvert -Tg -E600 -P -A -D. GMT_stand+.ps
+gmt psconvert -Tg -E600 -P -A -D. GMT_iso+.ps
+gmt psimage GMT_stand+.png -Dx0/0+r600 -P -K > GMT_stand+_iso+.ps
+gmt psimage GMT_iso+.png -Dx0/0+r600 -O -X3.2i >> GMT_stand+_iso+.ps
+rm gmt.*
