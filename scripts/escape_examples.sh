@@ -1,6 +1,6 @@
 #!/bin/bash
 PS=escape_examples.ps
-R=0/2/-1/8
+R=0/2/-1/9
 J=X18c/-8c
 
 gmt psxy -R$R -J$J -P -K -T > $PS
@@ -32,6 +32,9 @@ gmt pstext -R -J -Bg1 -Bwsen -F+f -K -O -N >> $PS << EOF
 
 0.5  7.5 10p,8,black @@!CV @@@@
 1.5  7.5 -,-,black @!CV @@
+
+0.5  8.5 10p,8,black Stresses are @@~s@@~@@+*@@+@@-xx@@- MPa
+1.5  8.5 -,-,black Stresses are @~s@~@+*@+@-xx@- MPa
 EOF
 gmt psxy -R -J -O -T >> $PS
 
