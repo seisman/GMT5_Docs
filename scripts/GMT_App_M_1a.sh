@@ -1,5 +1,5 @@
 #!/bin/bash
-grep -v '#' `gmt --show-datadir`/conf/gmt_cpt.conf | cut -d: -f1 | sort -r > tt.lis
+grep -v '#' `gmt --show-sharedir`/conf/gmt_cpt.conf | cut -d: -f1 | sort -r > tt.lis
 
 ps=GMT_App_M_1a.ps
 n=`cat tt.lis | wc -l`
