@@ -116,6 +116,8 @@
    sphtriangulate
    splitxyz
    surface
+   talwani2d
+   talwani3d
    trend1d
    trend2d
    triangulate

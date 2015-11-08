@@ -92,4 +92,5 @@ GMT中的选项都是以 ``-`` 加一个字符的形式构成，通常这个字�
    p-option
    s-option
    t-option
+   x-option
    colon-option
