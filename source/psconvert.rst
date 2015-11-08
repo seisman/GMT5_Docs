@@ -1,9 +1,9 @@
-.. index:: !ps2raster
+.. index:: !psconvert
 
-ps2raster
+psconvert
 =========
 
-官方文档： :ref:`gmt:ps2raster`
+官方文档： :ref:`gmt:psconvert`
 
 将GMT生成的PS文件转换为其他图片格式
 

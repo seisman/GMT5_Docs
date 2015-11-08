@@ -76,4 +76,4 @@ grd2xyz
 相关
 ----
 
-:doc:`xyz2grd` 、 :doc:`grdedit` 、 :doc:`grdreformat`
+:doc:`xyz2grd` 、 :doc:`grdedit` 、 :doc:`grdconvert`

@@ -14,23 +14,23 @@ inventory_header = '''\
 # The remainder of this file is compressed with zlib.
 '''.encode('utf-8')
 
-modules = ['gmt', 'gmtlogo', 'gmt5syntax', 'isogmt', 'gmtwhich',
+modules = ['gmt', 'gmt5syntax', 'isogmt', 'gmtwhich',
 
            'blockmean', 'blockmedian', 'blockmode', 'filter1d', 'fitcircle',
            'gmt2kml', 'gmtconnect', 'gmtconvert', 'gmtdefaults', 'gmtget',
-           'gmtinfo', 'gmtmath', 'gmtselect', 'gmtset', 'gmtsimplify',
-           'gmtspatial', 'gmtswitch', 'gmtvector',
+           'gmtinfo', 'gmtlogo', 'gmtmath', 'gmtselect', 'gmtset',
+           'gmtsimplify', 'gmtspatial', 'gmtswitch', 'gmtvector',
 
            'grd2cpt', 'grd2rgb', 'grd2xyz', 'grdblend', 'grdclip',
            'grdcontour', 'grdcut', 'grdedit', 'grdfft', 'grdfilter',
            'grdgradient', 'grdhisteq', 'grdimage', 'grdinfo',
            'grdlandmask', 'grdmask', 'grdmath', 'grdpaste', 'grdproject',
-           'grdraster', 'grdreformat', 'grdsample', 'grdtrack', 'grdtrend',
-           'grdvector', 'grdview', 'grdvolume',
+           'grdraster', 'grdconvert', 'gmtregress', 'grdsample',
+           'grdtrack', 'grdtrend', 'grdvector', 'grdview', 'grdvolume',
 
            'greenspline', 'kml2gmt', 'makecpt', 'mapproject', 'nearneighbor',
 
-           'ps2raster', 'psbasemap', 'psclip', 'pscoast', 'pstext',
+           'psconvert', 'psbasemap', 'psclip', 'pscoast', 'pstext',
            'psxy', 'project', 'pscontour', 'pshistogram', 'psimage',
            'pslegend', 'psmask', 'psrose', 'psscale', 'pswiggle', 'psxyz',
 
@@ -47,7 +47,8 @@ supplements = {
                'mgd77convert', 'mgd77list', 'mgd77manage', 'mgd77sniffer'],
     'misc'  : ['dimfilter'],
     'potential': ['gmtgravmag3d', 'gravfft', 'grdgravmag3d', 'grdredpol',
-                  'grdseamount'],
+                  'grdseamount', 'gmtflexure', 'grdflexure', 'talwani2d',
+                  'talwani3d'],
     'segy'  : ['pssegy', 'pssegyz', 'segy2grd'],
     'spotter': ['backtracker', 'grdpmodeler', 'grdspotter', 'originator',
                 'grdrotater', 'hotspotter', 'rotconverter'],

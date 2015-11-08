@@ -18,11 +18,13 @@
    gmtconnect
    gmtconvert
    gmtdefaults
+   gmtflexure
    gmtget
    gmtgravmag3d
    gmtinfo
    gmtlogo
    gmtmath
+   gmtregress
    gmtselect
    gmtset
    gmtsimplify
@@ -41,6 +43,7 @@
    grdedit
    grdfft
    grdfilter
+   grdflexure
    grdgradient
    grdgravmag3d
    grdhisteq
@@ -54,7 +57,7 @@
    grdproject
    grdraster
    grdredpol
-   grdreformat
+   grdconvert
    grdrotater
    grdsample
    grdseamount
@@ -84,7 +87,7 @@
    nearneighbor
    originator
    project
-   ps2raster
+   psconvert
    psbasemap
    psclip
    pscoast
@@ -176,7 +179,7 @@
 格式转换工具
 ============
 
-#. :doc:`ps2raster`　：将GMT生成的PS文件转换为其他图片格式
+#. :doc:`psconvert`　：将GMT生成的PS文件转换为其他图片格式
 
 2D数据的其他操作
 ================
@@ -218,7 +221,7 @@
 #. :doc:`grdpmodeler`
 #. :doc:`grdproject`
 #. :doc:`grdredpol`
-#. :doc:`grdreformat`
+#. :doc:`grdconvert`
 #. :doc:`grdrotater`
 #. :doc:`grdsample`
 

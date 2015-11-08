@@ -61,5 +61,5 @@ GMT的所有绘图操作都是通过调用不同的模块来完成的，但GMT�
 - 参数设定类：如 :doc:`gmtset`
 - 绘图操作类：如 :doc:`psxy` 、 :doc:`grdimage`
 - 数据处理类：如 :doc:`gmtmath` 、 :doc:`grdmath`
-- 格式转换类：如 :doc:`xyz2grd` 、 :doc:`ps2raster`
+- 格式转换类：如 :doc:`xyz2grd` 、 :doc:`psconvert`
 

@@ -54,7 +54,7 @@ GMT所有的绘图模块都只能生成PS代码，需要将这些PS代码保存�
 
 2. 易于转换为其他格式
 
-   GMT提供了 :doc:`ps2raster` 模块，可以很方便地将PS文件转换为jpeg、png、eps、pdf等图片格式，以满足不同情形下的需求。
+   GMT提供了 :doc:`psconvert` 模块，可以很方便地将PS文件转换为jpeg、png、eps、pdf等图片格式，以满足不同情形下的需求。
 
 
 PS解释器

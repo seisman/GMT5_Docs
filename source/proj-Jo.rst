@@ -68,7 +68,7 @@ that in both cases specifies the region using **-Rk**\ -1000/1000/-500/500.  The
 unit **k** means the following bounds are in projected km and we let GMT determine the
 geographic coordinates of the two diagonal corners internally.
 
-.. figure:: /_images/GMT_obl_nz.*
+.. figure:: /images/GMT_obl_nz.*
    :width: 600 px
    :align: center
 
