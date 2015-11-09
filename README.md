@@ -13,14 +13,19 @@
 
 通过如下方式即可实现本地编译：
 
-1. 安装相关依赖
+1. Clone项目到本地
 
    ~~~bash
-   $ pip install sphinx sphinx_rtd_theme
    $ git clone https://github.com/seisman/GMT5_Docs.git
    ~~~
 
-2. 编译生成HTML：
+1. 安装依赖
+
+   ~~~bash
+   $ pip install sphinx sphinx_rtd_theme pygments
+   ~~~
+
+2. 编译生成HTML
 
    ~~~bash
    $ make html
