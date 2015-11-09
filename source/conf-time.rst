@@ -59,38 +59,3 @@ TIME_Y2K_OFFSET_YEAR
 
 默认值为1950，即00到99表示的年份范围为1950到2049。
 
-.. _TIME_LANGUAGE:
-
-TIME_LANGUAGE
--------------
-
-绘制时间项时所使用的语言。
-
-#. BR：Brazilian Portuguese
-#. CN1：Simplified Chinese
-#. CN2：Traditional Chinese
-#. DE： German
-#. DK：Danish
-#. EH：Basque
-#. ES：Spanish
-#. FI：Finnish
-#. FR：French
-#. GR：Greek
-#. HI：Hawaiian
-#. HU：Hungarian
-#. IE：Irish
-#. IL：Hebrew
-#. IS：Icelandic
-#. IT：Italian
-#. JP：Japanese
-#. NL：Dutch
-#. NO：Norwegian
-#. PL：Polish
-#. PT：Portuguese
-#. RU：Russian
-#. SE：Swedish
-#. SG：Scottish Gaelic
-#. TO：Tongan
-#. TR：Turkish
-#. UK：British English
-#. US：US English
