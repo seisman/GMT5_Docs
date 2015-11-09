@@ -71,6 +71,12 @@ GMT中的 :doc:`makecpt` 和 :doc:`grd2cpt` 可以以这些内置CPT文件为基
    :width: 700 px
    :align: center
 
+CPT图例示例
+===========
+
+.. figure:: /images/GMT_App_M_2.*
+   :width: 700 px
+   :align: center
 
 其他CPT
 =======
