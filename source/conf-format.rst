@@ -49,11 +49,11 @@ FORMAT_FLOAT_OUT
 FORMAT_DATE_MAP
 ---------------
 
-绘制日期字符串时所使用的格式，默认格式为\ ``yyyy-mm-dd``\ 。具体格式参考\ :ref:`FORMAT_DATE_OUT`\ 。
+绘制日期字符串时所使用的格式，默认格式为 ``yyyy-mm-dd`` 。具体格式参考 :ref:`FORMAT_DATE_OUT` 。
 
-除此之外，在绘制月份名时的\ ``mm``\ 可以用\ ``o``\ 替代；绘制“Week ##”时的\ ``W[-]ww``\ 可以用\ ``u``\ 替代。
+除此之外，在绘制月份名时的 ``mm`` 可以用 ``o`` 替代；绘制“Week ##”时的 ``W[-]ww`` 可以用 ``u`` 替代。
 
-所有的日期文本字符串都由\ :ref:`TIME_LANGUAGE`\ 、\ :ref:`FORMAT_TIME_PRIMARY_MAP`\ 和\ :ref:`FORMAT_TIME_SECONDARY_MAP`\ 控制。
+所有的日期文本字符串都由 :ref:`GMT_LANGUAGE` 、 :ref:`FORMAT_TIME_PRIMARY_MAP` 和 :ref:`FORMAT_TIME_SECONDARY_MAP` 控制。
 
 .. _FORMAT_DATE_OUT:
 
