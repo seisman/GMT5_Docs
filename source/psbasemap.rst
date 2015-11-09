@@ -3,9 +3,8 @@
 psbasemap
 =========
 
-官方文档： :ref:`gmt:psbasemap`
-
-绘制底图
+- 官方文档： :ref:`gmt:psbasemap`
+- 简介：绘制底图
 
 语法
 ----

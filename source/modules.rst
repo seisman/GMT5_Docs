@@ -140,13 +140,20 @@
 
 下面将所有命令按照功能分类，并用一句话简述其功能。
 
-主程序
-======
+主程序/脚本
+===========
 
 #. :doc:`gmt` ：GMT主程序
-#. :doc:`gmt5syntax` ：将旧的GMT脚本修改成新的 ``gmt <module>`` 语法
 #. :doc:`isogmt` ：在“隔离模式”下运行GMT命令或脚本
-#. :doc:`gmtlogo` ：将GMT的logo作为一个图层加到一个打开的PS文件中
+#. :doc:`gmt5syntax` ：将旧的GMT脚本修改成新的 ``gmt <module>`` 语法
+
+绘制1D和2D数据
+==============
+
+
+待整理
+======
+
 
 信息提取
 ========
@@ -185,9 +192,6 @@
 ================
 
 #. :doc:`grdedit` ：修改网格文件的头段或内容
-
-待整理
-======
 
 #. :doc:`pscontour`
 #. :doc:`pscoupe`
@@ -303,3 +307,4 @@
 #. :doc:`sphinterpolate`
 #. :doc:`sphtriangulate`
 #. :doc:`splitxyz`
+#. :doc:`gmtlogo` ：在图上绘制GMT图形logo
