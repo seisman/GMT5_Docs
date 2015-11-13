@@ -18,4 +18,3 @@
    input-output
    syntax
    history
-   lines

@@ -3,9 +3,8 @@
 grdclip
 ========
 
-官方文档： :ref:`gmt:grdclip`
-
-对网格文件的Z值做裁剪
+- 官方文档： :ref:`gmt:grdclip`
+- 简介：对网格文件的Z值做裁剪
 
 语法
 ----

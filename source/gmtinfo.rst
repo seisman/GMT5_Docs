@@ -3,9 +3,8 @@
 gmtinfo
 =======
 
-官方文档： :ref:`gmt:gmtinfo`
-
-从表数据中提取信息
+- 官方文档： :ref:`gmt:gmtinfo`
+- 简介：从表数据中提取信息
 
 语法
 ----

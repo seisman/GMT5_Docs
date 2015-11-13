@@ -3,11 +3,10 @@
 psconvert
 =========
 
-官方文档： :ref:`gmt:psconvert`
+- 官方文档： :ref:`gmt:psconvert`
+- 将GMT生成的PS文件转换为其他图片格式
 
-将GMT生成的PS文件转换为其他图片格式
-
-支持BMP、EPS、JPEG、PDF、PNG、PPM、TIFF格式。
+支持BMP、EPS、JPEG、PDF、PNG、PPM、SVG、TIFF格式。
 
 语法
 ----
@@ -15,10 +14,11 @@ psconvert
 ::
 
     ps2raster psfile(s)
-        [-A[u][<margins>][-][+r][+s|S<width>[<u>]/<height>[<u>]]]
-        [-C<gs_option>] [-D<outdir>] [-E<resolution>] [-G<ghost_path>]
-        [-I] [-L<listfile>] [-P] [-Q[g|t][1|2|4]] [-S] [-Tb|e|E|f|F|j|g|G|m|t]
+        [-A[u][<margins>][-][+g<paint>][+p<pen>][+r][+s[m]|S<width>[<u>]/<height>[<u>]]
+        [-C<gs_option>] [-D<outdir>] [-E<resolution>] [-G<ghost_path>] [-F<out_name>]
+        [-I] [-L<listfile>] [-P] [-Q[g|t][1|2|4]] [-S] [-Tb|e|E|f|F|j|g|G|m|s|t]
         [-W[+g][+t<docname>][+n<layername>][+o<foldername>][+a<altmode>[<alt>]][+l<minLOD>/<maxLOD>][+f<minfade>/<maxfade>][+u<URL>]]
+        [-Z]
 
 最小示例
 --------
@@ -44,6 +44,7 @@ psconvert
 - ``g`` ：PNG；
 - ``G`` ：透明PNG；
 - ``m`` ：PPM；
+- ``s`` ：SVG；
 - ``t`` ：TIFF；
 
 说明：
@@ -105,6 +106,7 @@ psconvert
 #. 两个数字，分别指定X和Y方向的额外边距，如 ``-A0.5c/1c``
 #. 四个数字，分别指定上下左右四条边的边距，如 ``-A0.5c/0.5c/0.5c/0.5c``
 
+- ``-A+sm`` set a maximum size and the new width are only imposed if the original figure width exceeds it. Append ``<new_height>`` to also impose a maximum height in addition to the width.
 - ``-A+s<width>`` 指定最终生成的图片的宽度，高度自动决定。程序会对图片做插值以保证 ``-E`` 的值
 - ``-A+S<scale>`` 则指定图片的缩放比例
 
@@ -114,6 +116,8 @@ psconvert
 
 - ``-A-`` 覆盖 ``-W`` 选项中自动设置的 ``-A`` 值
 - ``-A+r`` 会使得在计算边界时使用round函数而不是ceil函数，这会对裁剪造成极其微小的区别，仅当要处理非常小的图片时才需要使用。
+- ``-A+g<paint>`` 为BoundingBox指定填充色
+- ``-A+p<pen>`` 为BoundingBox指定边框颜色
 
 ``-P``
 ------
@@ -157,6 +161,11 @@ ps2raster在底层是调用ghostscript来实现PS到其他格式的转换的，�
 
 在执行ghostscript命令后，将具体的命令打印到标准错误流中，且保留转换过程中的所有临时文件。该选项主要用于调试。
 
+``-Z``
+------
+
+转换完成后删除输入的PS文件。若转换失败，输入的PS文件不会被删除。
+
 .. TODO:: -I -Q
 
 ``-W``
@@ -193,7 +202,6 @@ To create a simple KMZ file for use in Google Earth, try
 其他
 ----
 
-#. 若PS文件中使用了透明效果，则必须先将PS文件转换为透明的PDF文件，再转换为其他格式；
 #. 转换为PDF、PNG时使用DEFALTE压缩；转换为TIFF时使用LZW压缩；
 #. ps2raster还可以用于其他命令生成的PS文件；
 

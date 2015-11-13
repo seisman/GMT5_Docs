@@ -96,7 +96,6 @@
    pshistogram
    psimage
    pslegend
-   pslib
    psmask
    psmeca
    pspolar
@@ -150,10 +149,8 @@
 绘制1D和2D数据
 ==============
 
-
-待整理
-======
-
+#. :doc:`pstext` ：在图上写文本
+#. :doc:`psclip` ：打开或关闭多边形裁剪路径
 
 信息提取
 ========
@@ -163,33 +160,32 @@
 #. :doc:`gmtdefaults` ：列出所有GMT参数的当前值
 #. :doc:`gmtinfo` ：从表数据中提取信息
 
-绘制1D数据
+2D数据处理
 ==========
+
+#. :doc:`grdcut` ：从一个网格文件中裁剪出一个子区域
+#. :doc:`grdpaste` ：将两个网格沿着其共同边界拼接成一个文件
+#. :doc:`grdraster` ：从二进制数据中提取子区域并保存为GMT网格文件
+#. :doc:`grdclip` ：对网格文件的Z值做裁剪
+
+格式转换
+========
+
+#. :doc:`kml2gmt` ：将Google Earth的KML文件转换为GMT表数据
+#. :doc:`psconvert` ：将GMT生成的PS文件转换为其他图片格式
+#. :doc:`grd2xyz` ：将网格文件转换成表数据
+
+待整理
+======
+
 
 #. :doc:`psbasemap` ：绘制底图
 #. :doc:`pscoast` ：在地图上绘制海岸线、河流、国界线
-#. :doc:`pstext` ：在图上写文本
-#. :doc:`psclip` ：打开或关闭多边形裁剪路径
 #. :doc:`psxy` ：在图上绘制线段、多边形和符号
 #. :doc:`psscale` ：在地图上绘制灰色或彩色色标
 
-数据转换或提取
-==============
 
-#. :doc:`grdpaste` ：将两个网格沿着其共同边界拼接成一个文件
-#. :doc:`grdcut` ：从一个网格文件中裁剪出一个子区域
-#. :doc:`grdraster` ：从二进制数据中提取子区域并保存为GMT网格文件
-#. :doc:`kml2gmt` ：将Google Earth的KML文件转换为GMT表数据
-#. :doc:`grd2xyz` ：将网格文件转换成表数据
-#. :doc:`grdclip` ：对网格文件的Z值做裁剪
 
-格式转换工具
-============
-
-#. :doc:`psconvert`　：将GMT生成的PS文件转换为其他图片格式
-
-2D数据的其他操作
-================
 
 #. :doc:`grdedit` ：修改网格文件的头段或内容
 
@@ -277,7 +273,6 @@
 
 #. :doc:`gmtwhich`
 #. :doc:`gmtswitch`
-#. :doc:`pslib`
 #. :doc:`gmtlogo`
 
 #. :doc:`backtracker`

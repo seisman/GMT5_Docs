@@ -3,9 +3,8 @@
 gmtget
 ======
 
-官方文档： :ref:`gmt:gmtget`
-
-列出单个或多个GMT参数的当前值
+- 官方文档： :ref:`gmt:gmtget`
+- 简介：列出单个或多个GMT参数的当前值
 
 语法
 ----

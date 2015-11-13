@@ -3,9 +3,8 @@
 grd2xyz
 =======
 
-官方文档： :ref:`gmt:grd2xyz`
-
-将网格文件转换成表数据
+- 官方文档： :ref:`gmt:grd2xyz`
+- 简介：将网格文件转换成表数据
 
 
 语法
@@ -13,12 +12,7 @@ grd2xyz
 
 ::
 
-    grd2xyz grid [-C[f|i]] [-N[i]<nodata>] [ -W[<weight>]] [-Z[<flags>]]
-
-``-N``
-------
-
-对于Z值为NaN的数据，默认输出为NaN。使用该选项，则将Z值为NaN的值用 ``<nodata>`` 输出。 ``-Ni`` 则反之，将网格文件中Z值为 ``<nodata>`` 的记录当作NaN，并以NaN输出。
+    grd2xyz grid [-C[f|i]] [ -W[<weight>]] [-Z[<flags>]]
 
 ``-W``
 ------

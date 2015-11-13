@@ -45,6 +45,7 @@
 
    introduction
    basics
+   advances
    options
    configuration
    cpt
