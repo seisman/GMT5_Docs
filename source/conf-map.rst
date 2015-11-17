@@ -83,3 +83,8 @@ MAP_SCALE_HEIGHT
 
 MAP_TICK_PEN
 ------------
+
+.. _MAP_LINE_STEP:
+
+MAP_LINE_STEP
+-------------

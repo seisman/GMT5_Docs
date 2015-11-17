@@ -149,6 +149,7 @@
 绘制1D和2D数据
 ==============
 
+#. :doc:`psbasemap` ：绘制底图
 #. :doc:`pstext` ：在图上写文本
 #. :doc:`psclip` ：打开或关闭多边形裁剪路径
 
@@ -175,11 +176,15 @@
 #. :doc:`psconvert` ：将GMT生成的PS文件转换为其他图片格式
 #. :doc:`grd2xyz` ：将网格文件转换成表数据
 
+meca补充包
+==========
+
+#. :doc:`psmeca` ：在地图上绘制震源机制解
+
 待整理
 ======
 
 
-#. :doc:`psbasemap` ：绘制底图
 #. :doc:`pscoast` ：在地图上绘制海岸线、河流、国界线
 #. :doc:`psxy` ：在图上绘制线段、多边形和符号
 #. :doc:`psscale` ：在地图上绘制灰色或彩色色标
@@ -195,7 +200,6 @@
 #. :doc:`psimage`
 #. :doc:`pslegend`
 #. :doc:`psmask`
-#. :doc:`psmeca`
 #. :doc:`pspolar`
 #. :doc:`psrose`
 #. :doc:`pssegy`

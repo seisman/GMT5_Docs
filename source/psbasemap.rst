@@ -11,9 +11,12 @@ psbasemap
 
 ::
 
-    psbasemap [-D[<unit>]<xmin>/<xmax>/<ymin>/<ymax>[r]|<width>[/<height>][+c<clon>/<clat>][+p<pen>][+g<fill>]]
-        [-L[f][x]<lon0>/<lat0>[/<slon>]/<slat>/<length>[e|f|k|M|n|u][+l<label>][+j<just>][+p<pen>][+g<fill>][+u]]
-        [-T[f|m][x]<lon0>/<lat0>/<size>[/<info>][:<w>,<e>,<s>,<n>:][+g<int>[/<mint>]]]
+    psbasemap [-A<file>]
+              [-D<insert_box>]
+              [-F<box>]
+              [-L<ruler>]
+              [-T<rose>]
+              [-T<mag_rose>]
 
 简单示例
 --------
@@ -22,18 +25,34 @@ psbasemap
 
     gmt psbasemap -R-180/180/-70/70 -JM10c -Bx60 -By30 > test.ps
 
+``-A``
+------
+
+不绘制图形，仅仅将底图的边框坐标输出到文件或标准输出中。必须指定 ``-J`` 和 ``-R`` ，且不能使用其他选项。边框的采样间隔由 :ref:`MAP_LINE_STEP` 决定。
+
+``-F``
+------
+
+该选项用于控制insert box、比例尺、玫瑰图的边框属性，其语法为::
+
+    -F[d|l|t][+c<clearances>][+g<fill>][+i[[<gap>/]<pen>]][+p[<pen>]][+r[<radius>]][+s[[<dx>/<dy>/][<shade>]]]
+
+- ``-F`` 绘制insert map、比例尺或map rose的矩形边框，使用 :ref:`MAP_FRAME_PEN` 作为画笔属性
+- ``d|l|t`` 表示 ``-F`` 选项定义的属性仅与适用于 ``-D`` 、 ``-L`` 或 ``-T``
+
 ``-D``
 ------
 
-该选项用于在底图中绘制图中图（insert box）。insert box的范围可以用三种方法指定：
+该选项用于在底图中绘制图中图（insert box），需要与 ``-F`` 选项一起使用。其语法为::
+
+    -D[<unit>]<xmin>/<xmax>/<ymin>/<ymax>[r][+s<file>]
+    -D[g|j|J|n|x]<refpoint>+w<width>[/<height>][+j<justify>][+o<dx>[/<dy>]][+s<file>]
+
+insert box可以用三种方式指定。
 
 #. 用类似 ``-R`` 选项的语法 ``<xmin>/<xmax>/<ymin>/<ymax>[r]`` 指定一个地理矩形
 #. 投影后的坐标范围 ``<unit><xmin>/<xmax>/<ymin>/<ymax>`` ， ``<unit>`` 为投影后的坐标单位
-#. ``[<unit>]<width>[/<height>][+c<clon>/<clat>]`` 指定矩形的宽度和高度，并通过 ``+c`` 指定矩形中心的经度 ``<clon>`` 和纬度 ``<clat>``
-
-.. TODO 第2和3种方式都没有试出结果，不确定是不是bug
-
-指定insert box的信息之后，还需要指定insert box的边框画笔属性 ``+p<pen>`` 或box的颜色填充 ``+g<fill>`` 。
+#. 使用 ``[g|j|J|n|x]<refpoint>`` 语法指定参考点， ``+w<width>[/<height>]`` 指定矩形的宽度和高度， ``+j<justify>`` 指定锚点位置， ``+o<dx>/<dy>`` 用于指定参考点的额外偏移量。关于参考点、锚点和偏移量，见 :doc:`embellishments` 一节。使用 ``+s<file>`` 选项会将insert  box的左下角以及其在地图单位下的长度写到文件中。
 
 .. code-block:: bash
 
@@ -57,7 +76,7 @@ psbasemap
    # 绘制大区域地图的海岸线及边框
    gmt pscoast -R$Rg -J$Jg -B0 -B+gwhite -Df -N1 -W -A5000 -K -O --MAP_FRAME_TYPE=plain >> $PS
    # 在大区域地图内绘制小区域所在的方框
-   gmt psbasemap -R$Rg -J$Jg -D$R+p2p,blue -K -O >> $PS
+   gmt psbasemap -R$Rg -J$Jg -D$R -F+p2p,blue -K -O >> $PS
 
    # 结束GMT绘图
    gmt psxy -R$R -J$J -T -O >> $PS
@@ -71,67 +90,51 @@ psbasemap
 ``-L``
 ------
 
-该选项用于在图上绘制比例尺。
+该选项用于在图上绘制比例尺::
 
-    -L[f][x]<lon0>/<lat0>[/<slon>]/<slat>/<length>[e|f|M|n|k|u][+l<label>][+j<just>][+p<pen>][+g<fill>][+u]
+    -L[g|j|J|n|x]<refpoint>+c[<slon>/]<slat>+w<length>[e|f|k|M|n|u][+a<align>][+f][+l[<label>]][+u]
 
 下面解释一下每一项的含义：
 
-- ``<lon0>`` 和 ``<lat0>`` ：比例尺的中心在图中的经纬度位置
-- ``-Lx`` 表明 ``<lon0>`` 和 ``<lat0>`` 是比例尺中心相对于绘图原点的X和Y偏移量而不是经纬度位置
-- ``-Lf`` 表明绘制fancy比例尺，即火车轨道图
-- ``<slon>`` 和 ``<slat>`` 表明要绘制哪一个经纬度处的比例尺
-- ``<length>[e|f|M|n|k|u]`` ：比例尺的长度，默认单位为km，也可使用其他长度单位
+- ``[g|j|J|n|x]<refpoint>`` 用于指定比例尺的参考位置，比例尺的锚点位于比例尺的中心，见 :doc:`embellishments` 一节
+- ``+c<slon>/<slat>`` 要绘制哪一个点的比例尺
+- ``+w<length>[e|f|M|n|k|u]`` ：比例尺的长度，默认单位为km，也可使用其他长度单位
+- ``+a<align>`` ：修改比例尺标签的位置，默认位于比例尺上方中文，可以取 ``l`` 、 ``r`` 、 ``t``` 、 ``b`` 分别代表左右上下
 - ``+l<label>`` ：为比例尺加个标签，若不指定 ``<label>`` ，默认的标签是比例尺长度所使用的单位
-- ``+j<just>`` ：修改比例尺标签的位置，默认位于比例尺上方中文，可以取 ``l`` 、 ``r`` 、 ``t``` 、 ``b`` 分别代表左右上下
 - ``+u`` ：比例尺的标注默认只有值没有单位，该选项会给标注加上单位
-- ``+p<pen>`` 和 ``+g<fill>`` ：在比例尺后加一个矩形框，分别指定矩形框的线条属性和填充属性
+- ``+f`` ：fancy比例尺，即火车轨道比例尺，默认为plain比例尺
 
 GMT参数 :ref:`FONT_LABEL` 控制标签字体， :ref:`FONT_ANNOT_PRIMARY` 控制标签的标注字体， :ref:`MAP_SCALE_HEIGHT` 控制比例尺的高度。
 
 示例::
 
-    gmt psbasemap -R90/110/30/40 -JM10c -Bx5 -By5 -Lf95/32/35/800k+lscale+u+pblue+glightblue > test.ps
+    gmt psbasemap -R90/110/30/40 -JM10c -Bx5 -By5 -Lg95/35+c35+w800k+lscale+u+f > test.ps
 
-``-T``
-------
+``-Td``
+-------
 
-该选项会在地图上绘制一个方向玫瑰图。
+``-Td`` 选项用于绘制方向玫瑰图，其语法为::
 
-- ``<lon0>/<lat0>`` ：玫瑰图的中心所处的经纬度
-- ``-Tx`` 表明 ``<lon0>/<lat0>`` 是X、Y方向的位置而不是经纬度
-- ``<size>`` 是玫瑰图的直径
-- ``:<w>,<e>,<s>,<n>:`` 为四个方向分别指定标签，默认标签是W、E、S、N， ``::`` 表示压制所有标签，若 ``<n>`` 为 ``*`` ，则会在北方向绘制北极星。
-- ``-Tf`` 绘制一个fancy玫瑰图
-- fancy玫瑰图中， ``<info>`` 可以取1、2、3，分别表示绘制4个方向、8个方向、16个方向。
-- ``-Tm`` 绘制一个地磁指南针玫瑰图
-- 地磁指南针中， ``<info>`` 的格式为 ``<dec>/<dlabel>`` ， ``<dec>`` 是磁倾角， ``<dlabel>`` 是指针的标签。若 ``<dlable>`` 取为 ``-`` ，则label即为磁倾角角度。
-- 地理玫瑰图和地磁玫瑰图的标注和两级刻度间隔默认值为 ``30/5/1`` ，可以通过 ``+<gints>[/<mints>]`` 分别指定地理和地磁的间隔。
+    -Td[g|j|J|n|x]<refpoint>+w<width>[+f[<level>]][+j<justify>][+l<w,e,s,n>][+o<dx>[/<dy>]]
 
-相关参数：
+- ``[g|j|J|n|x]<refpoint>`` 用于定义参考点， ``+j<justify>`` 用于定义玫瑰图上的锚点（默认锚点是 ``MC`` ）， ``+o<dx>/<dy>`` 指定参考点的偏移量。见 :doc:`embellishments` 一节。
+- ``+w<width>`` 玫瑰图的宽度
+- ``+f`` 绘制fancy玫瑰图， ``<level>`` 指定了fancy玫瑰图的不同类型， ``<level>`` 可以取：
+  - ``1`` 绘制E-W和N-S四个方向
+  - ``2`` 绘制8个方向
+  - ``3`` 绘制16个方向
 
-- :ref:`COLOR_BACKGROUND` ：玫瑰图颜色
-- :ref:`MAP_TICK_PEN` ：玫瑰图的画笔属性
-- :ref:`FONT_TITLE` ：四个主方向的标签字体属性
-- :ref:`FONT_LABEL` ：其余次方向的标签字体属性
+- ``+l<w>,<e>,<s>,<n>`` 为四个方向分别指定标签，默认标签是W、E、S、N，四个方向的标签之间用逗号分隔
 
-下面的命令绘制了一个简单的玫瑰图和一个地理玫瑰图::
+``-Tm``
+-------
 
-    gmt psbasemap -R90/110/30/40 -JM10c -Bx5 -By5 -T100/35/3c:w,e,s,n: > simple.ps
-    gmt psbasemap -R90/110/30/40 -JM10c -Bx5 -By5 -Tf100/35/3c/2:w,e,s,*: > fancy.ps
+``-Tm`` 选项用于绘制磁场玫瑰图，其语法为::
 
-.. figure:: /images/psbasemap_ex2.*
-   :width: 600px
-   :align: center
+    -Tm[g|j|J|n|x]<refpoint>+w<width>[+d<dec>[/<dlabel>]]][+i<pen>][+j<justify>][+l<w>,<e>,<s>,<n>][+p<pen>][+t<ints>][+o<dx>[/<dy>]]
 
-   简单玫瑰图和地理玫瑰图
-
-下面的命令绘制地磁玫瑰图::
-
-    gmt psbasemap -R90/110/30/40 -JM25c -Bx5 -By5 -Tm100/35/6c/60/-:w,e,s,*: > compass.ps
-
-.. figure:: /images/psbasemap_ex3.*
-   :width: 600px
-   :align: center
-
-   地磁玫瑰图
+- ``[g|j|J|n|x]<refpoint>`` 用于定义参考点， ``+j<justify>`` 用于定义玫瑰图上的锚点（默认锚点是 ``MC`` ）， ``+o<dx>/<dy>`` 指定参考点的偏移量。见 :doc:`embellishments` 一节
+- ``+w<width>`` 玫瑰图的宽度
+- ``+d<dec>/<dlabel>`` 设置磁倾角以及罗盘指针上的磁倾角标签，若 ``<dlabel>`` 为空，则根据 ``<dec>`` 的值自动确定标签，也可以使用 ``-`` bypass labeling。当使用 ``+d`` 子选项时，会同时绘制地理方向和磁场方向。
+- ``+l<w>,<e>,<s>,<n>`` 为四个方向的标签，默认值为W、E、S、N，若 ``<n>`` 取值为 ``*`` ，则会在北方向标签处绘制星代表北极星。
+- 标注、地理和磁场的两级刻度的间隔默认值为 ``30/5/1`` ，可以使用 ``+t<ints>`` 选项给定6个数值分别自动6个间隔
