@@ -3,20 +3,26 @@
 pscoast
 =======
 
-官方文档： :ref:`gmt:pscoast`
-
-在地图上绘制海岸线、河流、国界线
+- 官方文档： :ref:`gmt:pscoast`
+- 简介：在地图上绘制海岸线、河流、国界线
 
 语法
 ----
 
 ::
 
-    pscoast [-<Amin_area>[/<min_level>/<max_level>][+as][+r|l][+p<percent>]] [-C[l|r/]<fill>]
-        [-D<resolution>[+]] [-G<fill>|c] [-I<river>[/<pen>]] [-N<border>[/<pen>]] [-S<fill>|c] [-W[<level>/]<pen>]
-        [-L[f][x]<lon0>/<lat0>[/<slon>]/<slat>/<length>[e|f|k|M|n|u][+l<label>][+j<just>][+p<pen>][+g<fill>][+u]]]
-        [-T[f|m][x]<lon0>/<lat0>/<size>[/<info>][:<w>,<e>,<s>,<n>:][+<gint>[/<mint>]]]
-        [-M] [-Q]  [-F<code1>,<code2>,...[+l|L][+g<fill>][+p<pen>][+r|R[<incs>]]]
+    pscoast
+        [-Aarea]
+        [-C[l|r/]<fill>]
+        [-D<resolution>[+]]
+        [-W[<level>/]<pen>]
+        [-N<border>[/<pen>]]
+        [-I<river>[/<pen>] ]
+        [-G<fill>|c] [-S<fill>|c]
+        [-Lruler] [-Trose] [-Tmag_rose]
+        [-Edcw] [-Fbox]
+        [-M]
+        [-Q]
 
 ``-D``
 ------
@@ -25,7 +31,7 @@ pscoast
 
 - ``binned_border_x.nc`` ：国界、省界数据
 - ``binned_GSHHS_x.nc`` ：海岸线数据
-- `binned_river_x.nc`` ：河流、湖泊
+- ``binned_river_x.nc`` ：河流、湖泊
 
 每个数据都有5个版本，代表不同的精度，从高到低依次为：full、high、intermediate、low和crude。 ``<resolution>`` 可以取为 ``f`` 、 ``h`` 、 ``i`` 、 ``l`` 、 ``c`` ，分别代表使用不同精度的数据。
 
@@ -114,22 +120,30 @@ GMT将shoreline分成四个等级（ ``<level>`` 取1-4）：
 - ``-Gl<fill>`` 指定湖泊颜色
 - ``-Gr<fill>`` 指定河流湖颜色
 
-``-L`` 和 ``-T``
-----------------
+``-L``  ``-T`` ``-F``
+---------------------
 
 绘制比例尺和玫瑰图，见 :doc:`psbasemap` 里对该选项的介绍。
 
 ``-A``
 -------
 
-面积小于 ``<min_area>`` 平方千米或者level不在 ``[min_level,max_level]`` 范围的shore不会被绘制。默认值为 ``0/0/4`` ，即绘制全部特征。
+该选项的语法是::
 
-``<min_area>`` 限制了要绘制的多边形的最小面积，这样做使得小面积的湖泊不会干扰整个地图的美观。
+    -A<min_area>[/<min_level>/<max_level>][+ag|i|s|S][+r|l][+p<percent>]
+
+面积小于 ``<min_area>`` 平方千米或者level不在 ``[min_level,max_level]`` 范围的shore不会被绘制。默认值为 ``0/0/4`` ，即绘制全部特征。 ``<min_area>`` 限制了要绘制的多边形的最小面积，这样做使得小面积的湖泊不会干扰整个地图的美观。
 
 对于level 2，即湖岸线，包括常规的湖以及很宽的河流。加上 ``+r`` 则只绘制河流湖，加上 ``+l`` 则只绘制常规湖。
 
-- ``+as`` 可以跳过数据中所有纬度在南纬60度以下的数据，这样用户即可使用自己自定义的南极洲数据。
-- ``+p<precent>`` ：一个多边形，降低精度后，边数减少，面积变化，当面积变化过大时再绘制这个多边形就不合适了，该子选项用于去除那些面积与最高精度面积之比小于 ``<percent>`` 的多边形。
+对于南极洲而言，海岸线有多种处理方式：
+
+- ``+ai`` 用ice shell boundary作为南极洲的海岸线，默认值
+- ``+ag`` 以ice grounding line作为海岸线
+- ``+as`` 跳过南纬60度以南的海岸线，这样用户即可使用 ``psxy`` 绘制自己的南极洲海岸线
+- ``+aS`` 跳过南纬60度以北的海岸线
+
+``+p<precent>`` ：一个多边形，降低精度后，边数减少，面积变化，当面积变化过大时再绘制这个多边形就不合适了，该子选项用于去除那些面积与最高精度面积之比小于 ``<percent>`` 的多边形。
 
 ``-M``
 ------
@@ -141,16 +155,20 @@ GMT将shoreline分成四个等级（ ``<level>`` 取1-4）：
 
 使用 ``-Gc`` 和 ``-Sc`` 可以分别裁剪出陆地区域和海洋区域，接下来的其他绘图命令中只有在裁剪区域内的部分才会被绘制。在绘图结束后，需要关闭裁剪，就需要再次调用 ``pscoast`` ，并加上 ``-Q`` 选项。
 
-``-F``
+
+``-E``
 ------
 
-GMT5中自带了DCW（Digital Chart of World）数据，即全球的行政区划数据。DCW数据位于 ``${GMTHOME}/share/dcw`` 目录下，包含了全球各国的国界和各国的省界数据。
+GMT5中自带了DCW（Digital Chart of World）数据，即全球的行政区划数据。DCW数据位于 ``${GMTHOME}/share/dcw`` 目录下，包含了全球各国的国界和各国的省界数据。该选项的语法为::
+
+    -E<code1>,<code2>,...[+l|L][+gfill][+ppen][+r|R[incs]]
 
 - ``<code>`` 是要绘制或提取的边界数据的代码，具体代码需要从dcw目录下的文档中查找，代码有如下几种形式
 
    - 洲代码前加上 ``=`` 则绘制整个洲的边界，比如 ``=AS``
    - 使用国界代码，则绘制国界边界，比如 ``US``
    - 使用 ``国家代码.州代码`` ，则绘制州（省）边界，比如 ``US.TX``
+
 - ``+l`` 列出所有国家及其对应代码
 - ``+L`` 列出所有州及其对应代码
 - ``+r`` 获取多边形所对应的区域范围，可以加上 ``<xinc>`` 、 ``<xinc>/<yinc>`` 、 ``<winc>/<einc>/<sinc>/<ninc>`` 调整区域范围使得范围是这些步长的整数倍
@@ -158,10 +176,11 @@ GMT5中自带了DCW（Digital Chart of World）数据，即全球的行政区划
 - ``+p<pen>`` 绘制多边形的轮廓
 - ``+g<fill>`` 对多边形进行填充
 
-说明：
 
-#. ``-A`` 和 ``-D`` 选项对 ``-F`` 选项无效
-#. 一次只能使用一个 ``-F`` 选项
+
+
+
+
 
 示例
 ----
@@ -179,6 +198,14 @@ GMT5中自带了DCW（Digital Chart of World）数据，即全球的行政区划
     gmt pscoast  -R-30/30/-40/40 -Jm0.1i -B5 -Gc -P -K > africa.ps
     gmt grdimage -Jm0.1i etopo5.nc -Ccolors.cpt -O -K >> africa.ps
     gmt pscoast  -Q -O >> africa.ps
+
+::
+
+    gmt pscoast  -JM6i -P -Baf -EGB,IT,FR+gblue+p0.25p,red+r -EES,PT,GR+gyellow > map.ps
+
+::
+
+    gmt pscoast -R-26/-12/62/68 -Dh -W -M > iceland.txt
 
 相关
 ----

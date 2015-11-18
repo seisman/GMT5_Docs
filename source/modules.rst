@@ -150,8 +150,13 @@
 ==============
 
 #. :doc:`psbasemap` ：绘制底图
+#. :doc:`pscoast` ：在地图上绘制海岸线、河流、国界线
+#. :doc:`psxy` ：在图上绘制线段、多边形和符号
 #. :doc:`pstext` ：在图上写文本
+#. :doc:`psscale` ：在地图上绘制灰色或彩色色标
 #. :doc:`psclip` ：打开或关闭多边形裁剪路径
+#. :doc:`gmtlogo` ：在图上绘制GMT图形logo
+#. :doc:`grdimage` ：在地图上绘制网格数据
 
 信息提取
 ========
@@ -184,16 +189,7 @@ meca补充包
 待整理
 ======
 
-
-#. :doc:`pscoast` ：在地图上绘制海岸线、河流、国界线
-#. :doc:`psxy` ：在图上绘制线段、多边形和符号
-#. :doc:`psscale` ：在地图上绘制灰色或彩色色标
-
-
-
-
 #. :doc:`grdedit` ：修改网格文件的头段或内容
-
 #. :doc:`pscontour`
 #. :doc:`pscoupe`
 #. :doc:`pshistogram`
@@ -207,12 +203,9 @@ meca补充包
 #. :doc:`psvelo`
 #. :doc:`pswiggle`
 #. :doc:`psxyz`
-
 #. :doc:`grdcontour`
-#. :doc:`grdimage`
 #. :doc:`grdvector`
 #. :doc:`grdview`
-
 #. :doc:`grd2cpt`
 #. :doc:`grd2rgb`
 #. :doc:`grdblend`
@@ -277,7 +270,6 @@ meca补充包
 
 #. :doc:`gmtwhich`
 #. :doc:`gmtswitch`
-#. :doc:`gmtlogo`
 
 #. :doc:`backtracker`
 #. :doc:`gmtgravmag3d`
@@ -306,4 +298,3 @@ meca补充包
 #. :doc:`sphinterpolate`
 #. :doc:`sphtriangulate`
 #. :doc:`splitxyz`
-#. :doc:`gmtlogo` ：在图上绘制GMT图形logo

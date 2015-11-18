@@ -3,9 +3,8 @@
 psxy
 ====
 
-官方文档： :ref:`gmt:psxy`
-
-在图上绘制线段、多边形和符号
+- 官方文档： :ref:`gmt:psxy`
+- 简介：在图上绘制线段、多边形和符号
 
 该命令既可以用于画线段（多边形可以认为是闭合的线段）也可以用于画符号，唯一的区别在于是否使用了 ``-S`` 选项。在不使用 ``-S`` 选项的情况下，默认会将所有的数据点连成线，使用 ``-S`` 选项则仅在数据点所在位置绘制符号。
 
@@ -14,8 +13,14 @@ psxy
 
 ::
 
-    psxy [table] [-A[m|p]] [-C<cptfile>] [-D<dx>/<dy>] [-E[x|y|X|Y][n][<cap>][/[-|+]<pen>]]
-        [-G<fill>] [-I<intens>] [-L] [-N] [-S[<symbol>][<size>[u]] [-W[-|+][pen]]
+    psxy [table]
+         [-A[m|p|x|y]] [-C<cpt>] [-D<dx>/<dy>]
+         [-E[x[+]|y[+]|X|Y][n][cap][/[-|+]pen]]
+         [-F[c|n|r][refpoint]]
+         [-Gfill] [-Iintens]
+         [-L[+b|d|D][+xl|r|x0][+yl|r|y0][+ppen]]
+         [-N[c|r]] [-S[symbol][size[u]]] [-T]
+         [-W[-|+][pen][attr]]
 
 绘制线段
 --------
@@ -31,11 +36,16 @@ psxy最简单的功能就是绘制线段或多边形，此时数据输入需要�
 ``-A``
 ------
 
-在地理投影下，用psxy绘制两点之间的连线时，默认会将两点按照大圆路径连接起来。
+地理投影下，两点之间默认沿着大圆路径连接。
 
 - ``-A`` ：忽略当前的投影方式，直接用直线连接两点
 - ``-Am`` ：先沿着经线画，再沿着纬线画
 - ``-Ap`` ：先沿着纬线画，再沿着经线画
+
+笛卡尔坐标下，两点之间默认用直线连接。
+
+- ``-Ax`` 先沿着X轴画，再沿着Y轴画
+- ``-Ay`` 先沿着Y轴画，再沿着X轴画
 
 下图中，黑色曲线为默认情况；红线为使用 ``-A`` 的效果；蓝线为使用 ``-Ap`` 的效果；黄线为使用 ``-Am`` 的效果：
 
@@ -50,12 +60,39 @@ psxy最简单的功能就是绘制线段或多边形，此时数据输入需要�
 
 该选项会将线段的首尾连起来，以得到一个封闭的多边形。
 
+Alternatively, append modifiers to build a polygon from a line segment.
+Append **+d** to build symmetrical envelope around y(x) using deviations dy(x) given in extra column 3.
+Append **+D** to build asymmetrical envelope around y(x) using deviations dy1(x) and dy2(x) from extra columns 3-4.
+Append **+b** to build asymmetrical envelope around y(x) using bounds yl(x) and yh(x) from extra columns 3-4.
+Append **+xl**\ \|\ **r**\ \|\ *x0* to connect first and last point to anchor points at either xmin, xmax, or x0, or
+append **+yb**\ \|\ **t**\ \|\ *y0* to connect first and last point to anchor points at either ymin, ymax, or y0.
+Polygon may be painted (**-G**) and optionally outlined by adding **+p**\ *pen* [no outline].
+
 ``-T``
 ------
 
 该选项会忽略所有的输入文件以及标准输入流，在Linux下相当于将空文件 ``/dev/null`` 作为输入文件。
 
 该选项常用于只写入PS文件头或只写入PS文件尾，见 :doc:`KO-option` 一节。
+
+``-F``
+------
+
+该选项可以对输入数据中的数据点进行分组，并设定每组内数据点的连接方式。
+
+分组方式：
+
+- ``a`` 忽略所有头段记录，即将所有文件内的所有数据点作为一个单独的组，并将第一个文件的第一个数据点作为该组的参考点
+- ``f`` 将每个文件内的所有点分在一个组，并将每一组内的第一个点作为该组的参考点
+- ``s`` 每段数据内的点作为一组，并将每段数据的第一个点作为该组的参考点
+- ``r`` 与 ``s`` 类似，the group reference point is reset after each record to the previous point （该选项仅与 ``-Fr`` 连用）
+- ``<refpoint>`` 为所有组使用一个共同的参考点
+
+在确定分组后，还可以额外定义组内各点的连接方式：
+
+- ``c`` 将组内的点连接成连续的线段
+- ``r`` 将组内的所有点与组内的参考点连线
+- ``n`` 将每个组内的所有点互相连线
 
 ``-S`` 简介
 -----------
@@ -386,7 +423,20 @@ psxy最简单的功能就是绘制线段或多边形，此时数据输入需要�
 ``-C``
 ------
 
-``-C`` 选项后跟一个cpt文件。若使用了 ``-S`` 选项，则符号的填充色由数据的第三列Z值决定，其他数据列依次后移一列（比如size移到第四列）。若未指定 ``-S`` 选项，则用户需要在多段数据的头段中指定 ``-Z<val>`` ，然后从cpt文件中查找 ``<val>`` 所对应的颜色，以控制线段或多边形的线条颜色。
+``-C`` 选项后跟一个cpt文件，也可以使用 ``-C<code1>,<code2>,...`` 语法在命令行上指定颜色列表。
+
+若使用了 ``-S`` 选项，则符号的填充色由数据的第三列Z值决定，其他数据列依次后移一列（比如size移到第四列）。若未指定 ``-S`` 选项，则用户需要在多段数据的头段中指定 ``-Z<val>`` ，然后从cpt文件中查找 ``<val>`` 所对应的颜色，以控制线段或多边形的线条颜色。
+
+::
+
+    gmt psxy -JX10c/10c -R0/10/0/10 -B1 -Cblue,red -W2p > test.ps << EOF
+    > -Z0
+    1 1
+    2 2
+    > -Z1
+    3 3
+    4 4
+    EOF
 
 ``-I``
 ------
@@ -408,6 +458,8 @@ psxy最简单的功能就是绘制线段或多边形，此时数据输入需要�
 
 默认情况下，位于 ``-R`` 范围外的符号不会被绘制的。使用该选项使得即便符号的坐标位于 ``-R`` 指定的范围外，也会被绘制。
 
+For periodic (360-longitude) maps we must plot all symbols twice in case they are clipped by the repeating boundary. The **-N** will turn off clipping and not plot repeating symbols. Use **-Nr** to turn off clipping but retain the plotting of such repeating symbols, or use **-Nc** to retain clipping but turn off plotting of repeating symbols.
+
 需要注意的是，该选项对线段或多边形无效。
 
 ``-W``
@@ -415,14 +467,17 @@ psxy最简单的功能就是绘制线段或多边形，此时数据输入需要�
 
 线段或符号的轮廓的线条属性。 ``-W+`` 表示通过 ``-C`` 选项的CPT文件同时查找填充色和轮廓色。 ``-W-`` 表示通过 ``-C`` 选项的CPT文件查找轮廓的颜色并关闭符号的填充。
 
+``-W`` 选项后还可以加上额外的选项，可以指定线条的额外属性，见 :doc:`lines` 一节。
+
 ``-E``
 ------
 
 ``-E`` 选项用于绘制误差棒，其语法为::
 
-    -E[x|y|X|Y][n][<cap>][/[-|+]<pen>]
+    -E[x[+]|y[+]|X|Y][n][<cap>][/[-|+]<pen>]
 
 - ``x`` 和 ``y`` ：X方向和/或Y方向误差棒
+- ``x+`` 和 ``y+`` ：X方向和/或Y方向的非对称误差棒，此时需要额外的几列数据
 - ``<cap>`` 是误差棒顶端一横的长度
 - ``<pen>`` 是误差棒的线条属性， ``+|-`` 的含义与 ``-W`` 选项相同
 
@@ -457,7 +512,7 @@ X方向误差为1，Y方向误差为0.5::
 - ``-G-`` ：对当前数据段关闭填充
 - ``-G`` ：恢复到默认填充色
 - ``-W<pen>`` ：设置当前段数据的画笔属性
-- ``-W`` ：恢复到默认画笔属性\ :ref:`MAP_DEFAULT_PEN <MAP_DEFAULT_PEN>`
+- ``-W`` ：恢复到默认画笔属性 :ref:`MAP_DEFAULT_PEN`
 - ``-W-`` ：不绘制轮廓
 - ``-Z<zval>`` ：从cpt文件中查找Z值<zval>所对应的颜色作为填充色
 - ``-ZNaN`` ：从cpt文件中获取NaN颜色
