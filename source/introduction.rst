@@ -10,4 +10,5 @@
    philosophy
    postscript
    linux-basics
+   self-learning
    citation
