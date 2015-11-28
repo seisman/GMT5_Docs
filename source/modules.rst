@@ -17,10 +17,11 @@
   #. :doc:`pscoast` ：在地图上绘制海岸线、河流、国界线
   #. :doc:`psxy` ：在图上绘制线段、多边形和符号
   #. :doc:`pstext` ：在图上写文本
-  #. :doc:`psscale` ：在地图上绘制灰色或彩色色标
+  #. :doc:`psscale` ：在图上绘制灰色或彩色色标
   #. :doc:`psclip` ：打开或关闭多边形裁剪路径
   #. :doc:`gmtlogo` ：在图上绘制GMT图形logo
-  #. :doc:`grdimage` ：在地图上绘制网格数据
+  #. :doc:`grdimage` ：在图上绘制网格数据
+  #. :doc:`pslegend` ：在图上绘制图例
 
 - 信息提取
 
@@ -53,7 +54,6 @@
   #. :doc:`pscoupe`
   #. :doc:`pshistogram`
   #. :doc:`psimage`
-  #. :doc:`pslegend`
   #. :doc:`psmask`
   #. :doc:`pspolar`
   #. :doc:`psrose`

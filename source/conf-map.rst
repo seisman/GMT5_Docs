@@ -88,3 +88,8 @@ MAP_TICK_PEN
 
 MAP_LINE_STEP
 -------------
+
+.. _MAP_GRID_PEN_PRIMARY:
+
+MAP_GRID_PEN_PRIMARY
+--------------------
