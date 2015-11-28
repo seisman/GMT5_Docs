@@ -25,7 +25,7 @@ psscale
 
 ``-D`` 选项用于指定色标的尺寸和位置，其语法为::
 
-    -D[g|j|J|n|x]<refpoint>+w<length>/<width>[+e[b|f][<length>]][+h][+jjustify][+m[a|c|l|u]][+n[txt]][+odx[/dy]]
+    -D[g|j|J|n|x]<refpoint>+w<length>/<width>[+e[b|f][<length>]][+h][+j<justify>][+m[a|c|l|u]][+n[<txt>]][+o<dx>[/<dy>]]
 
 - ``+w<length>/<width>`` 指定色标的长度和宽度，若长度为负值则会反转色标
 - ``+h`` 绘制水平色标，默认为垂直色标
