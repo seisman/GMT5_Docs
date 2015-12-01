@@ -1,10 +1,12 @@
 FONT参数
 ========
 
+.. _FONT:
+
 FONT
 ----
 
-一次性设置所有字体参数的值
+设置所有 ``FONT_*`` 参数（ ``FONT_LOGO`` 除外）的默认字体
 
 .. _FONT_ANNOT_PRIMARY:
 
@@ -12,6 +14,8 @@ FONT_ANNOT_PRIMARY
 ------------------
 
 主标注的字体，默认值为 ``12p,Helvetica,black`` 。若在字体前加上 ``+`` ，则将字体、偏移量、刻度长度等相对于 ``FONT_ANNOT_PRIMARY`` 缩放。
+
+.. _FONT_ANNOT_SECONDARY:
 
 FONT_ANNOT_SECONDARY
 --------------------

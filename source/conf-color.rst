@@ -15,30 +15,42 @@ COLOR_FOREGROUND
 
 Z值大于CPT文件中定义的最大值时所使用的前景色，默认为 ``white``
 
+.. _COLOR_NAN:
+
 COLOR_NAN
 ---------
 
 Z值等于 ``NaN`` 时所使用的颜色，默认值为 ``127.5`` ，即灰色
+
+.. _COLOR_HSV_MAX_S:
 
 COLOR_HSV_MAX_S
 ---------------
 
 计算光照强度文件时，最大正强度值所使用的HSV颜色饱和度，可以取0到1，默认值为0.1
 
+.. _COLOR_HSV_MIN_S:
+
 COLOR_HSV_MIN_S
 ---------------
 
 计算光照强度文件时，最小负强度值所使用的HSV颜色饱和度，可以取0到1，默认值为1.0
+
+.. _COLOR_HSV_MAX_V:
 
 COLOR_HSV_MAX_V
 ---------------
 
 计算光照强度时，最大正强度值所使用的HSV颜色V值，可以取0到1，默认是1.0
 
+.. _COLOR_HSV_MIN_V:
+
 COLOR_HSV_MIN_V
 ---------------
 
 计算光照强度时，最小负强度值所使用的HSV颜色V值，可以取0到1，默认是0.3
+
+.. _COLOR_MODEL:
 
 COLOR_MODEL
 -----------

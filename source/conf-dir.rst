@@ -15,6 +15,8 @@ DIR_GSHHG
 
 海岸线数据gshhg的所在的路径，默认值为 ``$GMT_SHAREDIR/coast``
 
+.. _DIR_DATA:
+
 DIR_DATA
 --------
 
