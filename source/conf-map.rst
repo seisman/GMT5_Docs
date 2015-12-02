@@ -110,9 +110,46 @@ MAP_LINE_STEP
 -------------
 
 .. _MAP_GRID_PEN_PRIMARY:
+.. _MAP_GRID_PEN_SECONDARY:
 
-MAP_GRID_PEN_PRIMARY
---------------------
+MAP_GRID_PEN_PRIMARY | MAP_GRID_PEN_SECONDARY
+---------------------------------------------
+
+设置主和次网格线的线条属性，默认值分别为 ``default,black`` 和 ``thinner,black``
+
+.. _MAP_GRID_CROSS_SIZE_PRIMARY:
+.. _MAP_GRID_CROSS_SIZE_SECONDARY:
+
+MAP_GRID_CROSS_SIZE_PRIMARY | MAP_GRID_CROSS_SIZE_SECONDARY
+-----------------------------------------------------------
+
+网格交叉线的大小，0表示绘制连续的网格线。默认值为 ``0p``
+
+.. _MAP_ANNOT_OFFSET_PRIMARY:
+
+MAP_ANNOT_OFFSET_PRIMARY
+-------------------------
+
+primary标注的开始位置与刻度尾端间的距离，默认值为 ``5p``
+
+.. _MAP_ANNOT_OFFSET_SECONDARY:
+
+MAP_ANNOT_OFFSET_SECONDARY
+--------------------------
+
+primary标注的底部与secondary标注的顶部之间的距离，默认值为 ``5p``
+
+.. _MAP_ANNOT_ORTHO:
+
+MAP_ANNOT_ORTHO
+---------------
+
+.. _MAP_LABEL_OFFSET:
+
+MAP_LABEL_OFFSET
+----------------
+
+轴标注底部与轴标签顶部间的距离，默认值为 ``8p``
 
 .. _MAP_DEGREE_SYMBOL:
 
