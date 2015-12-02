@@ -1,10 +1,31 @@
 IO参数
 ======
 
+.. _IO_HEADER:
+
+IO_HEADER
+---------
+
+指定输入/输出的ASCII文件中是否有头记录，默认值为 ``false`` ，若值为 ``true`` ，则相当于使用了 ``-h`` 选项。
+
+.. _IO_LONLAT_TOGGLE:
+
+IO_LONLAT_TOGGLE
+----------------
+
+该参数的作用与 ``-:`` 选项相同。其可以取如下值：
+
+#. ``false`` 默认值，输入/输出数据均为 (x, y)
+#. ``true`` 输入/输出数据均为 (y, x)
+#. ``IN`` 仅输入数据为 (y, x)
+#. ``OUT`` 仅输出数据为 (y, x)
+
 .. _IO_N_HEADER_RECS:
 
 IO_N_HEADER_RECS
 ----------------
+
+指定在使用 ``-h`` 选项时，默认的头记录的数目，默认值为0。
 
 .. _IO_NAN_RECORDS:
 
@@ -28,6 +49,15 @@ GMT输出ASCII表数据时列与列之间的分隔符，可以取 ``tab`` 、 ``
 IO_SEGMENT_MARKER
 -----------------
 
+多段数据中每段数据开始的标识符，默认值为 ``>`` 。若希望输入和输出数据中使用不同的数据段标识符，则可以使用逗号分隔输入和输出数据的段标识符，比如 ``>,:`` 。
+
+有两个特殊的标识符：
+
+#. ``B`` 表示将空行作为数据段开始的标识符
+#. ``N`` 表示将一个NaN记录作为数据段开始的标识符
+
+.. TODO To use B or N as regular segment markers you must escape them with a leading backslash.
+
 .. _IO_NC4_CHUNK_SIZE:
 
 IO_NC4_CHUNK_SIZE
@@ -39,3 +69,14 @@ IO_GRIDFILE_SHORTHAND
 ---------------------
 
 见 :ref:`自定义文件后缀 <custom_grid_io>` 一节。若设置为 ``true`` ，则会检测每个网格文件的后缀是否在用户自定义文件后缀中；若为 ``false`` ，则不检测用户自定义文件后缀。
+
+.. _IO_GRIDFILE_FORMAT:
+
+IO_GRIDFILE_FORMAT
+------------------
+
+GMT默认使用的网格文件格式，该参数的值的格式为::
+
+    <ff>/<scale>/<offset>/<invalid>
+
+``<ff>`` 是两个字符的文件格式代码，见 :doc:`grid-format` 一节的介绍。

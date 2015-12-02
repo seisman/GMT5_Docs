@@ -130,3 +130,9 @@ PROJ_SCALE_FACTOR
 
 PROJ_GEODESIC
 -------------
+
+指定大地测量计算中所使用的算法，可以取：
+
+#. ``Vincenty`` 默认值，精确到0.5mm
+#. ``Rudoe`` given for legacy purpose
+#. ``Andoyer`` 精度为10米量级，比 ``Vincenty`` 快5倍
