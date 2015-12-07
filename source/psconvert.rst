@@ -6,14 +6,14 @@ psconvert
 - 官方文档： :ref:`gmt:psconvert`
 - 将GMT生成的PS文件转换为其他图片格式
 
-支持BMP、EPS、JPEG、PDF、PNG、PPM、SVG、TIFF格式。
+支持BMP、EPS、JPEG、PDF、PNG、PPM、SVG、TIFF格式。原名为 ``ps2raster`` ，v5.2.1版本起更名为 ``psconvert``
 
 语法
 ----
 
 ::
 
-    ps2raster psfile(s)
+    psconvert psfile(s)
         [-A[u][<margins>][-][+g<paint>][+p<pen>][+r][+s[m]|S<width>[<u>]/<height>[<u>]]
         [-C<gs_option>] [-D<outdir>] [-E<resolution>] [-G<ghost_path>] [-F<out_name>]
         [-I] [-L<listfile>] [-P] [-Q[g|t][1|2|4]] [-S] [-Tb|e|E|f|F|j|g|G|m|s|t]
@@ -25,8 +25,8 @@ psconvert
 
 如下命令会将PS文件转换成JPG格式::
 
-    gmt ps2raster test.ps
-    gmt ps2raster test1.ps test2.ps map*.ps
+    gmt psconvert test.ps
+    gmt psconvert test1.ps test2.ps map*.ps
 
 输出文件的文件名与原文件相同，仅后缀不同。
 
@@ -56,15 +56,15 @@ psconvert
 
 转换为PDF格式::
 
-    gmt ps2raster -Tf test.ps
+    gmt psconvert -Tf test.ps
 
 转换为JPG格式的灰度图::
 
-    gmt ps2raster -Tj- test.ps
+    gmt psconvert -Tj- test.ps
 
 利用一堆PS文件生成一个多页PDF::
 
-    gmt ps2raster -TF -Fout.pdf *.ps
+    gmt psconvert -TF -Fout.pdf *.ps
 
 ``-F``
 ------
@@ -73,7 +73,7 @@ psconvert
 
 ``-F`` 选项可强制指定输出文件名，文件后缀由输出的文件格式自动决定::
 
-    gmt ps2raster -Tf -Fout test.ps
+    gmt psconvert -Tf -Fout test.ps
 
 ``-E``
 ------
@@ -82,7 +82,7 @@ psconvert
 
 ::
 
-    gmt ps2raster -Tj -E600 test.ps
+    gmt psconvert -Tj -E600 test.ps
 
 说明：
 
@@ -96,7 +96,7 @@ psconvert
 
 ``-A`` 选项会对PS文件进行裁剪，仅保留其中有绘图的部分::
 
-    gmt ps2raster -A test.ps
+    gmt psconvert -A test.ps
 
 ``-Au`` 会先将GMT的时间戳去掉再裁剪。
 
@@ -112,7 +112,7 @@ psconvert
 
 如下命令会生成一个宽均为5厘米的图片::
 
-    gmt ps2raster -A+s5cc test.ps
+    gmt psconvert -A+s5cc test.ps
 
 - ``-A-`` 覆盖 ``-W`` 选项中自动设置的 ``-A`` 值
 - ``-A+r`` 会使得在计算边界时使用round函数而不是ceil函数，这会对裁剪造成极其微小的区别，仅当要处理非常小的图片时才需要使用。
@@ -124,7 +124,7 @@ psconvert
 
 该选项会强制转换后的图片为Portrait模式。
 
-若PS文件在绘图时使用了 ``-P`` 选项，则ps2raster的 ``-P`` 选项无效；若PS文件在绘图时未使用 ``-P`` 选项，则ps2raster的 ``-P`` 选项会将图片旋转90度。
+若PS文件在绘图时使用了 ``-P`` 选项，则psconvert的 ``-P`` 选项无效；若PS文件在绘图时未使用 ``-P`` 选项，则psconvert的 ``-P`` 选项会将图片旋转90度。
 
 ``-D``
 ------
@@ -134,7 +134,7 @@ psconvert
 ``-G``
 ------
 
-ps2raster在底层是调用ghostscript来实现PS到其他格式的转换的，因而成功转换的前提是必须能够找到ghostscript的可执行文件， ``-G`` 选项即用于显式指定ghostscript可执行文件的路径。
+psconvert在底层是调用ghostscript来实现PS到其他格式的转换的，因而成功转换的前提是必须能够找到ghostscript的可执行文件， ``-G`` 选项即用于显式指定ghostscript可执行文件的路径。
 
 说明：
 
@@ -149,7 +149,7 @@ ps2raster在底层是调用ghostscript来实现PS到其他格式的转换的，�
 
 在Windows下，若PS文件中含中文，则可能需要使用 ``-C`` 选项告诉ghostscript字体路径::
 
-    gmt ps2raster -C-sFONTPATH=C:\Windows\Fonts chinese.ps
+    gmt psconvert -C-sFONTPATH=C:\Windows\Fonts chinese.ps
 
 ``-L``
 ------
@@ -176,7 +176,7 @@ ps2raster在底层是调用ghostscript来实现PS到其他格式的转换的，�
 To create a simple linear map with pscoast and convert it to tif with ::
 
     gmt pscoast -JX12cd -R-10/-4/37/43 -W1 -Di -Bg30m -P -G200 --MAP_FRAME_TYPE=inside > cara.ps
-    gmt ps2raster cara.ps -Tt -W
+    gmt psconvert cara.ps -Tt -W
 
 To create a Mercator version of the above example and use GDAL to produce a true geotiff file::
 
@@ -189,25 +189,25 @@ To create a Polar Stereographic geotiff file of Patagonia
 
     gmt pscoast -JS-55/-60/15c -R-77/-55/-57.5/-48r -Di -Gred -P -Bg2 \
     --MAP_FRAME_TYPE=inside > patagonia.ps
-    gmt ps2raster patagonia.ps -Tt -W+g -V
+    gmt psconvert patagonia.ps -Tt -W+g -V
 
 To create a simple KMZ file for use in Google Earth, try
 
    ::
 
     gmt grdimage lonlatgrid.nc -Jx1 -Ccolors.cpt -P -B0g2 --MAP_FRAME_TYPE=inside > tile.ps
-    gmt ps2raster tile.ps -Tg -W+k+t"my title"+l256/-1 -V
+    gmt psconvert tile.ps -Tg -W+k+t"my title"+l256/-1 -V
 
 
 其他
 ----
 
 #. 转换为PDF、PNG时使用DEFALTE压缩；转换为TIFF时使用LZW压缩；
-#. ps2raster还可以用于其他命令生成的PS文件；
+#. psconvert还可以用于其他命令生成的PS文件；
 
 BUGS
 ----
 
-#. Windows下会自动为文件名加双引号，导致无法找到要转换的PS文（v5.1.1）
+#. Windows下会自动为文件名加双引号，导致无法找到要转换的PS文件（v5.1.1）
 #. 使用 ``-A`` 选项时， ``-C`` 选项无效，导致无法在Windows转换含中文的PS文件（v5.1.1）
 #. 不能使用 ``-F`` 选项，即不能生成多页PDF（v5.1.2）
