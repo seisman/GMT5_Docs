@@ -71,9 +71,13 @@ Polygon may be painted (**-G**) and optionally outlined by adding **+p**\ *pen* 
 ``-T``
 ------
 
-该选项会忽略所有的输入文件以及标准输入流，在Linux下相当于将空文件 ``/dev/null`` 作为输入文件。
+该选项会忽略命令行中的输入文件以及标准输入流，在Linux下相当于将空文件 ``/dev/null`` 作为输入文件，因而该命令不会在PS文件中绘制任何图形。
 
-该选项常用于只写入PS文件头或只写入PS文件尾，见 :doc:`KO-option` 一节。
+该选项有如下几个用途：
+
+#. ``psxy -J$J -R$R -T -K > $PS`` 只写入文件头，见 :doc:`KO-option` 一节
+#. ``psxy -J$J -R$R -T -O >> $PS`` 只写入文件尾，见 :doc:`KO-option` 一节
+#. ``psxy -J$J -R$R -T -X10c -Y10c >> $PS`` 只移动坐标原点而不绘制任何图形
 
 ``-F``
 ------
