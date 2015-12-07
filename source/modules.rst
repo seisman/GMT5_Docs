@@ -29,6 +29,7 @@
   #. :doc:`gmtset` ：修改单个或多个GMT参数的值
   #. :doc:`gmtdefaults` ：列出所有GMT参数的当前值
   #. :doc:`gmtinfo` ：从表数据中提取信息
+  #. :doc:`grdinfo` ：从网格文件中提取基本信息
 
 - 2D数据处理
 
@@ -84,7 +85,6 @@
   #. :doc:`xyz2grd`
   #. :doc:`gmt2kml`
   #. :doc:`gmtconvert`
-  #. :doc:`grdinfo`
   #. :doc:`gmtselect`
 
   #. :doc:`blockmean`

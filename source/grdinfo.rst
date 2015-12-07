@@ -3,16 +3,24 @@
 grdinfo
 =======
 
-官方文档： :ref:`gmt:grdinfo`
+- 官方文档： :ref:`gmt:grdinfo`
+- 简介：从2D网格文件中提取基本信息
 
-grdinfo用于从2D网格文件中提取基本信息。
+能提取的信息包括：
+
+- X、Y、Z的最大和最小值
+- 最大/最小Z值所在的位置
+- X、Y的网格间隔
+- X和Y方向节点数目
+- 均值、标准差、中位数、L1范数、值为NaN的节点数
+- 网格配准方式
 
 最小示例
 --------
 
 grdinfo后直接跟网格文件，会显示网格文件的信息::
 
-    $ gmt grdinfo test1.nc
+    $ gmt grdinfo test.nc
     test1.nc: Title: ETOPO5 global topography
     test1.nc: Command: grdraster -R100/150/-30/30 1 -Gtest.nc
     test1.nc: Remark: /opt/GMT-4.5.13/share/dbase/etopo5.i2
@@ -62,27 +70,27 @@ C选项
 I选项
 -----
 
-- -I后不接任何参数，会以\ **-I**\ *xinc/yinc*\ 的格式输出网格间隔
-- ``-I-``\ 会以\ **-R**\ *w/e/s/n*\ 的格式输出网格范围
-- ``-Ib``\ 会列出网格区域范围的四个顶点对应的坐标
-- **-I**\ *dx/dy*\ 会先获取网格的区域范围，并对该范围做微调使得其是dx和dy的整数倍，并以\ **-R**\ *w/e/s/n*\ 的格式输出
+- -I后不接任何参数，会以 ``-I<xinc>/<yinc>`` 的格式输出网格间隔
+- ``-Ir`` 或 ``-I-`` 会以 ``-R<w>/<e>/<s>/<n>`` 的格式输出网格文件的真实范围
+- ``-Ib`` 会输出网格区域范围的四个顶点对应的坐标
+- ``-I<dx>/<dy>`` 会先获取网格的区域范围，并对该范围做微调使得其是dx和dy的整数倍，并以 ``-R<w>/<e>/<s>/<n>`` 的格式输出
 
 ::
 
      $ gmt grdinfo test1.nc -I
      -I0.0833333333333/0.0833333333333
-     $ gmt  gmt grdinfo test1.nc -I-
+     $ gmt grdinfo test1.nc -Ir
      -R100/150/-30/30
-     $ gmt  gmt grdinfo test1.nc -Ib
+     $ gmt grdinfo test1.nc -Ib
      > Bounding box for test1.nc
      100    -30
      150    -30
      150    30
      100    30
-     $ gmt  gmt grdinfo test1.nc -I3/3
+     $ gmt grdinfo test1.nc -I3/3
      -R99/150/-30/30
 
-当\ **-I**\ *dx/dy*\ 与-C选项连用时::
+当 ``-I<dx>/<dy>`` 与 ``-C`` 选项连用时::
 
     $ gmt grdinfo test1.nc -I3/3 -C
     1   99  150 -30 30  -10376  6096
@@ -107,8 +115,8 @@ R选项
 T选项
 -----
 
-- **-T**\ *dz*: 提取Z的最小最大值，并做微调使得最值是dz的整数倍，然后以\ ``-Tzmin/zmax/dz``\ 的格式输出。
-- **-Ts**\ *dz*: 与上面类似，唯一的区别在于会根据Z的绝对值最大值，输出一个关于0对应的范围。
+- ``-T<dz>`` : 提取Z的最小最大值，并做微调使得最值是dz的整数倍，然后以 ``-Tzmin/zmax/dz`` 的格式输出。
+- ``-Ts<dz>`` : 与上面类似，唯一的区别在于会根据Z的绝对值最大值，输出一个关于0对应的范围。
 
 ::
 
