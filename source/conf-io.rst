@@ -63,6 +63,22 @@ IO_SEGMENT_MARKER
 IO_NC4_CHUNK_SIZE
 -----------------
 
+该参数控制了读写netCDF数据的效率，详情见官方文档。
+
+.. _IO_NC4_DEFLATION_LEVEL:
+
+IO_NC4_DEFLATION_LEVEL
+----------------------
+
+输出netCDF4格式的数据时所使用的压缩等级。可以取0到9的整数，0表示不压缩，9表示最大压缩。低压缩率可以提高性能并减少文件尺寸，而高压缩率虽然可以进一步减小文件尺寸，但却需要更多的处理时间。
+
+.. _IO_SEGMENT_BINARY:
+
+IO_SEGMENT_BINARY
+-----------------
+
+.. TODO
+
 .. _IO_GRIDFILE_SHORTHAND:
 
 IO_GRIDFILE_SHORTHAND
