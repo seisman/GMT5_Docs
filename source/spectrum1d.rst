@@ -3,4 +3,4 @@
 spectrum1d
 ==========
 
-官方文档： :ref:`gmt:spectrum1d`
+- 官方文档： :ref:`gmt:spectrum1d`

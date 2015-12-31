@@ -3,4 +3,4 @@
 gmtsimplify
 ===========
 
-官方文档： :ref:`gmt:gmtsimplify`
+- 官方文档： :ref:`gmt:gmtsimplify`

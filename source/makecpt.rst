@@ -3,4 +3,4 @@
 makecpt
 =======
 
-官方文档： :ref:`gmt:makecpt`
+- 官方文档： :ref:`gmt:makecpt`

@@ -3,4 +3,4 @@
 fitcircle
 =========
 
-官方文档： :ref:`gmt:fitcircle`
+- 官方文档： :ref:`gmt:fitcircle`

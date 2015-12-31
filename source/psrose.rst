@@ -3,4 +3,4 @@
 psrose
 ======
 
-官方文档： :ref:`gmt:psrose`
+- 官方文档： :ref:`gmt:psrose`

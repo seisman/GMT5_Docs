@@ -3,7 +3,7 @@
 project
 =======
 
-官方文档： :ref:`gmt:project`
+- 官方文档： :ref:`gmt:project`
 
 project可用于:
 

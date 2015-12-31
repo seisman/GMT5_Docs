@@ -3,4 +3,4 @@
 gmtwhich
 ========
 
-官方文档： :ref:`gmt:gmtwhich`
+- 官方文档： :ref:`gmt:gmtwhich`

@@ -1,4 +1,4 @@
-.. index:: !psxy
+.. index:: ! psxy
 
 psxy
 ====

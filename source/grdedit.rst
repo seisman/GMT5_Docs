@@ -3,9 +3,8 @@
 grdedit
 =======
 
-官方文档： :ref:`gmt:grdraster`
-
-修改网格文件的头段或内容
+- 官方文档： :ref:`gmt:grdraster`
+- 简介：修改网格文件的头段或内容
 
 语法
 ----

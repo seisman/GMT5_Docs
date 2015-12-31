@@ -1,4 +1,4 @@
-.. index: ! isogmt
+.. index:: ! isogmt
 
 isogmt
 ======

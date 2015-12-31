@@ -3,4 +3,4 @@
 blockmedian
 ===========
 
-官方文档： :ref:`gmt:blockmedian`
+- 官方文档： :ref:`gmt:blockmedian`

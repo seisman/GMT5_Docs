@@ -4,7 +4,7 @@ gmtdefaults
 ===========
 
 - 官方文档： :ref:`gmt:gmtdefaults`
-- 列出所有GMT参数的当前值
+- 简介：列出所有GMT参数的当前值
 
 语法
 ----

@@ -3,4 +3,4 @@
 blockmode
 =========
 
-官方文档： :ref:`gmt:blockmode`
+- 官方文档： :ref:`gmt:blockmode`

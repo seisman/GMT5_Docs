@@ -1,4 +1,4 @@
-.. index: ! pspolar
+.. index:: ! pspolar
 
 pspolar
 =======

@@ -3,4 +3,4 @@
 grdmask
 =======
 
-官方文档： :ref:`gmt:grdmask`
+- 官方文档： :ref:`gmt:grdmask`
