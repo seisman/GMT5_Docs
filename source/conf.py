@@ -42,7 +42,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'GMT5参考手册'
-copyright = '2014-2015, SeisMan'
+copyright = '2014-2016, SeisMan'
 author = 'SeisMan'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -302,7 +302,7 @@ texinfo_documents = [
 epub_title = 'GMT5参考手册'
 epub_author = 'SeisMan'
 epub_publisher = 'SeisMan'
-epub_copyright = '2014-2015, SeisMan'
+epub_copyright = '2014-2016, SeisMan'
 
 # The basename for the epub file. It defaults to the project name.
 #epub_basename = 'GMT5参考手册'
