@@ -47,6 +47,7 @@
 - meca补充包
 
   #. :doc:`psmeca` ：在地图上绘制震源机制解
+  #. :doc:`pspolar` ：在震源球上绘制台站极性
 
 - 待整理
 
@@ -56,7 +57,6 @@
   #. :doc:`pshistogram`
   #. :doc:`psimage`
   #. :doc:`psmask`
-  #. :doc:`pspolar`
   #. :doc:`psrose`
   #. :doc:`pssegy`
   #. :doc:`pssegyz`
