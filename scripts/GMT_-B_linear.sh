@@ -1,6 +1,4 @@
 #!/bin/bash
-#	$Id: GMT_-B_linear.sh 11495 2013-05-16 19:40:41Z pwessel $
-#
 gmt psbasemap -R0/12/0/0.95 -JX3i/0.3i -Ba4f2g1+lFrequency+u" %" -BS -K -P > GMT_-B_linear.ps
 gmt psxy -R -J -O -K -Sv2p+e+a60 -W0.5p -Gblack -Y0.1i -N << EOF >> GMT_-B_linear.ps
 2 0 0 0.5
@@ -15,3 +13,4 @@ gmt pstext -R -J -O -Gwhite -C0.01i/0.01i -F+f9p+jCB << EOF >> GMT_-B_linear.ps
 7 0.2 frame
 9.5 0.2 grid
 EOF
+rm gmt.*

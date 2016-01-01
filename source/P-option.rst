@@ -14,7 +14,7 @@
 
 Linux下默认的PS阅读器evince可以自动识别两种模式，Landscape模式的PS文件横着放，Portrait模式的文件竖着放，所以看上去总是对的。而 ``gs`` 无法自动识别两种模式，总是将文件竖着放，因而用gs看Landscape模式的PS文件时就会很别扭。
 
-以下是进阶内容。
+以下是进阶内容：
 
 将一个Landscape模式的PS文件与一个Portait模式的PS文件对比可以发现，Landscape模式的PS文件中多了如下代码::
 

@@ -1,0 +1,46 @@
+.. _ex046:
+
+(46) A Vertical slice
+------------------------
+
+This is an example of how to graph a function p=f(x, y, z)
+and include in the graph a slice of it using GMT 5.
+
+In this case, my function is f(latitude, longitude, height) and to make
+the example self-contained I make the grid and the slice in the script.
+
+To keep the example easy to me, I did the slice in a N-S direction at a
+fixed longitude, so the slice is f(latitude, height). Nothing will prevent
+you from making the slices in other orientations. If you instead of a more
+or less straight line, you have an arbitrary path, you must be careful that
+the track does not have "folds" and if it has them you must break it into parts.
+
+Due to my slice is f(lat, height) I must dump it, add the column for the fixed
+longitude, and project the coordinates using mappproject and then re-grid it.
+
+The biggest problem that I found, and it took longer to me was how to locate
+the slice. In a 2D map it is easy to do, transforming (lat, lon) to (x, y) with
+mapproject, and then using J[xX] but in this case it was trial and error for me.
+Maybe someone has the recipe to do it analytically.
+
+The grid in the horizontal plane is to make sure the slice is located exactly where it should be.
+
+I also had to re-draw the box, because the slice partially covered it.
+
+I tried to make the script as clear as possible with comments, but
+yet they can be tricky.
+
+Regards, Eduardo.-
+
+--
+Eduardo A. Suarez
+Facultad de Ciencias Astronomicas y Geofisicas - UNLP
+
+.. literalinclude:: ./ex046.sh
+   :language: bash
+
+.. figure:: ./ex046.*
+   :width: 500 px
+   :align: center
+
+   A vertical slice ...

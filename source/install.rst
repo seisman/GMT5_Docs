@@ -1,15 +1,20 @@
-安装
-====
+安装GMT5
+========
 
-在Linux下安装GMT5
------------------
+Linux
+-----
 
-建议从源码安装GMT5，参考 http://seisman.info/install-gmt5.2.x-under-linux.html
+http://seisman.info/install-gmt5.2.x-under-linux.html
 
-在Windows下安装GMT5
--------------------
+Windows
+-------
 
-参考 http://seisman.info/install-gmt5-under-windows.html
+http://seisman.info/install-gmt5-under-windows.html
+
+Mac OS
+------
+
+http://gmt.soest.hawaii.edu/projects/gmt/wiki/Installing#MacOSX
 
 GMT4和GMT5共存
 --------------

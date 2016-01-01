@@ -1,7 +1,7 @@
 目录树
 ======
 
-``$GMTHOME`` 表示GMT的安装路径，在Linux下一般是 ``/usr/local/GMT5`` 或 ``/opt/GMT5`` ，在Windows下一般是 ``C:\programs\gmt5`` 。
+本文用 ``$GMTHOME`` 表示GMT的安装路径，在Linux下一般是 ``/usr/local/GMT5`` 或 ``/opt/GMT5`` ，在Windows下一般是 ``C:\programs\gmt5`` 。
 
 ``$GMTHOME`` 中包含了GMT的全部文件。下面列出了 ``$GMTHOME`` 的目录树，并对其中重要的文件及目录做简单解释。GMT在Linux和Windows下的目录树稍有不同，这里以Linux为准::
 
@@ -38,14 +38,14 @@
     include
     `-- gmt
 
-仅当自己写程序调用GMT函数库时需要使用这些头文件，因而一般用户不需要关注。
+仅当自己写程序调用GMT函数库时才需要使用这些头文件，因而一般用户不需要关注。
 
 ``lib`` 目录
 ------------
 
-32位系统下目录名为 ``lib`` ，64位系统下目录名一般为 ``lib64`` ，统称为 ``lib`` 目录。 ``lib`` 目录下包含了GMT的库文件::
+32位系统下目录名为 ``lib`` ，64位系统下目录名为 ``lib64`` 或 ``lib`` ，以下统称为 ``lib`` 目录。 ``lib`` 目录下包含了GMT的动态库文件::
 
-    lib64
+    lib
     |-- gmt
     |   `-- plugins
     |       `-- supplements.so          # GMT扩展函数库
@@ -69,11 +69,12 @@ share目录中包含了GMT运行所需的众多辅助文件::
     |   |-- gmt_cpt.conf                # 全局CPT文件列表
     |   |-- gmt_custom_media.conf       # 自定义纸张尺寸
     |   |-- gmt_custom_symbols.conf     # 自定义特殊符号
-    |   |-- gmtlogo_letters.txt      # gmtlogo使用的数据文件
-    |   `-- gmtlogo_title.txt
+    |   |-- gmtlogo_letters.txt         # gmtlogo使用的数据文件
+    |   `-- gmtlogo_title.txt           # gmtlogo使用的数据文件
     |-- cpt                         # 含全局CPT文件
-    |-- custom                      # 自定义特殊符号的定义文件
+    |-- custom                      # 自定义特殊符号的def文件
     |-- dbase                       # 含grdraster命令所使用的数据库（默认无数据）
+    |   `-- grdraster.info              # grdraster命令的配置文件
     |-- dcw                         # 含国界、省界数据
     |-- doc                         # 官方文档
     |   |-- examples                    # 官方示例
@@ -82,12 +83,12 @@ share目录中包含了GMT运行所需的众多辅助文件::
     |   |-- supplements                 # 补充包的说明文档
     |   `-- tutorial                    # GMT教程中所使用的数据
     |-- localization                # 不同语言的时间定义
-    |-- man                         # Man格式文档
+    |-- man                         # man格式文档
     |-- postscriptlight             # PS所需要的文件
-    |   |-- PSL_custom_fonts.txt    # 自定义字体
-    |   `-- PSL_standard_fonts.txt  # PS自带字体的定义
+    |   |-- PSL_custom_fonts.txt    # 用户自定义的PS字体
+    |   `-- PSL_standard_fonts.txt  # PS自带的35个字体
     |-- spotter                     # 板块运动相关数据
-    |-- tools                       # 其他工具
-    |-- mgd77                       # ?
-    |-- mgg                         # ?
-    `-- x2sys                       # ?
+    |-- tools                       # GMT辅助工具
+    |-- mgd77                       # mgd77辅助文件
+    |-- mgg                         # mgg辅助文件
+    `-- x2sys                       # x2sys辅助文件

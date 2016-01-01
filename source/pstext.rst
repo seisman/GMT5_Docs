@@ -47,7 +47,7 @@ pstext
 
 - ``+f<font>`` 设置文本的字体， ``<font>`` 的格式为 ``size,fontname,color`` ，见 :doc:`text`
 - ``+a<angle>`` 文本相对于水平方向逆时针旋转的角度
-- ``+j<justify>`` 文本对齐方式，见 :doc:`justification`
+- ``+j<justify>`` 文本对齐方式，见 :doc:`anchors`
 
 下面的命令中，统一设置了所有文本的字号为30p，4号字体，红色，文本旋转45度，且以左上角对齐::
 

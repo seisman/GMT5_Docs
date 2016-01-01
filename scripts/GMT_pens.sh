@@ -11,9 +11,9 @@ EOF
 
 gmt psxy -R$R -J$J -P -K -T > $PS
 
-for pen in -W0.5p -Wgreen -Wthin,red,- -Wfat,. -W0.1c,120-1-1 -Wfaint,0/0/255,..- -W4p,red,9_4_2_4:2p
+for pen in 0.5p green thin,red,- fat,. 0.1c,120-1-1 faint,0/0/255,..- 4p,red,9_4_2_4:2p
 do
-    gmt psxy $line -R -J -K -O -Y0.5c $pen >> $PS
+    gmt psxy $line -R -J -K -O -Y0.8c -W$pen >> $PS
     echo 10.5 0 $pen | gmt pstext -R -J -F+jML+f12p,8 -K -O >> $PS
 done
 gmt psxy -R -J -O -T >> $PS

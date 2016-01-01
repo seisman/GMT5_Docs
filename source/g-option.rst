@@ -1,52 +1,26 @@
 ``-g`` 选项
 ===========
 
-GMT has several mechanisms that can determine line
-segmentation. Typically, data segments are separated by multiple segment
-header records. However, if key data columns contain a
-NaN we may also use that information to break lines into multiple
-segments. This behavior is modified by the parameter
-**IO_NAN_RECORDS** which by default is set to *skip*, meaning such
-records are considered bad and simply skipped. If you wish such records
-to indicate a segment boundary then set this parameter to *pass*.
-Finally, you may wish to indicate gaps based on the data values
-themselves. The **-g** option is used to detect gaps based on one or
-more criteria (use **-g+** if *all* the criteria must be met; otherwise
-only one of the specified criteria needs to be met to signify a data
-gap). Gaps can be based on excessive jumps in the *x*- or
-*y*-coordinates (**-gx** or **-gy**), or on the distance between points
-(**-gd**). Append the *gap* distance and optionally a unit for actual
-distances. For geographic data the optional unit may be arc
-**d**\ egree, **m**\ inute, and **s**\ econd, or m\ **e**\ ter
-[Default], **f**\ eet, **k**\ ilometer, **M**\ iles, or **n**\ autical
-miles. For programs that map data to map coordinates you can optionally
-specify these criteria to apply to the projected coordinates (by using
-upper-case **-gX**, **-gY** or **-gD**). In that case, choose from
-**c**\ entimeter, **i**\ nch or **p**\ oint [Default unit is controlled
-by **PROJ_LENGTH_UNIT**]. Note: For **-gx** or **-gy** with time data
-the unit is instead controlled by :ref:`TIME_UNIT <TIME_UNIT>`.
+在处理多段数据时，GMT提供了三种机制来决定文件中数据的分段情况：
 
+#. 在 :doc:`table-data` 中已经介绍了，使用数据段头记录来标记一段数据的开头
+#. 若输入数据中，某个记录的某个关键列的值为NaN，则也可以用于将该记录作为数据段的开始标识
+   - 当 :ref:`IO_NAN_RECORDS` 为 ``skip`` 时，这些包含NaN值的记录会被自动跳过
+   - 当 :ref:`IO_NAN_RECORDS` 为 ``pass`` 时，这些包含NaN值的记录会被当做数据段的开始标识
+#. 也可以使用 ``-g`` 选项，通过判断两个相邻的数据点是否符合某个准则来决定数据分段
 
-Examine the spacing between consecutive data points in order to
-impose breaks in the line. Append **x**\ \|\ **X** or
-**y**\ \|\ **Y** to define a gap when there is a large enough change
-in the x or y coordinates, respectively, or **d**\ \|\ **D** for
-distance gaps; use upper case to calculate gaps from projected
-coordinates. For gap-testing on other columns use [*col*\ ]\ **z**;
-if *col* is not prepended the it defaults to 2 (i.e., 3rd column).
-Append [+\|-]\ *gap* and optionally a unit **u**. Regarding optional
-signs: -ve means previous minus current column value must exceed
-*gap* to be a gap, +ve means current minus previous column value
-must exceed *gap*, and no sign means the absolute value of the
-difference must exceed *gap*. For geographic data
-(**x**\ \|\ **y**\ \|\ **d**), the unit **u** may be arc
-**d**\ egree, **m**\ inute, or **s**\ econd, or m\ **e**\ ter
-[Default], **f**\ oot, **k**\ ilometer, **M**\ ile, **n**\ autical
-mile, or s\ **u**\ rvey foot. For projected data
-(**X**\ \|\ **Y**\ \|\ **D**), choose from **i**\ nch,
-**c**\ entimeter, or **p**\ oint [Default unit set by
-:ref:`PROJ_LENGTH_UNIT <PROJ_LENGTH_UNIT>`]. Note: For **x**\ \|\ **y**\ \|\ **z** with
-time data the unit is instead controlled by :ref:`TIME_UNIT <TIME_UNIT>`. Repeat
-the option to specify multiple criteria, of which any can be met to
-produce a line break. Issue an additional **-ga** to indicate that
-all criteria must be met instead.
+``-g`` 选项的完整语法为::
+
+    -g[a]x|y|d|X|Y|D|[<col>]z[+|-]<gap>[u]
+
+- ``x`` 两点的X坐标跳变超过 ``<gap>``
+- ``y`` 两点的Y坐标跳变超过 ``<gap>``
+- ``d`` 两点的距离超过 ``<gap>``
+- ``<u>`` 是单位
+- ``X|Y|D`` 用于表示数据投影到纸上后X坐标、Y坐标和纸上距离的跳变
+- 若想要检查特定列是否满足分段准则，可以用 ``[<col>]z`` ， ``<col>`` 的默认值为 ``2`` ，即第三列
+- ``+<gap>`` 表示前一数据减去当前数据超过 ``<gap>`` 则分段
+- ``-<gap>`` 表示当前数据减去前一数据超过 ``<gap>`` 则分段
+- ``<gap>`` 表示两个数据的绝对值超过 ``<gap>`` 则分段
+
+该选项可重复多次，以指定多个分段准则，默认情况下，若符合任意一个准则则分段，可以使用 ``-ga`` 选项，表明仅当所有准则都满足时才分段。

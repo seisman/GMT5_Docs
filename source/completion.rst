@@ -1,9 +1,20 @@
 命令行补全
 ==========
 
-GMT为bash提供了基本的命令行补全功能，在终端敲GMT命令时，可以使用 ``Tab`` 键补全部分选项。不过补全功能很弱，不用也罢。
+GMT为bash提供了基本的命令行补全功能。在终端敲GMT命令时，可以使用 ``Tab`` 键补全部分选项。不过补全功能很弱，不用也罢。
 
-#. 从软件源中安装 ``bash-completion``
+使用步骤如下：
+
+#. 安装 `bash-completion <http://bash-completion.alioth.debian.org/>`_
+
+   Ubuntu/Debian下::
+
+       sudo apt-get install bash-completion
+
+   CentOS/Fedora下::
+
+       sudo yum install bash-completion
+
 #. 在 ``~/.bashrc`` 中加入如下语句
 
    .. code-block:: bash

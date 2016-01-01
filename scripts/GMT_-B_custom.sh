@@ -1,6 +1,4 @@
 #!/bin/bash
-#	$Id: GMT_-B_custom.sh 11495 2013-05-16 19:40:41Z pwessel $
-#
 cat << EOF >| xannots.txt
 416.0	ig	Devonian
 443.7	ig	Silurian

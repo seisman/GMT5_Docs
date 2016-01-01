@@ -1,20 +1,15 @@
 基础知识
 ########
 
+这一章介绍GMT中所有程序通用的基础知识，这些知识点在GMT中会经常使用，因而需要全面掌握。
+
 .. toctree::
 
    units
-   calculate-distance
    paper
    colors
    pen
    fill
    text
-   justification
-   special-fonts
-   special-characters
-   character-escape
-   data-format
-   input-output
-   syntax
-   history
+   io
+   format

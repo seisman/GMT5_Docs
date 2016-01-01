@@ -2,6 +2,8 @@
 J=X2.5i/1.25i
 R=0/3/0/3
 PS=GMT_registration.ps
+
+# Gridline registration
 gmt psxy -R$R -J$J -B1g1 -Bwesn -P -K -Wthinner -L -Glightred << EOF > $PS
 0.5	1.5
 1.5	1.5

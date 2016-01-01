@@ -84,7 +84,7 @@ IO_SEGMENT_BINARY
 IO_GRIDFILE_SHORTHAND
 ---------------------
 
-见 :ref:`自定义文件后缀 <custom_grid_io>` 一节。若设置为 ``true`` ，则会检测每个网格文件的后缀是否在用户自定义文件后缀中；若为 ``false`` ，则不检测用户自定义文件后缀。
+见 :doc:`grid-suffix` 一节。若设置为 ``true`` ，则会检测每个网格文件的后缀是否在用户自定义文件后缀中；若为 ``false`` ，则不检测用户自定义文件后缀。
 
 .. _IO_GRIDFILE_FORMAT:
 
@@ -95,4 +95,4 @@ GMT默认使用的网格文件格式，该参数的值的格式为::
 
     <ff>/<scale>/<offset>/<invalid>
 
-``<ff>`` 是两个字符的文件格式代码，见 :doc:`grid-format` 一节的介绍。
+``<ff>`` 是两个字符的文件格式代码，见 :ref:`grid-format` 一节的介绍。

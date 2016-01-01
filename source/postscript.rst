@@ -44,7 +44,7 @@ PostScript是一种用于描述\ **矢量图形**\ 的页面描述语言。简�
 PS的优点
 --------
 
-GMT所有的绘图模块都只能生成PS代码，需要将这些PS代码保存到PS文件中，才能完成绘图。
+GMT所有的绘图模块都只能生成PS代码，将这些PS代码保存到PS文件中即可完成绘图。
 
 不管当初GMT是以什么理由选择PS作为图像格式的，就今天来看，PS文件具有如下优势：
 
@@ -54,23 +54,15 @@ GMT所有的绘图模块都只能生成PS代码，需要将这些PS代码保存�
 
 2. 易于转换为其他格式
 
-   GMT提供了 :doc:`psconvert` 模块，可以很方便地将PS文件转换为jpeg、png、eps、pdf等图片格式，以满足不同情形下的需求。
-
+   GMT提供了 :doc:`psconvert` 模块，可以很方便地将PS文件以任意精度转换为jpeg、png、eps、pdf等图片格式，以满足不同情形下的需求。
 
 PS解释器
 --------
 
 PS解释器，或称PS阅读器，是用于查看PS文件的软件。
 
-- Linux：
-
-  - ``ghostscript``
-  - ``gsview``
-  - ``zathura``
-  - ``evince``
-
-- Windows：
-
-  - ``ghostscript``
-  - ``gsview``
-  - ``SumatraPDF``
+- `ghostscript <http://ghostscript.com/>`_
+- `gsview <http://www.gsview.com/>`_
+- `evince <https://wiki.gnome.org/Apps/Evince>`_
+- `zathura <https://pwmt.org/projects/zathura/>`_ (Linux only)
+- `SumatraPDF <http://www.sumatrapdfreader.org/free-pdf-reader.html>`_ (Windows only)

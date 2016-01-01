@@ -1,0 +1,21 @@
+.. _ex034:
+
+(34) 用国界线约束绘图
+---------------------
+
+The script produces the plot in Figure. Here
+we demonstrate how :doc:`pscoast </pscoast>` can be used to extract
+and plot country polygons.  We show two panels; one in which we do
+a basic basemap and another where we lay down a color topography
+image and then place a transparent layer identifying the future
+Franco-Italian Union whose untimely breakup in 2045 the historians
+will continue to debate for some time.
+
+.. literalinclude:: ./ex034.sh
+   :language: bash
+
+.. figure:: ./ex034.*
+   :width: 500 px
+   :align: center
+
+   Using country polygons for plotting and shading.

@@ -1,6 +1,4 @@
 #!/bin/bash
-#	$Id: GMT_-B_geo_2.sh 11490 2013-05-16 06:26:21Z pwessel $
-#
 gmt gmtset FORMAT_GEO_MAP ddd:mm:ssF FONT_ANNOT_PRIMARY +9p
 gmt psbasemap -R-2/1/0/0.35 -JM4i -Bpa15mf5mg5m -BwSe -Bs1f30mg15m -K -P --MAP_FRAME_TYPE=fancy+ \
 	--MAP_GRID_PEN_PRIMARY=thinnest,black,. --MAP_GRID_CROSS_SIZE_SECONDARY=0.1i \
@@ -27,3 +25,4 @@ gmt pstext -R -J -O -N -F+f+j << EOF >> GMT_-B_geo_2.ps
 -0.25 0.05 9p CB frame
 0.625 0.05 9p CB grid
 EOF
+rm gmt.*

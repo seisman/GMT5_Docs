@@ -1,0 +1,17 @@
+.. _ex045:
+
+(45) 趋势拟合
+-------------
+
+In this example show how the module :doc:`trend1d </trend1d>`
+is used to fit the CO2 data set collected from the top of
+Mauna Loa.  This yields the famous Keeling curve.
+
+.. literalinclude:: ./ex045.sh
+   :language: bash
+
+.. figure:: ./ex045.*
+   :width: 500 px
+   :align: center
+
+   Trend Modeling.

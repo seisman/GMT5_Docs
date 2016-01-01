@@ -1,0 +1,18 @@
+.. _ex038:
+
+(38) 直方均衡
+-------------
+
+This example shows how to use histogram equalization to enhance various
+ranges of a grid depending on its frequency distribution. The key tool
+used here is :doc:`grdhisteq </grdhisteq>`.
+
+.. literalinclude:: ./ex038.sh
+   :language: bash
+
+.. figure:: ./ex038.*
+   :width: 500 px
+   :align: center
+
+   Histogram equalization of bathymetry grids.
+

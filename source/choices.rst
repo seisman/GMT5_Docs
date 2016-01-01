@@ -4,12 +4,12 @@
 GMT4 vs GMT5
 ------------
 
-GMT目前在同时维护GMT4和GMT5的更新。对于用户而言，是选择GMT4还是GMT5呢？
+GMT目前在同时维护GMT4和GMT5两个大版本。用户是选择GMT4还是GMT5呢？
 
 GMT4的优缺点：
 
 - 已发布十年有余，功能相对成熟
-- 仅修复Bug，不再增加新功能，代码相对稳定
+- 仅修复Bug，不再增加新功能，命令语法相对稳定
 - 网络上的中文教程及示例多采用GMT4语法，新手学习起来更方便
 
 GMT5的优缺点：
@@ -26,16 +26,15 @@ GMT5的优缺点：
 - 实验室可能有前人留下的GMT4的代码，若历史负担太重，建议使用GMT4
 - 若自己的大型项目中使用了GMT绘图，建议使用GMT4，因为GMT4相对稳定，不至于因为GMT小版本的不兼容而影响到自己的项目
 
-PS：GMT4和GMT5可以共存，因而完全可以旧代码不用管，继续使用GMT4，而新代码则使用GMT5。
+PS：GMT4和GMT5可在系统中共存，因而完全可以同时安装两个版本，旧脚本不必修改，继续使用GMT4，新脚本则使用GMT5语法。
 
 Linux vs Windows
 ----------------
 
-GMT是跨平台的，可以运行在Linux及Windows下。当然也可以运行在Mac下，这里姑且认为Mac跟Linux是同一个东西。
+GMT是跨平台的，可以运行在Linux及Windows下，当然也可以运行在Mac下，这里姑且认为Mac跟Linux是同一个东西。
 
 推荐在Linux下使用GMT，原因如下：
 
-- GMT是在Linux下开发并移植到Windows下的。因而，Windows版本的GMT相对来说有更多的bug
-- Linux下有众多辅助工具： ``gawk`` 、 ``cut`` 、 ``paste``
-- Windows下的命令行太难用，测试GMT命令时太难用
-- Windows的bat脚本功能单一
+- GMT是在Linux下开发再移植到Windows下的。因而，Windows版本的GMT相对来说有更多的bug
+- Linux自带了众多数据处理工具： ``gawk`` 、 ``cut`` 、 ``paste`` 等
+- Windows下的命令行及bat太难用，Linux下的命令行和Bash脚本相对来说更易用

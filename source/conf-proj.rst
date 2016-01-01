@@ -98,14 +98,33 @@ GMT还允许用户自定义椭球，用户只需按照固定的格式对椭球�
 PROJ_AUX_LATITUDE
 -----------------
 
-仅当测地线被近似为等效球体的大圆路径时使用。可选值包括\ ``authalic``\ ，\ ``geocentric``\  ，\ ``conformal``\ ，\ ``meridional``\ 、\ ``parametric``\ 和\ ``none``\ 。默认值为\ ``authalic``\ 。当其值不为\ ``none``\ 时，GMT会在计算距离之前，将大圆距离计算过程中使用的的任意一个纬度作为辅助纬度。
+在使用大圆弧距离计算方式时，需要将真实地球近似为一个半径为 :ref:`PROJ_MEAN_RADIUS` 的球体，在做球体近似时需要选择合适的辅助纬线。
+
+可选值包括
+
+- ``authalic``
+- ``geocentric``
+- ``conformal``
+- ``meridional``
+- ``parametric``
+- ``none``
+
+默认值为 ``authalic`` 。当设置为除 ``none`` 外的其他值时，GMT会在计算距离前，将大圆弧距离计算时使用的两点中任意一点的纬度转换成辅助纬度。
 
 .. _PROJ_MEAN_RADIUS:
 
 PROJ_MEAN_RADIUS
------------------
+----------------
 
-仅当测地线被近似为等效球体的大圆路径时或扣死啊没区域面积时使用。可选值包括\ ``mean(R_1)``\、\ ``authalic(R_2)``\ 、\ ``volumetric(R_3)``\ 、\ ``meridional``\ 或\ ``quadratic``\ 。默认值为\ ``authalic``\ 。
+地球/行星的平均半径。在计算两点间的大圆弧距离或区域的表面积时才会被使用。可选值包括
+
+- ``mean (R_1)``
+- ``authalic (R_2)``
+- ``volumetric(R_3)``
+- ``meridional``
+- ``quadratic``
+
+默认值为 ``authalic`` 。
 
 
 .. _PROJ_LENGTH_UNIT:

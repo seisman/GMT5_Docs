@@ -51,28 +51,7 @@ GMT系统自带的 ``gmt.conf`` 文件中对每个参数都给了一个合理的
 
    比如，针对某个GMT命令，为了临时设置浮点数的输出格式包含更多的小数位，而不影响其他命令的浮点数输出格式，可以在该命令中加上 ``--FORMAT_FLOAT_OUT=%.16lg`` 。
 
-#. GMT提供了“隔离”模式，使得仅在单个脚本执行的过程中修改配置，当脚本执行完毕后自动恢复到原始配置。
-
-   隔离模式的示例如下::
-
-       ps=GMT_isolation.ps
-
-       # 创建临时文件夹
-       export GMT_TMPDIR=`mktemp -d /tmp/gmt.XXXXXX`
-
-       # 生成的 gmt.conf 位于 $GMT_TMPDIR 目录下
-       gmt gmtset COLOR_MODEL rgb FONT_ANNOT_PRIMARY 14p
-
-       # 生成临时文件到 $GMT_TMPDIR 目录
-       gmt grdmath -Rd -I1 Y = $GMT_TMPDIR/lat.nc
-       gmt makecpt -Crainbow -T-90/90/180 -Z > $GMT_TMPDIR/lat.cpt
-
-       # 生成的 gmt.history 文件位于 $GMT_TMPDIR 目录下
-       gmt grdimage $GMT_TMPDIR/lat.nc -JK6.5i -C$GMT_TMPDIR/lat.cpt -P -K -nl > $ps
-       gmt pscoast -R -J -O -Dc -A5000 -Gwhite -Bx60g30 -By30g30 >> $ps
-
-       # 清理临时目录
-       rm -rf $GMT_TMPDIR
+#. GMT提供了“隔离”模式，使得仅在单个脚本执行的过程中修改配置，当脚本执行完毕后自动恢复到原始配置，见附录 :doc:`isolation` 一节。
 
 一般情况下，仅推荐使用方法三和方法四。
 
