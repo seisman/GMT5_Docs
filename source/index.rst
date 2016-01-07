@@ -7,7 +7,7 @@
 
 - 项目源码：https://github.com/seisman/GMT5_Docs
 - 项目主页：http://gmt5.seisman.info/
-- PDF版本：http://readthedocs.org/projects/gmt5-docs/downloads/pdf/latest/
+- PDF版本： `GMT5.2.1-dev <http://home.ustc.edu.cn/~dongzhi/GMT5_Docs.pdf>`_
 - 我的博客：http://seisman.info
 
 对本文档的若干说明：
