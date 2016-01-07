@@ -227,6 +227,7 @@ else:
         'preamble' : r'''
             \usepackage{ctex}
             \parindent 2em
+            \setcounter{tocdepth}{3}
         ''',
     }
 
