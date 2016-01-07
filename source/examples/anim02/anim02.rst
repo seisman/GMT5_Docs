@@ -19,9 +19,18 @@ put together, especially since our vantage point is fixed. In the next
 example we will move the "camera" around and must therefore deal with
 how to frame perspective views.
 
-.. figure:: ./anim02.*
-   :width: 400 px
-   :align: center
+.. only:: html
 
-   Animation of a DEM using variable illumination.
+   .. figure:: ./anim02.gif
+      :width: 400 px
+      :align: center
 
+      Animation of a DEM using variable illumination.
+
+.. only:: latex
+
+   .. figure:: ./anim02.png
+      :width: 400 px
+      :align: center
+
+      Animation of a DEM using variable illumination.

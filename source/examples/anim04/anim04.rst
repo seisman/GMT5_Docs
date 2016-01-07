@@ -20,6 +20,14 @@ expect to add this functionality in a future version.
 .. literalinclude:: ./anim04.sh
    :language: bash
 
-.. figure:: ./anim04.gif
-   :width: 400px
-   :align: center
+.. only:: html
+
+   .. figure:: ./anim04.gif
+      :width: 400px
+      :align: center
+
+.. only:: latex
+
+   .. figure:: ./anim04.png
+      :width: 400px
+      :align: center

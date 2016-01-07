@@ -23,8 +23,18 @@ use for the map projection, the region, the spacing around the frame,
 etc. so that the final result gave a reasonable layout. Do this planning
 on a single PostScript plot before running a lengthy animation script.
 
-.. figure:: ./anim01.*
-   :width: 400 px
-   :align: center
+.. only:: html
 
-   Animation of a simple sine function.
+   .. figure:: ./anim01.gif
+      :width: 400 px
+      :align: center
+
+      Animation of a simple sine function.
+
+.. only:: latex
+
+   .. figure:: ./anim01.png
+      :width: 400 px
+      :align: center
+
+      Animation of a simple sine function.
