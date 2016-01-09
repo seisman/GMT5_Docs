@@ -1,6 +1,11 @@
 附录
 ####
 
+.. raw:: latex
+
+   \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+   \setcounter{secnumdepth}{2}
+
 .. toctree::
    :maxdepth: 2
 

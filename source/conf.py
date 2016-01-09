@@ -227,7 +227,8 @@ else:
         'preamble' : r'''
             \usepackage{ctex}
             \parindent 2em
-            \setcounter{tocdepth}{3}
+            \setcounter{tocdepth}{3}     % 目录深度
+            \setcounter{secnumdepth}{3}  % 编号深度
         ''',
     }
 
