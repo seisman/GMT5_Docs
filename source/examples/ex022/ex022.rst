@@ -1,7 +1,7 @@
 .. _ex022:
 
-(22) 地震活动性
----------------
+地震活动性
+----------
 
 The next example uses the command-line tool **wget** to obtain a data
 file from a specified URL [1]_. In the example script this line is

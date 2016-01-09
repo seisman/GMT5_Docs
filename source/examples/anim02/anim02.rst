@@ -1,7 +1,7 @@
 .. _anim02:
 
-(2) DEM光照变化图
------------------
+DEM光照变化图
+-------------
 
 Our next animation uses a gridded topography for parts of Colorado (US);
 the file is distributed with the tutorial examples. Here, we want to use

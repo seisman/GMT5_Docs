@@ -1,7 +1,7 @@
 .. _ex027:
 
-(27) 非地理网格
----------------
+非地理网格
+----------
 
 Next, we show how to plot a data grid that is distributed in projected
 form. The gravity and predicted bathymetry grids produced by David

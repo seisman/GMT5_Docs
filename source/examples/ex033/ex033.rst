@@ -1,7 +1,7 @@
 .. _ex033:
 
-(33) 剖面叠加
--------------
+剖面叠加
+--------
 
 The script produces the plot in Figure. Here
 we demonstrate how :doc:`grdtrack </grdtrack>` can be

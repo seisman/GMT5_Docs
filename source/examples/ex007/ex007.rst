@@ -1,7 +1,7 @@
 .. _ex007:
 
-(7) location map
------------------
+location map
+------------
 
 Many scientific papers start out by showing a location map of the region
 of interest. This map will typically also contain certain features and

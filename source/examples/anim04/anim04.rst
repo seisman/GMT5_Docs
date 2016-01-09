@@ -1,7 +1,7 @@
 .. _anim04:
 
-(4) Flying over topography
---------------------------
+Flying over topography
+-----------------------
 
 Our next animation simulates what an imaginary satellite might see as it
 passes in a great circle from New York to Miami at an altitude of 160

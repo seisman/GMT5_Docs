@@ -1,7 +1,7 @@
 .. _ex044:
 
-(44) 图中图
------------
+图中图
+------
 
 In this example show how the two modules :doc:`psbasemap </psbasemap>`
 and :doc:`mapproject </mapproject>` can be used

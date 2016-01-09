@@ -1,7 +1,7 @@
 .. _ex041:
 
-(41) 图例
----------
+图例
+----
 
 In this example we demonstrate how one can use the tool :doc:`pslegend </pslegend>`
 to typeset a table within a legend.  It also shows how one would set up

@@ -1,7 +1,7 @@
 .. _ex029:
 
-(29) greenspline
-----------------
+greenspline
+-----------
 
 Finally, we demonstrate how gridding on a spherical surface can be
 accomplished using Green's functions of surface splines, with or without

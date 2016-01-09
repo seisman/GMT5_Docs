@@ -1,7 +1,7 @@
 .. _ex015:
 
-(15) 数据网格化
----------------
+数据网格化
+----------
 
 This example demonstrates some off the
 different ways one can use to grid data in GMT, and how to deal with

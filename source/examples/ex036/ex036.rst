@@ -1,7 +1,7 @@
 .. _ex036:
 
-(36) 球面网格化
----------------
+球面网格化
+----------
 
 The next script produces the plot in Figure. Here
 we demonstrate how :doc:`sphinterpolate </sphinterpolate>` can be used

@@ -1,7 +1,7 @@
 .. _ex020:
 
-(20) 自定义符号
----------------
+自定义符号
+----------
 
 One is often required to make special maps that shows the distribution
 of certain features but one would prefer to use a custom symbol instead

@@ -1,7 +1,7 @@
 .. _ex023:
 
-(23) 大圆路径
--------------
+大圆路径
+--------
 
 While motorists recently have started to question the old saying "all
 roads lead to Rome", aircraft pilots have known from the start that only

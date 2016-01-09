@@ -1,7 +1,7 @@
 .. _ex001:
 
-(1) 等值线图
-------------
+等值线图
+--------
 
 We want to create two contour maps of the low order geoid using the
 Hammer equal area projection. Our gridded data file is called ``osu91a1f_16.nc`` and

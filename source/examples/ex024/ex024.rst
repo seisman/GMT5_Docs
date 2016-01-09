@@ -1,7 +1,7 @@
 .. _ex024:
 
-(24) 数据筛选
--------------
+数据筛选
+--------
 
 Although we are not seismologists, we have yet another example involving
 seismicity. We use seismicity data for the Australia/New Zealand region

@@ -1,7 +1,7 @@
 .. _ex009:
 
-(9) 波形图
-----------
+波形图
+------
 
 A common application in many scientific disciplines involves plotting
 one or several time-series as as "wiggles" along tracks. Marine

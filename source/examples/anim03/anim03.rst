@@ -1,7 +1,7 @@
 .. _anim03:
 
-(3) Orbiting a static map
--------------------------
+Orbiting a static map
+----------------------
 
 Our third animation keeps a fixed gridded data set but moves the camera
 angle around the full 360. We use

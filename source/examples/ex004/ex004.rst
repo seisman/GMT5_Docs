@@ -1,7 +1,7 @@
 .. _ex004:
 
-(4) 3D视角网格图
-----------------
+3D视角网格图
+------------
 
 This example will illustrate how to make a fairly complicated composite
 figure. We need a subset of the ETOPO5 bathymetry [1]_ and Geosat geoid

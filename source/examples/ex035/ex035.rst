@@ -1,7 +1,7 @@
 .. _ex035:
 
-(35) 球面三角剖分
------------------
+球面三角剖分
+------------
 
 The script produces the plot in Figure. Here
 we demonstrate how :doc:`sphtriangulate </sphtriangulate>` and

@@ -1,7 +1,7 @@
 .. _ex021:
 
-(21) 时间序列图
----------------
+时间序列图
+----------
 
 As discussed in Section [sec:timeaxis], the annotation of time-series is
 generally more complicated due to the extra degrees of freedom afforded

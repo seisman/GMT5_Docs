@@ -1,7 +1,7 @@
 .. _anim01:
 
-(1) Animation of the sine function
-----------------------------------
+Animation of the sine function
+-------------------------------
 
 Our first animation is not very ambitious: We wish to plot the sine
 function from 0-360 and take snap shots every 20. To get a smooth curve

@@ -1,7 +1,7 @@
 .. _ex025:
 
-(25) 全球antipodes分布
-----------------------
+全球antipodes分布
+-----------------
 
 As promised in Section [sec:example\ :sub:`2`\ 3], we will study
 antipodes. The antipode of a point at :math:`(\phi, \lambda)` is the

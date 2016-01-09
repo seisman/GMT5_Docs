@@ -1,7 +1,7 @@
 .. _ex026:
 
-(26) 通用垂直视角投影
----------------------
+通用垂直视角投影
+----------------
 
 Next, we present a recent extension to the **-JG** projection option
 which allows the user to specify a particular altitude (this was always

@@ -1,7 +1,7 @@
 .. _ex043:
 
-(43) 稳健回归和异常检查
------------------------
+稳健回归和异常检查
+------------------
 
 In this example show how :doc:`gmtregress </gmtregress>` can be used to determine a
 robust regression line using *reweighted least squares* and from

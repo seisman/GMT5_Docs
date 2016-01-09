@@ -1,7 +1,7 @@
 .. _ex010:
 
-(10) 地域柱状图
----------------
+地域柱状图
+----------
 
 Our next and perhaps most business-like example presents a
 three-dimensional bar graph plot showing the geographic distribution of

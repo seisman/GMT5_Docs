@@ -1,7 +1,7 @@
 .. _ex039:
 
-(39) 计算球谐系数
------------------
+计算球谐系数
+------------
 
 We use a spherical harmonic model for the topography of Venus and evaluate
 the resulting global grid for three sets of upper order/degrees, here 30,

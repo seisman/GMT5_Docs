@@ -1,7 +1,7 @@
 .. _ex008:
 
-(8) 3D直方图
-------------
+3D直方图
+--------
 
 The program :doc:`psxyz </psxyz>` allows us to plot
 three-dimensional symbols, including columnar plots. As a simple

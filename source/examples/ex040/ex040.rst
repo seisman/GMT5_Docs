@@ -1,7 +1,7 @@
 .. _ex040:
 
-(40) Line simplification
-------------------------
+Line simplification
+-------------------
 
 This example demonstrate the Douglas-Peucker line simplification algorithm as
 implemented in the tool :doc:`gmtsimplify </gmtsimplify>`.  We show the full

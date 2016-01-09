@@ -1,7 +1,7 @@
 .. _ex019:
 
-(19) Color patterns
--------------------
+Color patterns
+---------------
 
 GMT 3.1 introduced color patterns and this examples give a few cases
 of how to use this new feature. We make a phony poster that advertises

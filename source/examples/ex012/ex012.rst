@@ -1,7 +1,7 @@
 .. _ex012:
 
-(12) 三角剖分
--------------
+三角剖分
+--------
 
 Our next example operates on a data
 set of topographic readings non-uniformly distributed in the plane

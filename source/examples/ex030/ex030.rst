@@ -1,7 +1,7 @@
 .. _ex030:
 
-(30) 三角函数
--------------
+三角函数
+--------
 
 Finally, we end with a simple mathematical illustration of sine and
 cosine, highlighting the *graph* mode for linear projections and the new

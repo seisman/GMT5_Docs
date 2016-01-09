@@ -1,7 +1,7 @@
 .. _ex002:
 
-(2) 海洋深度图
---------------
+海洋深度图
+----------
 
 As our second example we will demonstrate how to make color images from
 gridded data sets (again, we will defer the actual making of grid files

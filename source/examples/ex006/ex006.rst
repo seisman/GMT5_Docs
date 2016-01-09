@@ -1,7 +1,7 @@
 .. _ex006:
 
-(6) 统计直方图
---------------
+统计直方图
+----------
 
 GMT provides two tools to render histograms:
 :doc:`pshistogram </pshistogram>` and :doc:`psrose </psrose>`. The former takes care of

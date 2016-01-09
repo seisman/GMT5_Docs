@@ -1,7 +1,7 @@
 .. _ex005:
 
-(5) 3D光照表面
---------------
+3D光照表面
+----------
 
 Instead of a mesh plot we may choose to show 3-D surfaces using
 artificial illumination. For this example we will use

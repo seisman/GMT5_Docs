@@ -1,7 +1,7 @@
 .. _ex031:
 
-(31) 使用非默认字体
--------------------
+使用非默认字体
+--------------
 
 This example illustrates several possibilities to create GMT plots
 with non-default fonts. As these fonts are not part of the standard

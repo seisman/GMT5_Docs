@@ -1,7 +1,7 @@
 .. _ex017:
 
-(17) 区域裁剪
--------------
+区域裁剪
+--------
 
 This example demonstrates how :doc:`pscoast </pscoast>`
 can be used to set up clip paths based on coastlines. This approach is

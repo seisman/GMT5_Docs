@@ -1,7 +1,7 @@
 .. _ex042:
 
-(42) 南极洲
------------
+南极洲
+------
 
 In this example we demonstrate how one can use combine Cartesian data for
 Antarctica (here the BEDMAP data already projected via a stereographic projection)

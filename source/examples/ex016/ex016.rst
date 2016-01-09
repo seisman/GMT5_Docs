@@ -1,7 +1,7 @@
 .. _ex016:
 
-(16) 数据网格化
----------------
+数据网格化
+----------
 
 :doc:`pscontour </pscontour>` (for contouring) and
 :doc:`triangulate </triangulate>` (for gridding) use the

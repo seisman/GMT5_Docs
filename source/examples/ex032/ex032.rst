@@ -1,7 +1,7 @@
 .. _ex032:
 
-(32) 地形上叠加图层
--------------------
+地形上叠加图层
+--------------
 
 In some cases, it is nice to "drape" an arbitrary image over a
 topographic map. We have already seen how to use

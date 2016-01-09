@@ -1,7 +1,7 @@
 .. _ex018:
 
-(18) 计算网格体积
------------------
+计算网格体积
+------------
 
 To demonstrate potential usage of the programs
 :doc:`gmtspatial </gmtspatial>`, :doc:`grdvolume </grdvolume>` and

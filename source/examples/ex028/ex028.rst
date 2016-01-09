@@ -1,7 +1,7 @@
 .. _ex028:
 
-(28) 混合UTM和地理数据
-----------------------
+混合UTM和地理数据
+-----------------
 
 Next, we present a similar case: We wish to plot a data set given in UTM
 coordinates (meter) and want it to be properly registered with overlying

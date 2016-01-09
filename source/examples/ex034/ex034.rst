@@ -1,7 +1,7 @@
 .. _ex034:
 
-(34) 用国界线约束绘图
----------------------
+用国界线约束绘图
+----------------
 
 The script produces the plot in Figure. Here
 we demonstrate how :doc:`pscoast </pscoast>` can be used to extract

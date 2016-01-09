@@ -1,7 +1,7 @@
 .. _ex014:
 
-(14) 数据插值
--------------
+数据插值
+--------
 
 This example shows how one goes from randomly spaced data points to an
 evenly sampled surface. First we plot the distribution and values of our

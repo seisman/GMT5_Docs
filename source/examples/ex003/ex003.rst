@@ -1,7 +1,7 @@
 .. _ex003:
 
-(3) 谱估计与XY图
-----------------
+谱估计与XY图
+------------
 
 In this example we will show how to use the GMT programs
 :doc:`fitcircle </fitcircle>`, :doc:`project </project>`,
