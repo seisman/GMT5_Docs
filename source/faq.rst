@@ -8,7 +8,7 @@ Q1
 
     GMT PS format detected but file is not finalized. Maybe a -K in excess? No output created.
 
-出现这种错误的最常见原因是最后一个绘图命令里多了一个\ ``-K``\ ，即本该只使用\ ``-O``\ 选项关闭PS文件的，但却使用了\ ``-K -O``\ 选项。
+出现这种错误的最常见原因是最后一个绘图命令里多了一个 ``-K`` ，即本该只使用 ``-O`` 选项关闭PS文件的，但却使用了 ``-K -O`` 选项。
 
 Q2
 --
@@ -44,7 +44,7 @@ Q5
 
 在Windows下写了bat脚本，执行bat脚本时黑屏一闪而过，看不到出错信息。
 
-解决办法：在脚本的最后加上\ ``pause``\ 。
+解决办法：在脚本的最后加上 ``pause`` 。
 
 Q6
 --

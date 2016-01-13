@@ -8,14 +8,14 @@
 画布尺寸
 --------
 
-GMT默认的画布尺寸为A4，即 ``210mmx297mm`` 。修改GMT参数 :ref:`PS_MEDIA` 可以控制画布尺寸，GMT提供了几十种预定义的画布尺寸可供选择，还支持自定义尺寸，见 :ref:`PS_MEDIA` 的说明。
+GMT默认的画布尺寸为A4，即 ``210mmx297mm`` 。修改GMT参数 :ref:`PS_MEDIA <PS_MEDIA>` 可以控制画布尺寸，GMT提供了几十种预定义的画布尺寸可供选择，还支持自定义尺寸，见 :ref:`PS_MEDIA <PS_MEDIA>` 的说明。
 
 一般不建议随便修改纸张尺寸，一方面期刊对于图件的尺寸可能有要求，另一方面其他尺寸的纸张的打印效果可能很差。
 
 画布颜色
 --------
 
-默认的画布颜色为白色。可以通过设置 :ref:`PS_PAGE_COLOR` 来修改画布颜色。
+默认的画布颜色为白色。可以通过设置 :ref:`PS_PAGE_COLOR <PS_PAGE_COLOR>` 来修改画布颜色。
 
 画布方向
 --------
@@ -36,7 +36,7 @@ GMT默认的画布尺寸为A4，即 ``210mmx297mm`` 。修改GMT参数 :ref:`PS_
 由于历史原因，GMT中画布的默认放置方式是Landscape模式。修改画布的方向有两种方式：
 
 #. 在第一个\ **绘图**\ 命令中使用 ``-P`` 选项
-#. 修改GMT参数中的 :ref:`PS_PAGE_ORIENTATION`
+#. 修改GMT参数中的 :ref:`PS_PAGE_ORIENTATION <PS_PAGE_ORIENTATION>`
 
 底图原点
 --------
@@ -58,5 +58,5 @@ GMT默认的画布尺寸为A4，即 ``210mmx297mm`` 。修改GMT参数 :ref:`PS_
 
 可以通过两种方式修改底图的原点：
 
-#. 修改GMT参数 :ref:`MAP_ORIGIN_X` 和 :ref:`MAP_ORIGIN_Y`
+#. 修改GMT参数 :ref:`MAP_ORIGIN_X <MAP_ORIGIN_X>` 和 :ref:`MAP_ORIGIN_Y <MAP_ORIGIN_Y>`
 #. 命令中使用 ``-X`` 和 ``-Y`` 选项

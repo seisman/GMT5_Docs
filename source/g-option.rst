@@ -5,8 +5,8 @@
 
 #. 在 :doc:`table-data` 中已经介绍了，使用数据段头记录来标记一段数据的开头
 #. 若输入数据中，某个记录的某个关键列的值为NaN，则也可以用于将该记录作为数据段的开始标识
-   - 当 :ref:`IO_NAN_RECORDS` 为 ``skip`` 时，这些包含NaN值的记录会被自动跳过
-   - 当 :ref:`IO_NAN_RECORDS` 为 ``pass`` 时，这些包含NaN值的记录会被当做数据段的开始标识
+   - 当 :ref:`IO_NAN_RECORDS <IO_NAN_RECORDS>` 为 ``skip`` 时，这些包含NaN值的记录会被自动跳过
+   - 当 :ref:`IO_NAN_RECORDS <IO_NAN_RECORDS>` 为 ``pass`` 时，这些包含NaN值的记录会被当做数据段的开始标识
 #. 也可以使用 ``-g`` 选项，通过判断两个相邻的数据点是否符合某个准则来决定数据分段
 
 ``-g`` 选项的完整语法为::

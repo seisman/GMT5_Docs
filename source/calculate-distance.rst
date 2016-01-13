@@ -13,7 +13,7 @@ Flat Earth距离
      d_f = R \sqrt{(\theta_A - \theta_B)^2 + \cos \left [ \frac{\theta_A +
      \theta_B}{2} \right ] \Delta \lambda^2}, \label{eq:flatearth}
 
-其中R是地球平均半径（由参数 :ref:`PROJ_MEAN_RADIUS` 控制）， :math:`\theta` 是纬度， :math:`\Delta \lambda = \lambda_A - \lambda_B` 是经度差。式中地理坐标的单位均是弧度。
+其中R是地球平均半径（由参数 :ref:`PROJ_MEAN_RADIUS <PROJ_MEAN_RADIUS>` 控制）， :math:`\theta` 是纬度， :math:`\Delta \lambda = \lambda_A - \lambda_B` 是经度差。式中地理坐标的单位均是弧度。
 
 该方法的特点计算速度快，但经度不高，适用于纬度相差不大且对计算效率要求比较高的情况。
 
@@ -34,7 +34,7 @@ Flat Earth距离
 
 该方法是GMT默认使用的计算距离方法，适用于大多数情况。该方法将地球近似为一个半径为R的球，
 
-有两个GMT参数可以控制大圆弧距离的计算： :ref:`PROJ_MEAN_RADIUS` 和 :ref:`PROJ_AUX_LATITUDE` ，参数的具体含义见相关页面中的说明。
+有两个GMT参数可以控制大圆弧距离的计算： :ref:`PROJ_MEAN_RADIUS <PROJ_MEAN_RADIUS>` 和 :ref:`PROJ_AUX_LATITUDE <PROJ_AUX_LATITUDE>` ，参数的具体含义见相关页面中的说明。
 
 大地测量距离
 ------------
@@ -43,7 +43,7 @@ Flat Earth距离
 
 可以通过在距离或距离单位前加上前缀 ``+`` 来指定用该方法计算距离。比如， ``-S+20k`` 表示用该方法计算的20千米的距离。
 
-除了Vincenty完全椭球公式外，还可以将参数 :ref:`PROJ_GEODESIC` 设置成 ``Rudoe`` （GMT4所使用的计算公式）或 ``Andoyer`` （近似公式，精确到10米量级）以使用不同的计算公式。
+除了Vincenty完全椭球公式外，还可以将参数 :ref:`PROJ_GEODESIC <PROJ_GEODESIC>` 设置成 ``Rudoe`` （GMT4所使用的计算公式）或 ``Andoyer`` （近似公式，精确到10米量级）以使用不同的计算公式。
 
 总结
 ----

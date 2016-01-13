@@ -104,6 +104,6 @@ GMT中的画笔有三个属性：笔宽、颜色和线型，三者用逗号分�
 
 除了上面提到的三个画笔属性之外，GMT中还有一些参数可以影响线条的外观。这些参数包括：
 
-- :ref:`PS_LINE_CAP` ：控制线段顶端的绘制方式
-- :ref:`PS_LINE_JOIN` ：控制线段拐点/交点的绘制方式
-- :ref:`PS_MITER_LIMIT` ：控制线段拐点在 ``miter`` 模式下的阈值
+- :ref:`PS_LINE_CAP <PS_LINE_CAP>` ：控制线段顶端的绘制方式
+- :ref:`PS_LINE_JOIN <PS_LINE_JOIN>` ：控制线段拐点/交点的绘制方式
+- :ref:`PS_MITER_LIMIT <PS_MITER_LIMIT>` ：控制线段拐点在 ``miter`` 模式下的阈值

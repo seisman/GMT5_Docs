@@ -40,7 +40,7 @@ FORMAT参数
 **FORMAT_DATE_OUT**
     输出日期字符串时所使用的格式 [ ``yyyy-mm-dd`` ]
 
-    参考 :ref:`FORMAT_DATE_IN` 的相关说明。除此之外：
+    参考 :ref:`FORMAT_DATE_IN <FORMAT_DATE_IN>` 的相关说明。除此之外：
 
     - 若模板开头有一个 ``-`` ，则所有的整数年月日在输出时会省略前置零。比如若使用模板 ``-yyyy-mm-dd`` 则输出类似于 ``2012-1-3`` 而不是 ``2012-01-03``
     - 若模板为 ``-`` ，则输出时省略日期，日期和时间中的 ``T`` 也会被省略
@@ -48,12 +48,12 @@ FORMAT参数
 **FORMAT_DATE_MAP**
     绘制日期字符串时所使用的格式 [ ``yyyy-mm-dd`` ]
 
-    参考 :ref:`FORMAT_DATE_IN` 和 :ref:`FORMAT_DATE_OUT` 中的相关说明。除此之外，
+    参考 :ref:`FORMAT_DATE_IN <FORMAT_DATE_IN>` 和 :ref:`FORMAT_DATE_OUT <FORMAT_DATE_OUT>` 中的相关说明。除此之外，
 
     - 绘制月份名时的 ``mm`` 可以用 ``o`` 替代，即图上显示 ``Jan`` 而不是 ``01``
     - 用 ``u`` 代替 ``W[-]ww`` ，即图上显示 ``Week 10`` 而不是 ``W10``
 
-    所有的日期文本字符串都由 :ref:`GMT_LANGUAGE` 、 :ref:`FORMAT_TIME_PRIMARY_MAP` 和 :ref:`FORMAT_TIME_SECONDARY_MAP` 控制。
+    所有的日期文本字符串都由 :ref:`GMT_LANGUAGE <GMT_LANGUAGE>` 、 :ref:`FORMAT_TIME_PRIMARY_MAP <FORMAT_TIME_PRIMARY_MAP>` 和 :ref:`FORMAT_TIME_SECONDARY_MAP <FORMAT_TIME_SECONDARY_MAP>` 控制。
 
 
 时间数据的输入/输出/绘图格式：
@@ -82,7 +82,7 @@ FORMAT参数
 
     格式的通用形式有两类：
 
-    - ``[+|-]D`` ：表示将地理数据以浮点数的形式输出，浮点数的格式由 :ref:`FORMAT_FLOAT_OUT` 决定
+    - ``[+|-]D`` ：表示将地理数据以浮点数的形式输出，浮点数的格式由 :ref:`FORMAT_FLOAT_OUT <FORMAT_FLOAT_OUT>` 决定
       - ``D`` ：经度输出范围为 -180到180
       - ``+D`` ：经度输出范围为 0到360
       - ``-D`` ：经度输出范围为 -360到0
@@ -108,7 +108,7 @@ FORMAT参数
 **FORMAT_GEO_MAP**
     绘图时地理坐标的显示格式 [ ``ddd.mm.ss`` ]
 
-    格式的具体定义参考 :ref:`FORMAT_GEO_OUT` ，但具体格式会进一步由 ``-B`` 选项中的值控制。除此之外，还可以在格式后面加上 ``A`` 以表示绘制坐标的绝对值。
+    格式的具体定义参考 :ref:`FORMAT_GEO_OUT <FORMAT_GEO_OUT>` ，但具体格式会进一步由 ``-B`` 选项中的值控制。除此之外，还可以在格式后面加上 ``A`` 以表示绘制坐标的绝对值。
 
 
 浮点数的输出/绘图：
@@ -125,7 +125,7 @@ FORMAT参数
 **FORMAT_FLOAT_MAP**
     以双精度浮点数形式绘制地图边框标注或等值线标注时所使用的格式 [``%.12lg``]
 
-    见 :ref:`FORMAT_FLOAT_OUT` 中的相关说明。
+    见 :ref:`FORMAT_FLOAT_OUT <FORMAT_FLOAT_OUT>` 中的相关说明。
 
 
 

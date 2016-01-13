@@ -7,7 +7,7 @@
 
 GMT支持多种字符编码，包括 ``Standard`` 、 ``Standard+`` 、 ``ISOLation1`` 、 ``ISOLatin1+`` 以及 ``ISO-8859-x`` （x可以取1到10以及13到15）。
 
-GMT当前使用的字符编码方式由GMT参数 :ref:`PS_CHAR_ENCODING` 决定。若安装过程中使用的是国际单位制，则默认编码方式为 ``ISOLatin1+`` ，否则为 ``Standard+`` 。可以使用::
+GMT当前使用的字符编码方式由GMT参数 :ref:`PS_CHAR_ENCODING <PS_CHAR_ENCODING>` 决定。若安装过程中使用的是国际单位制，则默认编码方式为 ``ISOLatin1+`` ，否则为 ``Standard+`` 。可以使用::
 
     gmt get PS_CHAR_ENCODING
 

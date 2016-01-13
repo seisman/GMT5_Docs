@@ -108,7 +108,7 @@ PROJ参数
 **PROJ_AUX_LATITUDE**
     球体近似时的辅助纬线 [authalic]
 
-    在使用大圆弧距离计算方式时，需要将真实地球近似为一个半径为 :ref:`PROJ_MEAN_RADIUS` 的球体，在做球体近似时需要选择合适的辅助纬线。可选值包括
+    在使用大圆弧距离计算方式时，需要将真实地球近似为一个半径为 :ref:`PROJ_MEAN_RADIUS <PROJ_MEAN_RADIUS>` 的球体，在做球体近似时需要选择合适的辅助纬线。可选值包括
 
     - ``authalic``
     - ``geocentric``

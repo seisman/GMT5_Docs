@@ -79,7 +79,7 @@ X轴、Y轴、Z轴，每条轴都有很多属性，包括刻度间隔、网格�
   - ``+L<label>`` 标签文字方向平行于X轴方向（仅适用于标签文字很短的情况）
 
 - ``+p<prefix>`` 选中的轴的标注加前缀
-- ``+u<unit>`` 给选中的轴的标注加单位。对于地图而言，标注的单位为度，该符号是自动添加的，由 :ref:`FORMAT_GEO_MAP` 控制
+- ``+u<unit>`` 给选中的轴的标注加单位。对于地图而言，标注的单位为度，该符号是自动添加的，由 :ref:`FORMAT_GEO_MAP <FORMAT_GEO_MAP>` 控制
 
 ``p|s``
 ~~~~~~~
@@ -116,7 +116,7 @@ X轴、Y轴、Z轴，每条轴都有很多属性，包括刻度间隔、网格�
 地理底图
 --------
 
-地理底图与一般的坐标轴不同，其底图类型 :ref:`MAP_FRAME_TYPE` 使用 ``fancy`` 形式。
+地理底图与一般的坐标轴不同，其底图类型 :ref:`MAP_FRAME_TYPE <MAP_FRAME_TYPE>` 使用 ``fancy`` 形式。
 
 .. _basemap_border:
 
@@ -139,7 +139,7 @@ X轴、Y轴、Z轴，每条轴都有很多属性，包括刻度间隔、网格�
 笛卡尔线性轴
 ------------
 
-对于一般的线性轴而言，标注的格式由 :ref:`FORMAT_FLOAT_OUT` 决定，其默认值为 ``%g`` ，即根据数据的大小决定用一般表示还是指数表示，小数位的数目会根据 ``<stride>`` 自动决定。若设置 :ref:`FORMAT_FLOAT_OUT` 为其他值，则会严格使用其定义的格式，比如 ``%.2f`` 表示显示两位小数。
+对于一般的线性轴而言，标注的格式由 :ref:`FORMAT_FLOAT_OUT <FORMAT_FLOAT_OUT>` 决定，其默认值为 ``%g`` ，即根据数据的大小决定用一般表示还是指数表示，小数位的数目会根据 ``<stride>`` 自动决定。若设置 :ref:`FORMAT_FLOAT_OUT <FORMAT_FLOAT_OUT>` 为其他值，则会严格使用其定义的格式，比如 ``%.2f`` 表示显示两位小数。
 
 .. _axis_label_basemap:
 
@@ -249,7 +249,7 @@ X轴、Y轴、Z轴，每条轴都有很多属性，包括刻度间隔、网格�
      gmt set FORMAT_DATE_MAP=-o FONT_ANNOT_PRIMARY +9p
      gmt psbasemap -R2000-4-1T/2000-5-25T/0/1 -JX5i/0.2i -Bpa7Rf1d -Bsa1O -BS -P > GMT_-B_time1.ps
 
-绘图效果如图 :ref:`Cartesian time axis <cartesian_axis1>` 所示，需要注意 :ref:`FORMAT_DATE_MAP` 前的破折号会去掉日期前面的前置零（即02变成2）。
+绘图效果如图 :ref:`Cartesian time axis <cartesian_axis1>` 所示，需要注意 :ref:`FORMAT_DATE_MAP <FORMAT_DATE_MAP>` 前的破折号会去掉日期前面的前置零（即02变成2）。
 
 .. _cartesian_axis1:
 
