@@ -13,18 +13,8 @@ GIF image and a simple HTML wrapper for it.
 .. literalinclude:: ./anim03.sh
    :language: bash
 
-.. only:: html
+.. figure:: ./anim03.*
+   :width: 400 px
+   :align: center
 
-   .. figure:: ./anim03.gif
-      :width: 400 px
-      :align: center
-
-      Orbiting a static map.
-
-.. only:: latex
-
-   .. figure:: ./anim03.png
-      :width: 400 px
-      :align: center
-
-      Orbiting a static map.
+   Orbiting a static map.
