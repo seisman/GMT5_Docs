@@ -29,6 +29,11 @@ isogmt
 
     isogmt psbasemap -R0/10/0/10 -JX10c/10c -B1 > test.ps
 
-隔离模式下运行一个脚本::
+隔离模式下运行一个脚本（bug）::
 
     isogmt sh run.sh
+
+BUGS
+----
+
+#. 无法在隔离模式下执行脚本（v5.2.1）
