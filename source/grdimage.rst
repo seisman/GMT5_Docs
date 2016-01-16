@@ -6,21 +6,6 @@ grdimage
 - 官方文档： :ref:`gmt:grdimage`
 - 简介：在地图上绘制网格数据
 
-语法
-----
-
-::
-
-    grdimage grd_z | grd_r grd_g grd_b
-             [-Aout_img=driver]
-             [-C<cpt>]
-             [-D[r]]
-             [-Ei[|<dpi>]]
-             [-G[f|b]color]
-             [-Iintensfile|intensity]
-             [-M] [-N] [-Q] [-T]
-
-
 输入文件
 --------
 

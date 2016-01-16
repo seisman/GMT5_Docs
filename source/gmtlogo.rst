@@ -8,17 +8,19 @@ gmtlogo
 
 该模块将GMT的图形logo绘制在图上。GMT的图形logo默认宽2英寸，高1英寸。
 
-语法
+选项
 ----
 
-::
+``-D[g|j|J|n|x]<refpoint>+w<width>[+j<justify>][+o<dx>[/<dy>]]``
+    设置logo的位置。
 
-    gmtlogo [-D] [-F]
+    #. ``[g|j|J|n|x]<refpoint>`` 设置底图上的参考点， :doc:`embellishments` 一节
+    #. ``+j<justify>`` 设置logo上的锚点，见 :doc:`embellishments` 一节
+    #. ``+o<dx>[/<dy>]`` 设置参考点的额外偏移量，见 :doc:`embellishments` 一节
+    #. ``+w<width>`` 设置logo的宽度
 
-``-D`` 和 ``-F``
-----------------
-
-``-D`` 设置logo的参考点和锚点， ``-F`` 设置logo的背景边框。见 :doc:`embellishments` 一节。
+``-F``
+    设置logo的背景属性，见 :doc:`embellishments` 一节
 
 示例
 ----

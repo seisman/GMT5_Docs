@@ -6,118 +6,467 @@ psxy
 - 官方文档： :ref:`gmt:psxy`
 - 简介：在图上绘制线段、多边形和符号
 
-该命令既可以用于画线段（多边形可以认为是闭合的线段）也可以用于画符号，唯一的区别在于是否使用了 ``-S`` 选项。在不使用 ``-S`` 选项的情况下，默认会将所有的数据点连成线，使用 ``-S`` 选项则仅在数据点所在位置绘制符号。
+该命令既可以用于画线段（多边形可以认为是闭合的线段）也可以用于画符号。命令需要从标准输入或文件中读取XY坐标信息，在使用 ``-S`` 选项的情况下，会在坐标所在处绘制符号，在不使用 ``-S`` 选项的情况下，会将所有坐标用直线或大圆弧连接起来。
 
-语法
+，唯一的区别在于是否使用了 ``-S`` 选项。在不使用 ``-S`` 选项的情况下，默认会将所有的数据点连成线，使用 ``-S`` 选项则仅在数据点所在位置绘制符号。
+
+选项
 ----
 
-::
+``-A[m|p|x|y]``
+    修改两点间的连接方式。
 
-    psxy [table]
-         [-A[m|p|x|y]] [-C<cpt>] [-D<dx>/<dy>]
-         [-E[x[+]|y[+]|X|Y][n][cap][/[-|+]pen]]
-         [-F[c|n|r][refpoint]]
-         [-Gfill] [-Iintens]
-         [-L[+b|d|D][+xl|r|x0][+yl|r|y0][+ppen]]
-         [-N[c|r]] [-S[symbol][size[u]]] [-T]
-         [-W[-|+][pen][attr]]
+    地理投影下，两点之间默认沿着大圆弧连接。
 
-绘制线段
---------
+    #. ``-A`` ：忽略当前的投影方式，直接用直线连接两点
+    #. ``-Am`` ：先沿着经线画，再沿着纬线画
+    #. ``-Ap`` ：先沿着纬线画，再沿着经线画
 
-psxy最简单的功能就是绘制线段或多边形，此时数据输入需要两列，即X和Y::
+    笛卡尔坐标下，两点之间默认用直线连接。
 
-    gmt psxy -R0/10/0/10 -JX10c -B1 > test.ps << EOF
-    3 5
-    5 8
-    7 4
-    EOF
+    #. ``-Ax`` 先沿着X轴画，再沿着Y轴画
+    #. ``-Ay`` 先沿着Y轴画，再沿着X轴画
 
-``-A``
-------
+    下图中，黑色曲线为默认情况；红线为使用 ``-A`` 的效果；蓝线为使用 ``-Ap`` 的效果；黄线为使用 ``-Am`` 的效果：
 
-地理投影下，两点之间默认沿着大圆路径连接。
+    .. figure:: /images/psxy_A.*
+       :width: 500px
+       :align: center
 
-- ``-A`` ：忽略当前的投影方式，直接用直线连接两点
-- ``-Am`` ：先沿着经线画，再沿着纬线画
-- ``-Ap`` ：先沿着纬线画，再沿着经线画
+    注：由于这里投影比较特别，所以沿着经线的线和沿着纬线的线，看上去都是直线，在其他投影方式下可能不会是这样。
 
-笛卡尔坐标下，两点之间默认用直线连接。
+    该选项的一个可能的用途见示例：http://seisman.info/plot-specified-gridline-on-maps.html
 
-- ``-Ax`` 先沿着X轴画，再沿着Y轴画
-- ``-Ay`` 先沿着Y轴画，再沿着X轴画
+``-C<cpt>``
+    指定CPT文件或颜色列表
 
-下图中，黑色曲线为默认情况；红线为使用 ``-A`` 的效果；蓝线为使用 ``-Ap`` 的效果；黄线为使用 ``-Am`` 的效果：
+    该选项后跟一个CPT文件名，也可以使用 ``-C<color1>,<color2>,...`` 语法在命令行上临时构建一个颜色列表，其中 ``<color1>`` 对应Z值为0的颜色， ``<color2>`` 对应Z值为1的颜色，依次类推。
+    若绘制符号（即使用 ``-S`` 选项），则符号的填充色由数据的第三列Z值决定，其他数据列依次后移一列。若未使用 ``-S`` 选项，则需要在多段数据的头段中指定 ``-Z<val>`` ，然后从cpt文件中查找 ``<val>`` 所对应的颜色，以控制线段或多边形的线条颜色。
 
-.. figure:: /images/psxy_A.*
-   :width: 500px
-   :align: center
+    下面的例子测试了 ``-C<color1>,<color2>..`` 用法::
 
-注：由于这里投影比较特别，所以沿着经线的线和沿着纬线的线，看上去都是直线，在其他投影方式下可能不会是这样。
+        gmt psxy -JX10c/10c -R0/10/0/10 -B1 -Cblue,red -W2p > test.ps << EOF
+        > -Z0
+        1 1
+        2 2
+        > -Z1
+        3 3
+        4 4
+        EOF
 
-``-L``
-------
+``-D<dx>/<dy>``
+    设置符号的偏移量。
 
-该选项会将线段的首尾连起来，以得到一个封闭的多边形。
+    该选项会将要绘制的符号或线段在给定坐标的基础上偏移 ``<dx>/<dy>`` 距离。若未指定 ``<dy>`` ，则默认 ``dy=dx`` 。
 
-Alternatively, append modifiers to build a polygon from a line segment.
-Append **+d** to build symmetrical envelope around y(x) using deviations dy(x) given in extra column 3.
-Append **+D** to build asymmetrical envelope around y(x) using deviations dy1(x) and dy2(x) from extra columns 3-4.
-Append **+b** to build asymmetrical envelope around y(x) using bounds yl(x) and yh(x) from extra columns 3-4.
-Append **+xl**\ \|\ **r**\ \|\ *x0* to connect first and last point to anchor points at either xmin, xmax, or x0, or
-append **+yb**\ \|\ **t**\ \|\ *y0* to connect first and last point to anchor points at either ymin, ymax, or y0.
-Polygon may be painted (**-G**) and optionally outlined by adding **+p**\ *pen* [no outline].
+``-E[x[+]|y[+]|X|Y][n][<cap>][/[-|+]<pen>]``
+    绘制误差棒。
+
+    先解释几个参数：
+
+    #. ``<cap>`` 控制误差棒顶端帽子的长度，默认值为7p
+    #. ``<pen>`` 控制误差棒的画笔属性，默认值为 ``defalut,black,solid``
+
+        #. ``+<pen>`` 使用CPT文件中的颜色作为符号填充色和误差棒画笔属性
+        #. ``-<pen>`` 设置误差棒画笔属性，并关闭符号填充色
+
+    默认会绘制X和Y两个方向的误差棒。 ``x|y`` 表示只绘制X方向和/或Y方向的误差棒，此时输入数据的格式为（具体格式由选项决定）::
+
+        X  Y   [size]     [X_error]    [Y_error]  [others]
+
+    例如，X方向误差为1::
+
+        echo 5 5 1 | gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sc0.1c -Ex -W2p > test.ps
+
+    X方向误差为1，Y方向误差为0.5::
+
+        echo 5 5 1 0.5 | gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sc0.1c -Exy -W2p > test.ps
+
+    使用 ``x+|y+`` 表明X方向和/或Y方向为非对称误差棒，此时输入数据的格式为::
+        X  Y   [size]   [X_left_error X_right_error]  [Y_left_error Y_right_error] [others]
+
+    例如::
+        echo 5 5 1 0.4 0.5 0.25 | gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sc0.1c -Ex+y+ -W2p > test.ps
+
+    使用 ``X`` 和 ``Y`` 则绘制box-and-whisker（即stem-and-leaf）符号。以 ``-EX`` 为例，此时数据数据格式为::
+
+        X中位数  Y  0%位数 25%位数 75%位数 100%位数
+
+    25到75之间的方框内可以用 ``-G`` 选项填充颜色::
+
+        echo 5 5 4 4.25 5.4 7 | gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sc0.1c -EX -Gred -W2p > test.ps
+
+    若使用 ``-EXY`` ，则输入数据中至少需要10列；若在X或Y后加上了 ``n`` ，则需要在额外的第5列数据指定中位数的不确定性。
+
+``-F[c|n|r][a|f|s|r|<refpoint>]``
+    修改数据点的分组和连接方式。
+
+    数据的分组方式有三种：
+
+    #. ``a`` 忽略所有数据段头记录，即将所有文件内的所有数据点作为一个单独的组，并将第一个文件的第一个数据点作为该组的参考点
+    #. ``f`` 将每个文件内的所有点分在一个组，并将每一组内的第一个点作为该组的参考点
+    #. ``s`` 每段数据内的点作为一组，并将每段数据的第一个点作为该组的参考点
+    #. ``r`` 每段数据内的点作为一组，并将每段数据的第一个点作为该组的参考点，每次连线后将前一个点作为新的参考点，该选项仅与 ``-Fr`` 连用（似乎与 ``-Fcs`` 等效？）
+    #. ``<refpoint>`` 指定某个点为所有组共同的参考点
+
+    在确定分组后，还可以额外定义组内各点的连接方式：
+
+    - ``c`` 将组内的点连接成连续的线段
+    - ``r`` 将组内的所有点与组内的参考点连线
+    - ``n`` 将每个组内的所有点互相连线
+
+    在不使用 ``-F`` 选项的情况下，默认值为 ``-Fcs`` 。该选项的具体示例在后面给出。
+
+``-G<fill>``
+    设置符号或多边形的填充色。多段数据中数据段头记录中的 ``-G`` 选项会覆盖命令行中的设置。
+
+``-I<intens>``
+    模拟光照效果
+
+    ``<intens>`` 的取值范围为-1到1，用于对填充色做微调以模拟光照效果。正值表示亮色，负值表示暗色，零表示原色。
+
+``-L[+b|d|D][+xl|r|x0][+yl|r|y0][+p<pen>]``
+    构建闭合多边形。
+
+    默认情况下，psxy只将数据点连起来，若首尾两个点不相同，则不会形成闭合多边形。使用 ``-F`` ，则自动将数据的首尾两个点连起来，形成闭合多边形。
+
+    除了简单的首尾相连之外，还可以给线段加上包络线（类似于线段的误差）：
+
+    #. ``+d`` build symmetrical envelope around y(x) using deviations dy(x) given in extra column 3
+    #. ``+D`` build asymmetrical envelope around y(x) using deviations dy1(x) and dy2(x) from extra columns 3-4.
+    #. ``+b`` build asymmetrical envelope around y(x) using bounds yl(x) and yh(x) from extra columns 3-4.
+
+    #. ``+xl|r|<x0>`` connect first and last point to anchor points at either xmin, xmax, or x0
+    #. ``+yb|t|<y0>`` connect first and last point to anchor points at either ymin, ymax, or y0.
+
+    Polygon may be painted (**-G**) and optionally outlined by adding **+p**\ *pen* [no outline].
+
+.. TODO
+
+``-N[r|c]``
+    区域范围外的符号不会被裁剪，而会被正常绘制。
+
+    默认情况下，位于 ``-R`` 范围外的符号不会被绘制的。使用该选项使得即便符号的坐标位于 ``-R`` 指定的范围外，也会被绘制。需要注意的是，该选项对线段或多边形无效，线段和多边形总会被区域的范围裁剪。
+
+    对于存在周期性的地图而言，若符号出现在重复边界上，则会被重复绘制两次。比如::
+
+        gmt psxy -R0/360/-60/60 -JM10c -Bx60 -By15 -Sc2c > test.ps << EOF
+        360 0
+        EOF
+
+    会在地图的左右边界处分别两个半圆，该行为可以通过 ``-N`` 选项修改：
+
+    #. ``-N`` 关闭裁剪，符号仅绘制一次
+    #. ``-Nr`` 关闭裁剪，但符号依然绘制两次
+    #. ``-Nc`` 不关闭裁剪，但符号仅绘制一次
 
 ``-T``
-------
+    忽略所有输入文件，包括标准输入流
 
-该选项会忽略命令行中的输入文件以及标准输入流，在Linux下相当于将空文件 ``/dev/null`` 作为输入文件，因而该命令不会在PS文件中绘制任何图形。
+    该选项会忽略命令行中的输入文件以及标准输入流，在Linux下相当于将空文件 ``/dev/null`` 作为输入文件，因而该命令不会在PS文件中绘制任何图形。
 
-该选项有如下几个用途：
+    该选项有如下几个用途：
 
-#. ``psxy -J$J -R$R -T -K > $PS`` 只写入文件头，见 :doc:`KO-option` 一节
-#. ``psxy -J$J -R$R -T -O >> $PS`` 只写入文件尾，见 :doc:`KO-option` 一节
-#. ``psxy -J$J -R$R -T -X10c -Y10c >> $PS`` 只移动坐标原点而不绘制任何图形
+    #. ``psxy -J$J -R$R -T -K > $PS`` 只写入文件头，见 :doc:`KO-option` 一节
+    #. ``psxy -J$J -R$R -T -O >> $PS`` 只写入文件尾，见 :doc:`KO-option` 一节
+    #. ``psxy -J$J -R$R -T -X10c -Y10c >> $PS`` 只移动坐标原点而不绘制任何图形
 
-``-F``
-------
+``-W[-|+][<pen>][<attr>]``
+    设置线段或符号轮廓的画笔属性。
 
-该选项可以对输入数据中的数据点进行分组，并设定每组内数据点的连接方式。
+    #. ``<pen>`` 见 :doc:`pen` 一节
+    #. ``-W+`` 表示通过 ``-C`` 选项的CPT文件同时查找填充色和轮廓色
+    #. ``-W-`` 表示通过 ``-C`` 选项的CPT文件查找轮廓的颜色并关闭符号的填充
+    #. ``-W`` 选项后还可以加上额外的选项，可以指定线条的额外属性，见 :doc:`lines` 一节
 
-分组方式：
-
-- ``a`` 忽略所有头段记录，即将所有文件内的所有数据点作为一个单独的组，并将第一个文件的第一个数据点作为该组的参考点
-- ``f`` 将每个文件内的所有点分在一个组，并将每一组内的第一个点作为该组的参考点
-- ``s`` 每段数据内的点作为一组，并将每段数据的第一个点作为该组的参考点
-- ``r`` 与 ``s`` 类似，the group reference point is reset after each record to the previous point （该选项仅与 ``-Fr`` 连用）
-- ``<refpoint>`` 为所有组使用一个共同的参考点
-
-在确定分组后，还可以额外定义组内各点的连接方式：
-
-- ``c`` 将组内的点连接成连续的线段
-- ``r`` 将组内的所有点与组内的参考点连线
-- ``n`` 将每个组内的所有点互相连线
-
-``-S`` 简介
+``-S`` 选项
 -----------
 
-使用了 ``-S`` 选项，则表示要绘制符号。 ``-S`` 选项的基本语法是::
+使用 ``-S`` 选项，则表示要绘制符号。 ``-S`` 选项的基本语法是::
 
     -S[<symbol>][<size>[<u>]]
 
 其中 ``<symbol>`` 指定了符号类型， ``<size>`` 为符号的大小， ``<u>`` 为 ``<size>`` 的单位。
 
-``-S`` 选项相对复杂，与不同的选项连用，或者后面接不同的参数，所需要的输入数据的格式也不同。
-
-不管是什么符号，至少都需要给定符号的位置，即X和Y是必须的::
-
-    X   Y
-
-不同的符号，可能还需要额外的信息，统一写成::
+不同的符号类型，需要的输入数据格式也不同，但可以统一写成（用 ``...`` 代表某符号特有的输入列）::
 
     X   Y   ...
 
-这里， ``...`` 代表某符号特有的输入列。
+
+``-S-|+|a|c|d|g|h|i|n|s|t|x|y|p``
+    绘制一些简单的符号。
+
+    这几个符号比较简单，输入数据中不需要额外的列：
+
+    - ``-S-`` ：短横线， ``<size>`` 是短横线的长度；
+    - ``-S+`` ：加号， ``<size>`` 是加号的外接圆的直径；
+    - ``-Sa`` ：星号（st\ **a**\ r）， ``<size>`` 是星号的外接圆直径；
+    - ``-Sc`` ：圆（\ **c**\ ircle）， ``<size>`` 为圆的直径；
+    - ``-Sd`` ：钻石（\ **d**\ iamond）， ``<size>`` 为外接圆直径；
+    - ``-Sg`` ：八角形（octa\ **g**\ on）， ``<size>`` 为外接圆直径；
+    - ``-Sh`` ：六边形（**h**\ exagon）， ``<size>`` 为外接圆直径；
+    - ``-Si`` ：倒三角（**i**\ nverted triangle）， ``<size>`` 为外接圆直径；
+    - ``-Sn`` ：五角形（pe\ **n**\ tagon）， ``<size>`` 为外接圆直径；
+    - ``-Sp`` ：点，不需要指定 ``<size>`` ，点的大小始终为一个像素点；
+    - ``-Ss`` ：正方形（\ **s**\ quare）， ``<size>`` 为外接圆直径；
+    - ``-St`` ：三角形（\ **t**\ riangle）， ``<size>`` 为外接圆直径；
+    - ``-Sx`` ：叉号（cross）， ``<size>`` 为外接圆直径；
+    - ``-Sy`` ：短竖线， ``<size>`` 为短竖线的长度；
+
+    对于小写符号 ``acdghinst`` ， ``<size>`` 表示外接圆直径；对于大写符号 ``ACDGHINST``， ``<size>`` 表示符号的面积与直径为 ``<size>`` 的圆的面积相同。
+
+    下图给出了上面所给出的symbol所对应的符号：
+
+    .. figure:: /images/simple_symbols.*
+       :width: 700px
+       :align: center
+       :alt: psxy simple symbols
+
+    除了上述简单的符号之外，还有更多复杂的符号。
+
+``-Sb|B[[<size><u>]][b[<base>]]``
+    绘制垂直bar。
+
+    ``-Sb`` 用于在X坐标处绘制一个从 ``<base>`` 到Y位置的垂直bar。
+
+    #. ``<size>`` 是bar宽度，其单位可以是长度单位 ``c|i|p`` ，也可以用 ``u`` 表示X方向单位
+    #. 若不指定 ``b<base>`` ，其默认值为ymin
+    #. 指定 ``b<base>`` ，为所有数据点指定base值
+    #. 加上 ``b`` 但未指定 ``<base>`` ，则需要额外的一列数据来指定base的值
+    #. ``-SB`` 与 ``-Sb`` 类似，区别在于 ``-SB`` 绘制水平bar
+
+    ::
+
+        gmt psxy -R0/10/0/5 -JX15c/5c -B1 -Sb1cb > test.ps << EOF
+        2 3 1 0.5
+        4 2 1 1.5
+        8 4 1 2.5
+        EOF
+
+``-Se|E``
+    绘制椭圆
+
+    ``-Se`` 用于绘制椭圆。对于椭圆而言， ``<size>`` 是不需要的。此时输入数据的格式为::
+
+        X   Y   方向   长轴长度    短轴长度
+
+    其中方向是相对于水平方向逆时针旋转的角度，两个轴的长度都使用长度单位，即 ``c|i|p``
+
+    ``-SE`` 选项与 ``-Se`` 类似，区别在于：
+
+    - 第三列为方位角（相对于正北方向旋转的角度）。该角度会根据所选取的地图投影变换成角度
+    - 对于线性投影，长短轴的长度单位为数据单位，即与 ``-R`` 中数据范围的单位相同
+    - 对于地理投影，长轴和短轴的长度单位为千米，且不可更改
+
+    用长度单位指定一个椭圆::
+
+        echo 180 0 45 5c 3c | gmt psxy -R0/360/-90/90 -JN15c -B60 -Se > test.ps
+
+    线性投影下 ``-SE`` 的长短轴的单位为数据单位::
+
+        echo 180 0 45 300 100 | gmt psxy -R0/360/-90/90 -JX10c -B60 -SE > test.ps
+
+    地理投影下 ``-SE`` 的长短轴的单位是千米::
+
+        echo 80 0 45 22200 11100 | gmt psxy -R0/360/-90/90 -JN15c -B60 -SE > test.ps
+
+    若长短轴长度相等，则椭圆退化成圆，可以用于绘制直径以千米为单位的圆，从而解决了 ``-Sc`` 只能用长度单位而不能用距离单位画圆的不足。这一特性可以用于绘制等震中距线。比如如下命令可以绘制30度等震中距线::
+
+        echo 80 0 0 6660 6660 | gmt psxy -R0/360/-90/90 -JN15c -B60 -SE > test.ps
+
+    上面示例的输入数据中，方向和短轴长度都是多余的，所以GMT提供了 ``-SE-[<size>]`` 选项用于绘制直径为 ``<size>`` 的圆，若未指定 ``<size>`` ，则需要在数据中指定圆的直径。比如30度和60度等震中距线可以用如下命令绘制::
+
+        gmt psxy -R0/360/-90/90 -JN15c -B60 -SE- > test.ps << EOF
+        180 0 6660
+        180 0 13320
+        EOF
+
+``-Sf<gap>[/<size>][+l|+r][+b+c+f+s+t][+o<offset>][+p[<pen>]]``
+    绘制front，即在线段上加上符号以表示断层等front
+
+    #. ``<gap>`` 线段上符号之间的距离，若 ``<gap>`` 为负值，则解释为线段上符号的个数
+    #. ``<size>`` 为符号大小
+
+       #. 若省略了 ``<size>`` ，则默认为 ``<gap>`` 的30%
+       #. 若 ``<gap>`` 为负值，则 ``<size>`` 是必须的
+
+    #. ``+l`` 和 ``+r`` 分别表示将符号画在线段的左侧还是右侧，默认是绘制在线段中间
+    #. ``+b`` 符号为box
+    #. ``+c`` 符号为circle
+    #. ``+t`` 符号为triangle
+    #. ``+f`` 符号表示断层（fault），默认值。
+    #. ``+s`` 符号表示断层的滑动（slip），用于表示左旋或右旋断层。其可以接受一个可选的参数来控制绘制矢量时的角度
+    #. ``+o<offset>`` 将线段上的第一个符号相对于线段的起点偏离 ``<offset>`` 距离，默认值为0
+    #. 默认符号的颜色与线段颜色相同（ ``-W`` 选项），可以使用 ``+p<pen>`` 为符号单独指定颜色，也可以使用 ``+p`` ，即不绘制符号的轮廓。
+
+
+    下面的例子分别绘制了 ``+b`` 、 ``+c`` 、 ``+f`` 、 ``+s`` 、 ``+t`` 所对应的符号：
+
+    .. literalinclude:: ../scripts/symbol_Sf.sh
+       :language: bash
+
+    .. figure:: /images/symbol_Sf.*
+       :width: 600px
+       :align: center
+       :alt: psxy -Sf example
+
+``-Sj|J``
+    绘制旋转矩形
+
+    其输入数据为::
+
+        X   Y   方向    X轴长度   Y轴长度
+
+    方向为相对于水平方向逆时针旋转的角度。
+
+    ``-SJ`` 与 ``-Sj`` 类似，区别在于：
+
+    #. 输入的第三列是方位角
+    #. 对于地理投影，X轴和Y轴长度的单位为千米
+    #. 对于线性投影，X轴和Y轴长度的单位与 ``-R`` 选项中数据范围的单位相同
+
+``-Sk<name>/<size>``
+    绘制自定义的符号。
+
+    GMT支持自定义符号，该选项会依次在当前目录、 ``~/.gmt`` 、 ``$GMT_SHAREDIR/custom`` 目录中寻找自定义符号的定义文件 ``<name>.def`` 。定义文件中的符号默认其大小为1，然后会根据 ``<size>`` 对其进行缩放。关于如何自定义符号，请参考官方文档。
+
+``-Sl<size>+t<string>+j<justify>``
+    绘制文本字符串
+
+    该选项的功能与 :doc:`pstext` 类似，不知道为何要设计这个选项。
+
+    #. ``<size>`` 文本串的大小
+    #. ``+t<string>`` 指定文本串
+    #. ``+j<justify>`` 修改文本串的对齐方式，默认为 ``CM``
+
+``-Sm|M<size>``
+    绘制数学圆弧
+
+    输入数据的格式为::
+
+        X  Y  radius_of_arc  start_direction  stop_direction
+
+    #. ``<size>`` 为矢量箭头的长度
+    #. 圆弧的线宽由 ``-W`` 选项设定
+    #. ``-SM`` 选项与 ``-Sm`` 完全相同，只是当圆弧的夹角恰好是90度是， ``-SM`` 会用直角符号来表示
+    #. 圆弧的两端可加上额外的箭头，见 :doc:`vectors` 一节
+
+    .. literalinclude:: ../scripts/psxy_angle_arc.sh
+       :language: bash
+
+    .. figure:: /images/symbol_Sf.*
+       :width: 500px
+       :align: center
+       :alt: psxy angle arc
+
+``-Sq[<type>]<info>[:<labelinfo>]``
+    绘制quoted lines，即带标注的线段，比如等值线、带断层名的断层线等
+
+    ``<type>`` 有6种可选的方式：
+
+    #. ``d<dist>[<u>]/[<frac>]`` 指定标签之间的距离，单位 ``<u>`` 为 ``c|i|p`` ； ``<frac>`` 表示将第一个标签放在距离quoted lines起点 ``<frac>*<dist>`` 处
+    #. ``D<dist>[<u>]/[<frac>]`` 指定标签之间的距离，单位 ``<u>`` 可以取 ``e|f|k|M|n|u|d|m|s``
+    #. ``f<ffile.d>`` 根据ASCII文件 ``<ffile.d>`` 的内容确定标签的位置。仅当 ``<ffile.d>`` 中指定的标签位置与quoted lines上数据点的位置完全匹配时才会被绘制
+    #. ``l<line1>[,<line2>,...]`` 指定一个或多个以逗号分隔的线段，标签会放在线段与quoted line相交的地方。 ``<line>`` 的格式为 ``start_lon/start_lat/stop_lon/stop_lat`` ，其中 ``start_lon/start_lat`` 以及 ``stop_lon/stop_lat`` 可以用锚点中的两字符替换。
+    #. ``L<line1>[,<line2>,...]`` 与 ``l`` 类似，只是将线段解释为两点之间的大圆路径
+    #. ``n<n_label>`` 指定等间隔标签的数目，见官方文档
+    #. ``N<n_label>`` 见官方文档
+    #. ``s<n_label>`` 见官方文档
+    #. ``S<n_label>`` 见官方文档
+    #. ``x<xfile.d>`` 见官方文档
+    #. ``X<xfile.d>`` 见官方文档
+
+    ``<labelinfo>`` 用于控制标签的格式，其可以是下面子选项的任意组合，详情见官方文档：
+
+    #. ``+a<angle>``
+    #. ``+c<dx>/<dy>``
+    #. ``+d``
+    #. ``+e``
+    #. ``+f<font>``
+    #. ``+g<color>``
+    #. ``+j<just>``
+    #. ``+l<label>``
+    #. ``+L<label>``
+    #. ``+n<dx>/<dy>``
+    #. ``+o``
+    #. ``+p<pen>``
+    #. ``+r<min_rad>``
+    #. ``+t[<file>]``
+    #. ``+u<unit>``
+    #. ``+v``
+    #. ``+w``
+    #. ``+x[<first>,<last>]``
+
+``-Sr``
+    绘制矩形
+
+
+    `` 对该符号无效，其输入格式为::
+
+        X   Y   X轴长度   Y轴长度
+
+``-SR``
+    绘制圆角矩形
+
+    ``<size>`` 对该符号无用。其输入格式为::
+
+        X   Y   X轴长度     Y轴长度     圆角半径
+
+``-Sv|V|=``
+    绘制矢量
+
+    ``-Sv`` 用于绘制矢量，输入数据格式为::
+
+        X   Y   方向    长度
+
+    #. ``<size>`` 为矢量箭头的长度
+    #. 矢量宽度由 ``-W`` 控制
+    #. 更多箭头的属性见 :doc:`vectors` 一节
+    #. ``-SV`` 与 ``-Sv`` 类似，区别在于第三列是方位角而不是方向
+    #. ``-S=`` 与 ``-SV`` 类似，区别在于第四列长度的单位是千米
+
+    ::
+
+        echo 2 2 45 5c | gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sv1c+e -W2p > test.ps
+
+``-Sw|W``
+    绘制楔形饼图（pie **w**\ edge），即饼图中的一个切片
+
+    楔形饼图所需要的输入数据格式为::
+
+        X   Y   start_direction     stop_direcrion
+
+    #. ``<size>`` 是楔形饼图所对应的圆的\ **直径**
+    #. 对于 ``-Sw`` ，第三、四列是楔形的开始和结束方向，其中方向定义为相对于X轴正方向（即东向）逆时针旋转的角度
+    #. 对于 ``-SW`` ，第三、四列是楔形的开始和结束方位角，其中方位角定义为相对于北向顺时针旋转的角度
+
+    下面的示例分别用 ``-SW`` 和 ``-Sw`` 画了两个不同大小的楔形饼图：
+
+    .. literalinclude:: ../scripts/psxy_pie_wedge.sh
+       :language: bash
+
+    .. figure:: /images/psxy_pie_wedge.*
+       :width: 500px
+       :align: center
+       :alt: psxy pie wedge
+
+       左边-Sw，右边-SW；图中1格表示1cm。
+
+``-S~[d|D|f|l|L|n|N|s|S|x|X]<info>[:<symbolinfo>]``
+    绘制decorated line，即带有符号的线段。详见官方文档。
+
+
+
+输入数据格式
+------------
+
+``-S`` 选项相对复杂，与不同的选项连用，或者后面接不同的参数，所需要的输入数据的格式也不同。不管是什么符号，至少都需要给定符号的位置，即X和Y是必须的::
+
+    X   Y
+
+不同的符号，可能还需要额外的信息，统一写成（用 ``...`` 代表某符号特有的输入列）::
+
+    X   Y   ...
 
 若 ``-S`` 指定了符号类型但未指定大小，即 ``-S<symbol>`` ，若该符号类型需要指定大小，则需要将符号大小放在输入数据的\ **第三列**\ ，其他输入数据的列号延后，此时数据格式为::
 
@@ -131,381 +480,13 @@ Polygon may be painted (**-G**) and optionally outlined by adding **+p**\ *pen* 
 
 若使用了 ``-C`` 和 ``-S`` 选项，则符号的填充色由数据的第三列决定，其他字段依次后移::
 
-    X   Y  Z   ...  symbol
+    X   Y  [Z]   ...  symbol
 
 因而总结一下输入数据的格式为::
 
     x  y  [Z]  [size]  ...   [symbol]
 
 其中 ``...`` 为某些符号所要求的特殊的数据列， ``symbol`` 是未指定符号时必须的输入列， ``size`` 是未指定大小时的输入列。
-
-``-S`` 的简单符号
------------------
-
-先介绍几个最简单的符号：
-
-- ``-S-`` ：短横线，size是短横线的长度；
-- ``-S+`` ：加号，size是加号的外接圆的直径；
-- ``-Sa`` ：星号（st\ **a**\ r），size是星号的外接圆直径；
-- ``-Sc`` ：圆（\ **c**\ ircle），size为圆的直径；
-- ``-Sd`` ：钻石（\ **d**\ iamond），size为外接圆直径；
-- ``-Sg`` ：八角形（octa\ **g**\ on），size为外接圆直径；
-- ``-Sh`` ：六边形（**h**\ exagon），size为外接圆直径；
-- ``-Si`` ：倒三角（**i**\ nverted triangle），size为外接圆直径；
-- ``-Sn`` ：五角形（pe\ **n**\ tagon），size为外接圆直径；
-- ``-Ss`` ：正方形（\ **s**\ quare），size为外接圆直径；
-- ``-St`` ：三角形（\ **t**\ riangle），size为外接圆直径；
-- ``-Sx`` ：叉号（cross），size为外接圆直径；
-- ``-Sy`` ：短竖线，size为短竖线的长度；
-- ``-Sp`` ：点，不需要指定size，点的大小始终为一个像素点；
-
-对于小写符号 ``acdghinst`` ， ``<size>`` 表示外接圆直径；对于大写符号 ``ACDGHINST``， ``<size>`` 表示符号的面积与直径为 ``<size>`` 的圆的面积相同。
-
-下图给出了上面所给出的symbol所对应的符号：
-
-.. figure:: /images/simple_symbols.*
-   :width: 700px
-   :align: center
-   :alt: psxy simple symbols
-
-除了上面介绍的symbol之外，还有一些更复杂一些的symbol。
-
-``-Sb|B``
----------
-
-``-Sb`` 对应的语法为::
-
-    -Sb[[<size>c|i|p|u]][b[<base>]]
-
-用于在X坐标处绘制一个从 ``<base>`` 到Y位置的垂直bar。
-
-- ``<size>`` 为bar宽度
-- 默认的 ``<base>`` 为ymin
-- 若未指定 ``<base>`` ，则从输入的最后一列读入
-- ``-SB`` 与 ``-Sb`` 类似，区别在于 ``-SB`` 绘制水平bar
-
-.. TODO　若-S未指定符号，且文件中指定符号为b，那么是符号在最后一列还是base在最后一列
-
-::
-
-    gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sb1cb0 > test.ps << EOF
-    2 3
-    4 5
-    8 6
-    EOF
-
-``-Se|E``
----------
-
-``-Se`` 用于绘制椭圆，对于椭圆而言， ``<size>`` 是不需要的。此时输入数据的格式为::
-
-    X   Y   方向   长轴长度    短轴长度
-
-其中方向是相对于水平方向逆时针旋转的角度，两个轴的长度都使用单独单位，即厘米。
-
-``-SE`` 选项与 ``-Se`` 类似，区别在于：
-
-- 第三列为方位角，且该角度会根据所选取的地图投影变换成角度
-- 对于线性投影，长短轴的长度单位为数据单位
-- 对于地理投影，长轴和短轴的长度单位为千米
-
-用长度单位指定一个椭圆::
-
-    echo 180 0 45 5c 3c | gmt psxy -R0/360/-90/90 -JN15c -B60 -Se > test.ps
-
-线性投影下 ``-SE`` 的长短轴的单位为数据单位::
-
-    echo 180 0 45 300 100 | gmt psxy -R0/360/-90/90 -JX10c -B60 -SE > test.ps
-
-地理投影下 ``-SE`` 的长短轴的单位是千米::
-
-    echo 80 0 45 22200 11100 | gmt psxy -R0/360/-90/90 -JN15c -B60 -SE > test.ps
-
-长短轴长度相同的椭圆退化成圆，可以用于绘制用千米指定直径的圆，从而解决了 ``-Sc`` 只能用长度单位指定圆的不足，这一特性可以用于绘制等震中距线。由于这个很常用，GMT提供了 ``-SE-`` 选项，此时不需要给定方向和长短轴，直接给定直径即可。比如60度等震中距线可以用如下命令绘制::
-
-    echo 80 0 6660 | gmt psxy -R0/360/-90/90 -JN15c -B60 -SE- > test.ps
-
--Sf
----
-
-``-Sf`` 用于在线段上加上符号表示断层等front，其语法为::
-
-    -Sf<gap>[/<size>][+l|+r][+b+c+f+s+t][+o<offset>]
-
-- ``<gap>`` 为线段上符号之间的距离，若 ``<gap>`` 为负值，则解释为线段上的符号的个数
-- ``<size>`` 为符号大小，若省略了 ``<size>`` ，则默认设置 ``<size>`` 为 ``<gap>`` 的30%，若 ``<gap>`` 为负值，则 ``<size>`` 是必须的
-- ``+l`` 和 ``+r`` 分别表示将符号画在线段的左侧还是右侧，默认是绘制在线段中间
-- ``+b`` 、 ``+c`` 、 ``+f`` 、 ``+s`` 、 ``+t`` 分别表示符号为box、circle、fault、slip、triangle。默认值为 ``+f`` ，即fault。 ```slip`` 用于绘制左旋或右旋断层。
-- ``+o<offset>`` 会将线段上的第一个符号相对于线段的起点偏离 ``<offset>`` 距离
-
-下面的例子分别绘制了 ``+b`` 、 ``+c`` 、 ``+f`` 、 ``+s`` 、 ``+t`` 所对应的符号：
-
-.. code-block:: bash
-
-   #!/bin/bash
-   R=150/200/20/50
-   J=M15c
-   PS=symbol_Sf.ps
-   gmt psbasemap -R$R -J$J -B10 -K > $PS
-   gmt psxy -R$R -J$J -Sf2c/0.1i+l+b -Gblack -W -K -O >> $PS << EOF
-   155 30
-   160 40
-   EOF
-   gmt psxy -R$R -J$J -Sf2c/0.1i+l+c -Gblue -W -K -O >> $PS << EOF
-   165 30
-   170 40
-   EOF
-   gmt psxy -R$R -J$J -Sf2c/0.1i+l+f -Gred -W -K -O >> $PS << EOF
-   175 30
-   180 40
-   EOF
-   gmt psxy -R$R -J$J -Sf2c/0.3i+l+s+o1 -Gyellow -W -K -O >> $PS << EOF
-   185 30
-   190 40
-   EOF
-   gmt psxy -R$R -J$J -Sf1c/0.1i+l+t -Gwhite -W -B10 -K -O >> $PS << EOF
-   195 30
-   200 40
-   EOF
-   gmt psxy -R$R -J$J -T -O >> $PS
-   rm gmt.*
-
-.. figure:: /images/symbol_Sf.*
-   :width: 500px
-   :align: center
-   :alt: psxy -Sf example
-
--Sr
----
-
-``-Sr`` 用于绘制矩形， ``<size>`` 对该符号无效，其输入格式为::
-
-    X   Y   X轴长度   Y轴长度
-
--SR
----
-
-``-SR`` 用于绘制圆角矩形， ``<size>`` 对该符号无用。其输入格式为::
-
-    X   Y   X轴长度     Y轴长度     圆角半径
-
-``-Sj|J``
----------
-
-``-Sj`` 用于绘制旋转的矩形，其输入数据为::
-
-    X   Y   方向    X轴长度     Y轴长度
-
-``-SJ`` 与 ``-Sj`` 类似，输入的第三列是方位角，X轴和Y轴长度的单位为千米。
-
-``-Sw|W``
----------
-
-``-SW`` 和 ``-Sw`` 可以用于绘制楔形饼图（pie **w**\ edge），即饼图中的一个切片。 ``<size>`` 是楔形饼图所对应的圆的 **直径** 。
-
-其所需要的输入数据格式为::
-
-    X   Y   start_direction     stop_direcrion
-
-其中第三、四列是切片的开始方向和结束方向。若使用 ``-Sw`` ，则方向定义为相对于X轴正方向（即东向）逆时针旋转的角度；若使用 ``-SW`` ，则方向定义为方位角，即相对于北向顺时针旋转的角度。
-
-下面的示例分别用 ``-SW`` 和 ``-Sw`` 画了两个不同大小的楔形饼图：
-
-.. code-block:: bash
-
-   #!/bin/bash
-   R=0/10/0/5
-   J=x1c
-   PS=psxy_pie_wedge.ps
-
-   gmt psxy -R$R -J$J -T -K > $PS
-   gmt psbasemap -R$R -J$J -Ba1g1 -K -O >> $PS
-   gmt psxy -R$R -J$J -Sw2c -Glightblue -K -O >> $PS << EOF
-   2 2 0 45
-   EOF
-
-   gmt psxy -R$R -J$J -SW3c -Glightblue -K -O >> $PS << EOF
-   6 2 0 45
-   EOF
-   gmt psxy -R$R -J$J -T -O >> $PS
-
-   rm gmt.*
-
-.. figure:: /images/psxy_pie_wedge.*
-   :width: 500px
-   :align: center
-   :alt: psxy pie wedge
-
-   左边-Sw，右边-SW；图中1格表示1cm。
-
-``-Sm|M``
----------
-
-``-Sm`` 选项可以用于绘制一段数学圆弧。 ``<size>`` 为矢量箭头的长度，圆弧的线宽由 ``-W`` 选项设定。 ``-SM`` 选项与 ``-Sm`` 完全相同，只是当圆弧的夹角恰好是90度是， ``-SM`` 会用直角符号来表示。圆弧上的箭头，在后面会介绍。
-
-其要求的数据格式为::
-
-    X   Y   圆弧半径    起始方向(相对于水平方向逆时针的度数)     结束方向
-
-.. code-block:: bash
-
-   #!/bin/bash
-   R=0/4/0/3
-   J=x2c
-   PS=psxy_angle_arc.ps
-
-   gmt psxy -R$R -J$J -T -K > $PS
-   gmt psbasemap -R$R -J$J -Ba1g1 -BWSen -K -O >> $PS
-   gmt psxy -R$R -J$J -Sc0.15c -Gblack -K -O >> $PS << EOF
-   1 1
-   3 1
-   EOF
-   gmt psxy -R$R -J$J -Sm0.2c+b+e+g -Gblack -W0.5p,red -K -O >> $PS << EOF
-   1 1 1 10 60
-   EOF
-   gmt psxy -R$R -J$J -Sm0.2c+b+l -Gblack -W0.5p,blue -K -O >> $PS << EOF
-   3 1 1 10 150
-   EOF
-   gmt psxy -R$R -J$J -T -O >> $PS
-
-   rm gmt.*
-
-.. figure:: /images/psxy_angle_arc.*
-   :width: 500px
-   :align: center
-   :alt: psxy angle arc
-
-``-Sv|V|=``
------------
-
-``-Sv`` 用于绘制矢量，输入数据格式为::
-
-    X   Y   方向    长度
-
-``<size>`` 为矢量箭头的长度，矢量宽度由 ``-W`` 控制。
-
-``-SV`` 与 ``-Sv`` 类似，区别在于第三列是方位角而不是方向。 ``-S=`` 与 ``-SV`` 类似，区别在于第四列长度的单位是千米。
-
-::
-
-    echo 2 2 45 5c | gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sv1c+e -W2p > test.ps
-
-关于箭头属性，见后面的内容。
-
-``-Sk``
--------
-
-``-Sk`` 用于绘制自定义的符号，其语法为::
-
-    -Sk<name>/<size>
-
-会依次在当前目录、 ``~/.gmt`` 、 ``$GMT_SHAREDIR/custom`` 目录中寻找自定义符号的定义文件 ``<name>.def`` 。定义文件中的符号默认其大小为1，然后会根据 ``<size>`` 对其进行缩放。关于如何自定义符号，请参考官方文档。
-
-``-Sl``
--------
-
-``-Sl`` 用于绘制文本字符串，其语法为::
-
-    -Sl<size>+t<string>+j<justify>
-
-与 :doc:`pstext` 类似，不知道设计这个干嘛的。
-
-``-Sq``
--------
-
-``-S`` 用于绘制带标注的线段，比如等值线、带断层名的断层线等。其语法为::
-
-    -Sq[d|D|f|l|L|n|x|X]<info>[:<labelinfo>]
-
-- ``d<dist>[<u>]`` 标签在线上的距离，单位 ``<u>`` 可以取 ``c|i|p``
-- ``D<dist>[<u>]`` 标签在线上的距离，单位 ``<u>`` 可以取 ``e|f|k|M|n|u|d|m|s``
-
-未完成。
-
-.. TODO -Sq选项未完成
-
-``-C``
-------
-
-``-C`` 选项后跟一个cpt文件，也可以使用 ``-C<code1>,<code2>,...`` 语法在命令行上指定颜色列表。
-
-若使用了 ``-S`` 选项，则符号的填充色由数据的第三列Z值决定，其他数据列依次后移一列（比如size移到第四列）。若未指定 ``-S`` 选项，则用户需要在多段数据的头段中指定 ``-Z<val>`` ，然后从cpt文件中查找 ``<val>`` 所对应的颜色，以控制线段或多边形的线条颜色。
-
-::
-
-    gmt psxy -JX10c/10c -R0/10/0/10 -B1 -Cblue,red -W2p > test.ps << EOF
-    > -Z0
-    1 1
-    2 2
-    > -Z1
-    3 3
-    4 4
-    EOF
-
-``-I``
-------
-
-``-I<intens>`` ，其中 ``<intens>`` 的取值范围为-1到1，用于对填充色做微调以模拟光照效果。正值表示亮色，负值表示暗色，零表示原色。
-
-``-D``
-------
-
-将要绘制的符号或线段在给定坐标的基础上偏移 ``<dx>/<dy>`` 距离。若未指定 ``<dy>`` ，则默认 ``dy=dx`` 。
-
-``-G``
-------
-
-设置符号或多边形的填充色。
-
-``-N``
-------
-
-默认情况下，位于 ``-R`` 范围外的符号不会被绘制的。使用该选项使得即便符号的坐标位于 ``-R`` 指定的范围外，也会被绘制。
-
-For periodic (360-longitude) maps we must plot all symbols twice in case they are clipped by the repeating boundary. The **-N** will turn off clipping and not plot repeating symbols. Use **-Nr** to turn off clipping but retain the plotting of such repeating symbols, or use **-Nc** to retain clipping but turn off plotting of repeating symbols.
-
-需要注意的是，该选项对线段或多边形无效。
-
-``-W``
-------
-
-线段或符号的轮廓的线条属性。 ``-W+`` 表示通过 ``-C`` 选项的CPT文件同时查找填充色和轮廓色。 ``-W-`` 表示通过 ``-C`` 选项的CPT文件查找轮廓的颜色并关闭符号的填充。
-
-``-W`` 选项后还可以加上额外的选项，可以指定线条的额外属性，见 :doc:`lines` 一节。
-
-``-E``
-------
-
-``-E`` 选项用于绘制误差棒，其语法为::
-
-    -E[x[+]|y[+]|X|Y][n][<cap>][/[-|+]<pen>]
-
-- ``x`` 和 ``y`` ：X方向和/或Y方向误差棒
-- ``x+`` 和 ``y+`` ：X方向和/或Y方向的非对称误差棒，此时需要额外的几列数据
-- ``<cap>`` 是误差棒顶端一横的长度
-- ``<pen>`` 是误差棒的线条属性， ``+|-`` 的含义与 ``-W`` 选项相同
-
-输入数据格式为::
-
-    X  Y   [size]    [X_error]  [Y_error]
-
-X方向误差为1::
-
-    echo 5 5 1 | gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sc0.1c -Ex -W2p > test.ps
-
-X方向误差为1，Y方向误差为0.5::
-
-    echo 5 5 1 0.5 | gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sc0.1c -Exy -W2p > test.ps
-
-使用 ``X`` 和 ``Y`` 则绘制box-and-whisker（即stem-and-leaf）符号。以 ``-EX`` 为例，此时数据数据格式为::
-
-    X中位数  Y  0%位数 25%位数 75%位数 100%位数
-
-::
-
-    echo 5 5 4 4.25 5.4 7 | gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sc0.1c -EX -W2p > test.ps
-
-如果是同时绘制X和Y方向的，就需要指定10个输入了。若在X或Y后加上了 ``n`` ，则需要在额外的第5列数据指定中位数的不确定性。。。
 
 多段数据
 --------
@@ -521,21 +502,31 @@ X方向误差为1，Y方向误差为0.5::
 - ``-Z<zval>`` ：从cpt文件中查找Z值<zval>所对应的颜色作为填充色
 - ``-ZNaN`` ：从cpt文件中获取NaN颜色
 
-箭头属性
---------
+示例
+----
 
-在使用与箭头有关的符号时，比如 ``-SV`` 、 ``-Sm`` 等，可以指定额外的子选项，以设置箭头的相关属性。
+最简单的命令，绘制线段或多边形，此时数据输入需要两列，即X和Y::
 
-- ``+a<angle>`` 箭头的尖端的角度，默认值为30
-- ``+b[l|r]`` 、 ``+e[l|r]`` ：将箭头放在矢量的首端或尾端， ``l`` 和 ``r`` 表示绘制左半、右半箭头
-- ``+g<fill>`` 箭头的填充色，若为 ``-`` 则不填充
-- ``+l`` 、 ``+r`` 只绘制左半、右半箭头
-- ``+n<norm>`` scales down vector attributes (pen thickness, head size) with decreasing length, where vectors shorter than *norm* will have their a  ttributes scaled by length/\ *norm* [arrow attributes remains invariant to length].
-- ``+o<plon>/<plat>`` specifies the oblique pole for the great or small circles.  Only needed for great circles if **+q** is given.
-- ``+p[<pen>]`` 设置箭头轮廓的画笔属性，若 ``<pen>`` 取为``-`` 则不绘制轮廓
-- ``+q`` means the input *angle*, *length* data instead represent the *start* and *stop*
-    opening angles of the arc segment relative to the given point.
-- ``+j<just>`` determines how the input *x*,\ *y* point relates to the
-    vector. Choose from **b**\ eginning [default], **e**\ nd, or **c**\ enter.
-- ``+s`` means the input *angle*, *length* is instead the *x*, *y*
-    coordinates of the vector end point.
+    gmt psxy -R0/10/0/10 -JX10c -B1 > test.ps << EOF
+    3 5
+    5 8
+    7 4
+    EOF
+
+下面的脚本展示了 ``-F`` 选项的用法：
+
+.. literalinclude:: ../scripts/psxy_-F.sh
+   :language: bash
+
+.. figure:: /images/psxy_-F.*
+   :width: 600px
+   :align: center
+
+``-L`` 选项的示例：
+
+.. literalinclude:: ../scripts/psxy_-L.sh
+   :language: bash
+
+.. figure:: /images/psxy_-L.*
+   :width: 600px
+   :align: center
