@@ -2,7 +2,8 @@
 ps=psbasemap_ex2.ps
 
 # 绘制澳大利亚的海岸线
-gmt pscoast -R110E/170E/44S/9S -JM6i -P -Baf -BWSne -Wfaint -N2/1p  -EAU+gbisque -Gbrown -Sazure1 -Da -K -Xc --FORMAT_GEO_MAP=dddF > $ps
+gmt pscoast -R110E/170E/44S/9S -JM6i -P -Baf -BWSne -Wfaint -N2/1p -EAU+gbisque \
+        -Gbrown -Sazure1 -Da -K -Xc --FORMAT_GEO_MAP=dddF > $ps
 
 # 在右上角绘制insert box
 gmt psbasemap -R -J -O -K -DjTR+w1.5i+o0.15i+stmp -F+gwhite+p1p+c0.1c+s >> $ps

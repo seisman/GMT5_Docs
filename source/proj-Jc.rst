@@ -21,8 +21,8 @@ using the Cassini projection can be obtained by running the command:
 
    ::
 
-    gmt pscoast -R7:30/38:30/10:30/41:30r -JC8.75/40/2.5i -Bafg -LjBR+c40+w100+f+o0.15i/0.2i -Gspringgreen \
-                -Dh -Sazure -Wthinnest -Ia/thinner -P --FONT_LABEL=12p > GMT_cassini.ps
+    gmt pscoast -R7:30/38:30/10:30/41:30r -JC8.75/40/2.5i -Bafg -LjBR+c40+w100+f+o0.15i/0.2i \
+        -Gspringgreen  -Dh -Sazure -Wthinnest -Ia/thinner -P --FONT_LABEL=12p > GMT_cassini.ps
 
 
 .. figure:: /images/GMT_cassini.*
@@ -30,7 +30,6 @@ using the Cassini projection can be obtained by running the command:
    :align: center
 
    Cassini map over Sardinia.
-
 
 As with the previous projections, the user can choose between a
 rectangular boundary (used here) or a geographical (WESN) boundary.

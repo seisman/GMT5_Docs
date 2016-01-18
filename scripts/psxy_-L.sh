@@ -1,3 +1,4 @@
+#!/bin/bash
 ps=psxy_-L.ps
 cat << EOF > t.txt
 1 1
@@ -12,4 +13,4 @@ gmt psxy -R -J -O -K -B0 t.txt -Gred -W2p -L+yt -X-6.5i -Y3.25i >> $ps
 gmt psxy -R -J -O -K -B0 t.txt -Gred -W2p -L+yb -X3.25i >> $ps
 gmt psxy -R -J -O -K -B0 t.txt -Gred -W2p -L+y4 -X3.25i >> $ps
 gmt psxy -R -J -O -T >> $ps
-rm gmt.*
+rm gmt.* t.txt

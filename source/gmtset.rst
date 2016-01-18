@@ -10,63 +10,42 @@ gmtset
 
 若想要参数修改仅对某个命令有效，应该在该命令上使用 ``--<PARAMETER>=<value>`` 语法。
 
-语法
-----
-
-::
-
-    gmtset [-C|-D[s|u] | -G<defaultsfile>] [-[BJRXxYycp]<value>] <PARAMETER1>[=]<value1>
-        <PARAMETER2>[=]<value2> <PARAMETER3>[=]<value3> ...
-
 ``<PARAMETER>=<value>``
------------------------
+    要修改的GMT参数名 ``<PARAMETER>`` 以及想要设置的值 ``<value>``
 
-要修改的GMT参数名 ``<PARAMETER>`` 以及想要设置的值 ``<value>`` 。参数名和值必须成对存在，二者可以用等号 ``=`` 连接，也可以省略等号。
+    参数名和值必须成对存在，二者可以用等号 ``=`` 连接，也可以省略等号。
 
-修改主标注字体Helvetica，字号为12p，设置网格交叉线的尺寸为0.2厘米::
+    修改主标注字体Helvetica，字号为12p，设置网格交叉线的尺寸为0.2厘米::
 
-   gmt gmtset FONT_ANNOT_PRIMARY 12p,Helvetica MAP_GRID_CROSS_SIZE_PRIMARY 0.2c
+        gmt gmtset FONT_ANNOT_PRIMARY 12p,Helvetica MAP_GRID_CROSS_SIZE_PRIMARY 0.2c
 
-也可以用等号将参数名和参数值连接起来::
+    也可以用等号将参数名和参数值连接起来::
 
-   gmt gmtset FONT_ANNOT_PRIMARY=12p,Helvetica MAP_GRID_CROSS_SIZE_PRIMARY=0.2c
+        gmt gmtset FONT_ANNOT_PRIMARY=12p,Helvetica MAP_GRID_CROSS_SIZE_PRIMARY=0.2c
 
 ``-C``
-------
-
-将当前目录下的GMT4配置文件 ``.gmtdefaults4`` 转换为GMT5所使用的 ``gmt.conf`` 文件，并保留GMT4配置文件。
+    将当前目录下的GMT4配置文件 ``.gmtdefaults4`` 转换为GMT5所使用的 ``gmt.conf`` 文件，并保留GMT4配置文件。
 
 ``-D[s|u]``
------------
+    默认在当前目录下的配置文件的基础上修改参数值，该选项使得在系统配置文件的基础上修改参数值。
 
-默认在当前目录下的配置文件的基础上修改参数值，该选项使得在系统配置文件的基础上修改参数值。
+    #. ``-D`` ：使用GMT编译过程中指定的默认参数文件，即 ``${GMT}/share/conf/gmt.conf``
+    #. ``-Du`` ：使用US单位制下的默认参数文件，即 ``${GMT}/share/conf/gmt_US.conf``
+    #. ``-Ds`` ：使用SI单位制下的默认参数文件，即 ``${GMT}/share/conf/gmt_SI.conf``
 
-- ``-D`` ：使用GMT编译过程中指定的默认参数文件，即 ``${GMT}/share/conf/gmt.conf``
-- ``-Du`` ：使用US单位制下的默认参数文件，即 ``${GMT}/share/conf/gmt_US.conf``
-- ``-Ds`` ：使用SI单位制下的默认参数文件，即 ``${GMT}/share/conf/gmt_SI.conf``
+    使用 ``-D`` 选项而不指定参数名则会在当前目录下生成一个系统配置文件::
 
-使用 ``-D`` 选项而不指定参数名则会在当前目录下生成一个系统配置文件::
-
-    gmt set -D
+        gmt set -D
 
 ``-G<defaultsfile>``
---------------------
-
-指定要读取并修改的配置文件， ``<defaultsfile>`` 为配置文件的文件名
+    指定要读取并修改的配置文件， ``<defaultsfile>`` 为配置文件的文件名
 
 ``-[BJRXxYycp]<value>``
------------------------
+    修改GMT命令历史文件 ``gmt.history`` 中的值。该选项用于在不执行其他绘图命令的前提下强行修改命令历史，但用处不大。
 
-修改GMT命令历史文件 ``gmt.history`` 中的值。该选项用于在不执行其他绘图命令的前提下强行修改命令历史，但用处不大。
+    例如::
 
-例如::
+        $ gmt psbasemap -JX10c/5c -B0/10/0/10 -B1 > test.ps
+        $ gmt gmtset -JX5c/5c
 
-    $ gmt psbasemap -JX10c/5c -B0/10/0/10 -B1 > test.ps
-    $ gmt gmtset -JX5c/5c
-
-该命令会将GMT命令历史文件 ``gmt.history`` 中 ``-J`` 选项的值从 ``X10c/5c`` 改成 ``X5c/5c`` 。
-
-相关
-----
-
-:doc:`gmtget` 、 :doc:`gmtdefaults`
+    该命令会将GMT命令历史文件 ``gmt.history`` 中 ``-J`` 选项的值从 ``X10c/5c`` 改成 ``X5c/5c`` 。

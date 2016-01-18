@@ -30,6 +30,7 @@
   #. :doc:`gmtdefaults` ：列出所有GMT参数的当前值
   #. :doc:`gmtinfo` ：从表数据中提取信息
   #. :doc:`grdinfo` ：从网格文件中提取基本信息
+  #. :doc:`gmtselect` ：根据多个准则筛选数据
 
 - 2D数据处理
 
@@ -48,62 +49,63 @@
 
   #. :doc:`psmeca` ：在地图上绘制震源机制解
   #. :doc:`pspolar` ：在震源球上绘制台站极性
+  #. :doc:`psvelo` ：在地图上绘制速度矢量、十字线、楔形图
 
-- 待整理
+- 未来会整理的命令
 
-  #. :doc:`grdedit` ：修改网格文件的头段或内容
-  #. :doc:`pscontour`
+  #. :doc:`grdedit`
   #. :doc:`pscoupe`
   #. :doc:`pshistogram`
   #. :doc:`psimage`
   #. :doc:`psmask`
   #. :doc:`psrose`
-  #. :doc:`pssegy`
-  #. :doc:`pssegyz`
-  #. :doc:`psvelo`
-  #. :doc:`pswiggle`
   #. :doc:`psxyz`
-  #. :doc:`grdcontour`
   #. :doc:`grdvector`
   #. :doc:`grdview`
   #. :doc:`grd2cpt`
   #. :doc:`grd2rgb`
   #. :doc:`grdblend`
   #. :doc:`grdgradient`
-  #. :doc:`grdgravmag3d`
-  #. :doc:`grdhisteq`
   #. :doc:`grdlandmask`
   #. :doc:`grdmask`
   #. :doc:`grdmath`
-  #. :doc:`grdpmodeler`
   #. :doc:`grdproject`
-  #. :doc:`grdredpol`
-  #. :doc:`grdconvert`
-  #. :doc:`grdrotater`
   #. :doc:`grdsample`
-
+  #. :doc:`grdconvert`
   #. :doc:`xyz2grd`
   #. :doc:`gmt2kml`
   #. :doc:`gmtconvert`
-  #. :doc:`gmtselect`
+  #. :doc:`trend1d`
+  #. :doc:`trend2d`
+  #. :doc:`fitcircle`
+  #. :doc:`mapproject`
+  #. :doc:`project`
+  #. :doc:`surface`
+  #. :doc:`sample1d`
+  #. :doc:`grdtrack`
+  #. :doc:`grdtrend`
+  #. :doc:`makecpt`
 
+- 没有整理计划的命令
+
+  #. :doc:`pscontour`
+  #. :doc:`pssegy`
+  #. :doc:`pssegyz`
+  #. :doc:`pswiggle`
+  #. :doc:`grdcontour`
+  #. :doc:`grdgravmag3d`
+  #. :doc:`grdhisteq`
+  #. :doc:`grdpmodeler`
+  #. :doc:`grdredpol`
+  #. :doc:`grdrotater`
   #. :doc:`blockmean`
   #. :doc:`blockmedian`
   #. :doc:`blockmode`
   #. :doc:`filter1d`
   #. :doc:`grdfilter`
   #. :doc:`dimfilter`
-
-  #. :doc:`trend1d`
-  #. :doc:`trend2d`
-  #. :doc:`fitcircle`
   #. :doc:`grdfft`
   #. :doc:`gmtconnect`
-
-  #. :doc:`mapproject`
-  #. :doc:`project`
-
-  #. :doc:`surface`
   #. :doc:`triangulate`
   #. :doc:`nearneighbor`
 
@@ -138,18 +140,14 @@
   #. :doc:`gravfft`
   #. :doc:`grdseamount`
   #. :doc:`grdspotter`
-  #. :doc:`grdtrack`
-  #. :doc:`grdtrend`
   #. :doc:`grdvolume`
   #. :doc:`greenspline`
   #. :doc:`gshhg`
   #. :doc:`hotspotter`
   #. :doc:`img2google`
   #. :doc:`img2grd`
-  #. :doc:`makecpt`
   #. :doc:`originator`
   #. :doc:`rotconverter`
-  #. :doc:`sample1d`
   #. :doc:`segy2grd`
   #. :doc:`spectrum1d`
   #. :doc:`sph2grd`

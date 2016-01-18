@@ -229,6 +229,13 @@ else:
             \parindent 2em
             \setcounter{tocdepth}{3}     % 目录深度
             \setcounter{secnumdepth}{3}  % 编号深度
+            \hypersetup{
+                CJKbookmarks = true,
+                colorlinks = true,
+                linkcolor = blue,
+                citecolor = blue,
+                urlcolor = blue,
+            }
         ''',
     }
 

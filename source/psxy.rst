@@ -41,7 +41,9 @@ psxy
     指定CPT文件或颜色列表
 
     该选项后跟一个CPT文件名，也可以使用 ``-C<color1>,<color2>,...`` 语法在命令行上临时构建一个颜色列表，其中 ``<color1>`` 对应Z值为0的颜色， ``<color2>`` 对应Z值为1的颜色，依次类推。
-    若绘制符号（即使用 ``-S`` 选项），则符号的填充色由数据的第三列Z值决定，其他数据列依次后移一列。若未使用 ``-S`` 选项，则需要在多段数据的头段中指定 ``-Z<val>`` ，然后从cpt文件中查找 ``<val>`` 所对应的颜色，以控制线段或多边形的线条颜色。
+
+    #. 若绘制符号（即使用 ``-S`` 选项），则符号的填充色由数据的第三列Z值决定，其他数据列依次后移一列
+    #. 若绘制线段或多边形（即未使用 ``-S`` 选项），则需要在多段数据的头段中指定 ``-Z<val>`` ，然后从cpt文件中查找 ``<val>`` 所对应的颜色，以控制线段或多边形的线条颜色
 
     下面的例子测试了 ``-C<color1>,<color2>..`` 用法::
 
@@ -354,7 +356,7 @@ psxy
     .. literalinclude:: ../scripts/psxy_angle_arc.sh
        :language: bash
 
-    .. figure:: /images/symbol_Sf.*
+    .. figure:: /images/psxy_angle_arc.*
        :width: 500px
        :align: center
        :alt: psxy angle arc

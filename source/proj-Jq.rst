@@ -35,6 +35,7 @@ by selecting a standard parallel different from the equator. Some
 selections for standard parallels have practical properties as shown in
 Table :ref:`JQ <tbl-JQ>`.
 
+
 .. _tbl-JQ:
 
 +-----------------------------------------------------+--------+
