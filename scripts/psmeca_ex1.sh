@@ -1,5 +1,5 @@
 #!/bin/bash
-PS=psmeca.ps
+PS=psmeca_ex1.ps
 
 gmt pscoast -Rg -JQ10i -Bx60 -By30 -A10000 -Wthin -G200 -K > $PS
 gmt psmeca -R -J -Sc1/12/0.2 -C0.5pP2p -Egrey -Gred -L1p -W1p -O << EOF >> $PS
