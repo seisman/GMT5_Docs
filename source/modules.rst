@@ -19,6 +19,7 @@
   #. :doc:`pstext` ：在图上写文本
   #. :doc:`psscale` ：在图上绘制灰色或彩色色标
   #. :doc:`psclip` ：打开或关闭多边形裁剪路径
+  #. :doc:`psimage` ：将图片图片或EPS文件放在地图上
   #. :doc:`gmtlogo` ：在图上绘制GMT图形logo
   #. :doc:`grdimage` ：在图上绘制网格数据
   #. :doc:`pslegend` ：在图上绘制图例
@@ -56,7 +57,6 @@
 
   #. :doc:`grdedit`
   #. :doc:`pshistogram`
-  #. :doc:`psimage`
   #. :doc:`psmask`
   #. :doc:`psrose`
   #. :doc:`psxyz`
