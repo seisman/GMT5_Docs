@@ -50,11 +50,11 @@
   #. :doc:`psmeca` ：在地图上绘制震源机制解
   #. :doc:`pspolar` ：在震源球上绘制台站极性
   #. :doc:`psvelo` ：在地图上绘制速度矢量、十字线、楔形图
+  #. :doc:`pscoupe` ：绘制震源机制解的剖面图
 
 - 未来会整理的命令
 
   #. :doc:`grdedit`
-  #. :doc:`pscoupe`
   #. :doc:`pshistogram`
   #. :doc:`psimage`
   #. :doc:`psmask`
