@@ -23,6 +23,7 @@
   #. :doc:`gmtlogo` ：在图上绘制GMT图形logo
   #. :doc:`grdimage` ：在图上绘制网格数据
   #. :doc:`pslegend` ：在图上绘制图例
+  #. :doc:`pshistogram` ：统计并绘制直方图
 
 - 信息提取
 
@@ -56,7 +57,6 @@
 - 未来会整理的命令
 
   #. :doc:`grdedit`
-  #. :doc:`pshistogram`
   #. :doc:`psmask`
   #. :doc:`psrose`
   #. :doc:`psxyz`
