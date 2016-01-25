@@ -33,6 +33,7 @@
   #. :doc:`gmtinfo` ：从表数据中提取信息
   #. :doc:`grdinfo` ：从网格文件中提取基本信息
   #. :doc:`gmtselect` ：根据多个准则筛选数据
+  #. :doc:`gmtwhich` ：返回指定文件的完整路径
 
 - 2D数据处理
 
@@ -129,7 +130,6 @@
   #. :doc:`x2sys_report`
   #. :doc:`x2sys_solve`
 
-  #. :doc:`gmtwhich`
   #. :doc:`gmtswitch`
 
   #. :doc:`backtracker`
