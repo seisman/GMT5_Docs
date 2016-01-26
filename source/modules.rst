@@ -36,6 +36,10 @@
   #. :doc:`gmtwhich` ：返回指定文件的完整路径
   #. :doc:`fitcircle` ：拟合球面上数据点的平均位置及圆弧
 
+- 1D数据处理
+
+  #. :doc:`filter1d` ：对1D表数据做时间域滤波
+
 - 2D数据处理
 
   #. :doc:`grdcut` ：从一个网格文件中裁剪出一个子区域
@@ -102,7 +106,6 @@
   #. :doc:`blockmean`
   #. :doc:`blockmedian`
   #. :doc:`blockmode`
-  #. :doc:`filter1d`
   #. :doc:`grdfilter`
   #. :doc:`dimfilter`
   #. :doc:`grdfft`
