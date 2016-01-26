@@ -53,7 +53,7 @@ pshistogram
 ``-L<pen>``
     设置bar的轮廓属性
 
-``-N[<mode>][+p<pen>]
+``-N[<mode>][+p<pen>]``
     绘制等效的正态分布曲线
 
     ``<mode>`` 用于设定正态分布的中间位置及比例：
