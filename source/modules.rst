@@ -34,6 +34,7 @@
   #. :doc:`grdinfo` ：从网格文件中提取基本信息
   #. :doc:`gmtselect` ：根据多个准则筛选数据
   #. :doc:`gmtwhich` ：返回指定文件的完整路径
+  #. :doc:`fitcircle` ：拟合球面上数据点的平均位置及圆弧
 
 - 2D数据处理
 
@@ -47,6 +48,7 @@
   #. :doc:`kml2gmt` ：将Google Earth的KML文件转换为GMT表数据
   #. :doc:`psconvert` ：将GMT生成的PS文件转换为其他图片格式
   #. :doc:`grd2xyz` ：将网格文件转换成表数据
+  #. :doc:`xyz2grd` ：将XYZ数据或Z数据转换成网格文件
 
 - meca补充包
 
@@ -73,12 +75,10 @@
   #. :doc:`grdproject`
   #. :doc:`grdsample`
   #. :doc:`grdconvert`
-  #. :doc:`xyz2grd`
   #. :doc:`gmt2kml`
   #. :doc:`gmtconvert`
   #. :doc:`trend1d`
   #. :doc:`trend2d`
-  #. :doc:`fitcircle`
   #. :doc:`mapproject`
   #. :doc:`project`
   #. :doc:`surface`
