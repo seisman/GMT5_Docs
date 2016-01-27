@@ -144,12 +144,12 @@ psmeca
 ``-F<mode>[<args>]``
     设置多个属性，可重复使用多次。
 
-    - ``-Fa[<size>][/<P_axis_symbol>[<T_axis_symbol>]]`` 计算并绘制P和T轴的符号。 ``<size>`` 是符号大小，符号与 :doc:`psxy` 类似，可以取 ``c|d|h|i|p|s|t|x`` ，默认值为 ``6p/cc``
+    - ``-Fa[<size>][/<P_axis_symbol>[<T_axis_symbol>]]`` 在震源球上P轴和T轴处绘制符号。 ``<size>`` 是符号大小；符号可以取 ``c|d|h|i|p|s|t|x`` （具体含义见 :doc:`psxy` 的 ``-S`` 选项），默认值为 ``6p/cc`` ，即在P轴和T轴处分别绘制一个大小为6p的圆
     - ``-Fe<fill>`` 设置T轴符号的填充色
     - ``-Fg<fill>`` 设置P轴符号的填充色
+    - ``-Fp<pen>`` 设置P轴符号的画笔属性
+    - ``-Ft<pen>`` 设置T轴符号的画笔属性
     - ``-Fo`` 使用旧版本的 ``psvelomeca`` 命令的输入数据格式，即不需要第三列的深度信息
-    - ``-Fp<pen>`` P轴轮廓的画笔属性
-    - ``-Ft<pen>`` T轴轮廓的画笔属性
     - ``-Fr<fill>`` 在标签后加一个方框
     - ``-Fz<pen>`` 覆盖零迹矩张量的画笔属性
 
