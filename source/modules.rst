@@ -53,6 +53,7 @@
   #. :doc:`psconvert` ：将GMT生成的PS文件转换为其他图片格式
   #. :doc:`grd2xyz` ：将网格文件转换成表数据
   #. :doc:`xyz2grd` ：将XYZ数据或Z数据转换成网格文件
+  #. :doc:`grd2rgb` ：将网格文件、原始RGB文件、SUN光栅文件转换成R/G/B三个网格文件
 
 - meca补充包
 
@@ -70,7 +71,6 @@
   #. :doc:`grdvector`
   #. :doc:`grdview`
   #. :doc:`grd2cpt`
-  #. :doc:`grd2rgb`
   #. :doc:`grdblend`
   #. :doc:`grdgradient`
   #. :doc:`grdlandmask`
