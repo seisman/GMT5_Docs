@@ -47,6 +47,7 @@
   #. :doc:`grdraster` ：从二进制数据中提取子区域并保存为GMT网格文件
   #. :doc:`grdclip` ：对网格文件的Z值做裁剪
   #. :doc:`grdlandmask` ：根据海岸线数据创建陆地-海洋的mask网格文件
+  #. :doc:`grdtrend` ：拟合网格的趋势面并计算残差
 
 - 格式转换
 
@@ -88,7 +89,6 @@
   #. :doc:`surface`
   #. :doc:`sample1d`
   #. :doc:`grdtrack`
-  #. :doc:`grdtrend`
   #. :doc:`makecpt`
 
 - 没有整理计划的命令
