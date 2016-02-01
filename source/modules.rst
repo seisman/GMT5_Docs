@@ -48,6 +48,7 @@
   #. :doc:`grdclip` ：对网格文件的Z值做裁剪
   #. :doc:`grdlandmask` ：根据海岸线数据创建陆地-海洋的mask网格文件
   #. :doc:`grdtrend` ：拟合网格的趋势面并计算残差
+  #. :doc:`grdsample` ：对网格文件做重采样
 
 - 格式转换
 
@@ -78,7 +79,6 @@
   #. :doc:`grdmask`
   #. :doc:`grdmath`
   #. :doc:`grdproject`
-  #. :doc:`grdsample`
   #. :doc:`grdconvert`
   #. :doc:`gmt2kml`
   #. :doc:`gmtconvert`
