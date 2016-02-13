@@ -24,6 +24,7 @@
   #. :doc:`grdimage` ：在图上绘制网格数据
   #. :doc:`pslegend` ：在图上绘制图例
   #. :doc:`pshistogram` ：统计并绘制直方图
+  #. :doc:`psrose` ：绘制极坐标下的直方图（sector图、rose图或windrose图）
 
 - 信息提取
 
@@ -39,6 +40,7 @@
 - 1D数据处理
 
   #. :doc:`filter1d` ：对1D表数据做时间域滤波
+  #. :doc:`gmtsimplify` ：使用Douglas-Peucker算法对线段做简化
 
 - 2D数据处理
 
@@ -69,7 +71,6 @@
 
   #. :doc:`grdedit`
   #. :doc:`psmask`
-  #. :doc:`psrose`
   #. :doc:`psxyz`
   #. :doc:`grdvector`
   #. :doc:`grdview`
@@ -137,7 +138,6 @@
 
   #. :doc:`backtracker`
   #. :doc:`gmtgravmag3d`
-  #. :doc:`gmtsimplify`
   #. :doc:`gmtspatial`
   #. :doc:`gmtvector`
   #. :doc:`gravfft`
