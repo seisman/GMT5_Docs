@@ -54,6 +54,7 @@
   #. :doc:`grdsample` ：对网格文件做重采样
   #. :doc:`grdvolume` ：计算网格数据中某个等值线所包围的表面积和体积
   #. :doc:`grdproject` ：对网格数据做地图变换和逆变换
+  #. :doc:`grdmask` ：根据多边形数据或点数据创建mask网格文件
 
 - 格式转换
 
@@ -79,7 +80,6 @@
   #. :doc:`grd2cpt`
   #. :doc:`grdblend`
   #. :doc:`grdgradient`
-  #. :doc:`grdmask`
   #. :doc:`grdmath`
   #. :doc:`grdconvert`
   #. :doc:`gmt2kml`
