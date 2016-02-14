@@ -77,7 +77,7 @@ GMT中的选项都是以 ``-`` 加一个字符的形式构成，通常这个字�
    KO-option
    XY-option
    a-option
-   b-option
+   binary-option
    c-option
    d-option
    f-option
@@ -85,8 +85,8 @@ GMT中的选项都是以 ``-`` 加一个字符的形式构成，通常这个字�
    h-option
    io-option
    n-option
-   r-option
-   p-option
+   gridreg-option
+   perspective-option
    s-option
    t-option
    x-option
