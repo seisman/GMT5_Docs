@@ -20,11 +20,12 @@
   #. :doc:`psscale` ：在图上绘制灰色或彩色色标
   #. :doc:`psclip` ：打开或关闭多边形裁剪路径
   #. :doc:`psimage` ：将图片图片或EPS文件放在地图上
-  #. :doc:`gmtlogo` ：在图上绘制GMT图形logo
-  #. :doc:`grdimage` ：在图上绘制网格数据
   #. :doc:`pslegend` ：在图上绘制图例
   #. :doc:`pshistogram` ：统计并绘制直方图
   #. :doc:`psrose` ：绘制极坐标下的直方图（sector图、rose图或windrose图）
+  #. :doc:`grdvector` ：根据两个网格文件绘制矢量场
+  #. :doc:`grdimage` ：在图上绘制网格数据
+  #. :doc:`gmtlogo` ：在图上绘制GMT图形logo
 
 - 信息提取
 
@@ -73,7 +74,6 @@
   #. :doc:`grdedit`
   #. :doc:`psmask`
   #. :doc:`psxyz`
-  #. :doc:`grdvector`
   #. :doc:`grdview`
   #. :doc:`grd2cpt`
   #. :doc:`grdblend`
