@@ -53,6 +53,7 @@
   #. :doc:`grdtrend` ：拟合网格的趋势面并计算残差
   #. :doc:`grdsample` ：对网格文件做重采样
   #. :doc:`grdvolume` ：计算网格数据中某个等值线所包围的表面积和体积
+  #. :doc:`grdproject` ：对网格数据做地图变换和逆变换
 
 - 格式转换
 
@@ -80,7 +81,6 @@
   #. :doc:`grdgradient`
   #. :doc:`grdmask`
   #. :doc:`grdmath`
-  #. :doc:`grdproject`
   #. :doc:`grdconvert`
   #. :doc:`gmt2kml`
   #. :doc:`gmtconvert`
