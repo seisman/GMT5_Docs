@@ -42,6 +42,7 @@
 
   #. :doc:`filter1d` ：对1D表数据做时间域滤波
   #. :doc:`gmtsimplify` ：使用Douglas-Peucker算法对线段做简化
+  #. :doc:`gmtconnect` ：将端点接近的线段连接起来
 
 - 2D数据处理
 
@@ -111,7 +112,6 @@
   #. :doc:`grdfilter`
   #. :doc:`dimfilter`
   #. :doc:`grdfft`
-  #. :doc:`gmtconnect`
   #. :doc:`triangulate`
   #. :doc:`nearneighbor`
 
