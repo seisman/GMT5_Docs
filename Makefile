@@ -121,6 +121,7 @@ xelatexpdf:
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through xelatex..."
 	sed -i s/pdflatex/xelatex/ $(BUILDDIR)/latex/Makefile
+	#sed -i s/a4paper/draft,a4paper/ $(BUILDDIR)/latex/GMT5_Docs.tex
 	$(MAKE) -C $(BUILDDIR)/latex all-pdf
 	@echo "xelatex finished; the PDF files are in $(BUILDDIR)/latex."
 
