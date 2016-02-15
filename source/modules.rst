@@ -43,6 +43,7 @@
   #. :doc:`filter1d` ：对1D表数据做时间域滤波
   #. :doc:`gmtsimplify` ：使用Douglas-Peucker算法对线段做简化
   #. :doc:`gmtconnect` ：将端点接近的线段连接起来
+  #. :doc:`sample1d` ：对1D表数据进行重采样
 
 - 2D数据处理
 
@@ -90,7 +91,6 @@
   #. :doc:`mapproject`
   #. :doc:`project`
   #. :doc:`surface`
-  #. :doc:`sample1d`
   #. :doc:`grdtrack`
   #. :doc:`makecpt`
 
