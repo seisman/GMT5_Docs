@@ -46,6 +46,7 @@
 
 - 2D数据处理
 
+  #. :doc:`grdedit` ：修改网格文件的头段或内容
   #. :doc:`grdcut` ：从一个网格文件中裁剪出一个子区域
   #. :doc:`grdpaste` ：将两个网格沿着其共同边界拼接成一个文件
   #. :doc:`grdraster` ：从二进制数据中提取子区域并保存为GMT网格文件
@@ -74,7 +75,6 @@
 
 - 未来会整理的命令
 
-  #. :doc:`grdedit`
   #. :doc:`psmask`
   #. :doc:`psxyz`
   #. :doc:`grdview`
