@@ -76,42 +76,44 @@
   #. :doc:`psvelo` ：在地图上绘制速度矢量、十字线、楔形图
   #. :doc:`pscoupe` ：绘制震源机制解的剖面图
 
-- 未来会整理的命令
+- 计划整理的命令（按优先级排序，欢迎提交PR）
+
+  #. :doc:`project`
+  #. :doc:`grdtrack`
+  #. :doc:`makecpt`
+  #. :doc:`grd2cpt`
+  #. :doc:`gmtconvert`
+  #. :doc:`trend1d`
+  #. :doc:`grdcontour`
 
   #. :doc:`psmask`
-  #. :doc:`psxyz`
   #. :doc:`grdview`
-  #. :doc:`grd2cpt`
   #. :doc:`grdgradient`
   #. :doc:`grdmath`
   #. :doc:`gmt2kml`
-  #. :doc:`gmtconvert`
-  #. :doc:`trend1d`
   #. :doc:`trend2d`
   #. :doc:`mapproject`
-  #. :doc:`project`
   #. :doc:`surface`
-  #. :doc:`grdtrack`
-  #. :doc:`makecpt`
+  #. :doc:`grdfilter`
+  #. :doc:`grdfft`
+  #. :doc:`splitxyz`
 
 - 没有整理计划的命令
 
+  #. :doc:`blockmean`
+  #. :doc:`blockmedian`
+  #. :doc:`blockmode`
+  #. :doc:`psxyz`
   #. :doc:`pscontour`
   #. :doc:`pssegy`
   #. :doc:`pssegyz`
   #. :doc:`pswiggle`
-  #. :doc:`grdcontour`
   #. :doc:`grdgravmag3d`
   #. :doc:`grdhisteq`
   #. :doc:`grdpmodeler`
   #. :doc:`grdredpol`
   #. :doc:`grdrotater`
-  #. :doc:`blockmean`
-  #. :doc:`blockmedian`
-  #. :doc:`blockmode`
-  #. :doc:`grdfilter`
   #. :doc:`dimfilter`
-  #. :doc:`grdfft`
   #. :doc:`triangulate`
   #. :doc:`nearneighbor`
 
@@ -157,7 +159,6 @@
   #. :doc:`sphdistance`
   #. :doc:`sphinterpolate`
   #. :doc:`sphtriangulate`
-  #. :doc:`splitxyz`
 
 .. raw:: latex
 
@@ -297,4 +298,3 @@
    x2sys_report
    x2sys_solve
    xyz2grd
-
