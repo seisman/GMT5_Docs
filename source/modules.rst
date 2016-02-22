@@ -44,6 +44,7 @@
   #. :doc:`gmtsimplify` ：使用Douglas-Peucker算法对线段做简化
   #. :doc:`gmtconnect` ：将端点接近的线段连接起来
   #. :doc:`sample1d` ：对1D表数据进行重采样
+  #. :doc:`project` ：将数据点投影到线或大圆路径上，生成测线，坐标转换
 
 - 2D数据处理
 
@@ -78,7 +79,6 @@
 
 - 计划整理的命令（按优先级排序，欢迎提交PR）
 
-  #. :doc:`project`
   #. :doc:`grdtrack`
   #. :doc:`makecpt`
   #. :doc:`grd2cpt`
