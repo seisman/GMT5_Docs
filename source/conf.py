@@ -103,7 +103,9 @@ on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 # a list of builtin themes.
 # https://github.com/snide/sphinx_rtd_theme#using-this-theme-locally-then-building-on-read-the-docs
 if on_rtd:
-    html_theme = 'default'
+    import mozilla_sphinx_theme
+    html_theme_path = [os.path.dirname(mozilla_sphinx_theme.__file__)]
+    html_theme = 'mozilla'
 else:
     import sphinx_rtd_theme
     html_theme = 'sphinx_rtd_theme'
