@@ -15,14 +15,23 @@ pslegend
 ``-D[g|j|J|n|x]<refpoint>+w<length>/<width>[+j<justify>][+l<spacing>][+o<dx>[/<dy>]]``
     设置图例的位置和大小
 
-    #. ``[g|j|J|n|x]<refpoint>`` 指定底图上的参考点，见 :doc:`embellishments`
-    #. ``+j<justify>`` 指定图例上的锚点，默认锚点是 ``BL`` ，见 :doc:`embellishments` 一节
-    #. ``+o<dx>/<dy>`` 指定参考点的额外偏移量
-    #. ``+w<length>/<width>`` 用于指定图例框的尺寸，若 ``<height>`` 未指定或取0，则GMT会自动估算所需的高度
-    #. ``+l<spacing>`` 行间距因子，默认值为1.1，则当前字体大小的1.1倍
+    - ``[g|j|J|n|x]<refpoint>`` 指定底图上的参考点，见 :doc:`embellishments`
+    - ``+j<justify>`` 指定图例上的锚点，默认锚点是 ``BL`` ，见 :doc:`embellishments` 一节
+    - ``+o<dx>/<dy>`` 指定参考点的额外偏移量
+    - ``+w<length>/<width>`` 用于指定图例框的尺寸，若 ``<height>`` 未指定或取0，则GMT会自动估算所需的高度
+    - ``+l<spacing>`` 行间距因子，默认值为1.1，则当前字体大小的1.1倍
+
+    该选项几个比较有用的用法是：
+
+    #. 将图例放在左下角： ``-DjBL+w4c/2c+o0.2c/0.2c``
+    #. 将图例放在左上角： ``-DjTL+w4c/2c+o0.2c/0.2c``
+    #. 将图例放在右下角： ``-DjBR+w4c/2c+o0.2c/0.2c``
+    #. 将图例放在右上角： ``-DjTR+w4c/2c+o0.2c/0.2c``
 
 ``-F``
     控制图例的背景属性，见 :doc:`embellishments` 一节
+
+    默认图例无边框，使用该选项则会给图例绘制边框。
 
 图例文件格式
 ------------
