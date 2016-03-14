@@ -3,7 +3,7 @@
 #
 # Python Script to generate inventory file for GMT official documentation
 #
-# Reference = """ http://pvbookmarks.readthedocs.org/en/master/devel/documentation/doc_generators/sphinx/rest_sphinx/hyperlinks.html """
+# http://pvbookmarks.readthedocs.org/en/master/devel/documentation/doc_generators/sphinx/rest_sphinx/hyperlinks.html
 #
 
 import zlib
