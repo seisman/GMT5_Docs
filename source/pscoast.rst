@@ -192,6 +192,20 @@ pscoast
 
     gmt pscoast -R-26/-12/62/68 -Dh -W -M > iceland.txt
 
+FAQ
+---
+
+#. 错误消息::
+
+       pscoast: low resolution shoreline data base not installed.
+
+   出现该错误的原因有如下几种：
+
+   #. 未安装GSHHG海岸线数据
+   #. 安装了但路径不正确（建议的做法是把所有GSHHG的文件放在 ``$GMTHOME/share/coast`` 目录下）
+   #. 安装的netCDF版本号为3.x而不是4.x
+   #. 自行编译了netCDF 4.x，且编译时使用了 ``--disbale-netcdf4`` 选项
+
 BUGS
 ----
 

@@ -49,3 +49,12 @@ gmtset
         $ gmt gmtset -JX5c/5c
 
     该命令会将GMT命令历史文件 ``gmt.history`` 中 ``-J`` 选项的值从 ``X10c/5c`` 改成 ``X5c/5c`` 。
+
+FAQ
+---
+
+#. 错误消息::
+
+       gmtset: Warning: parameter xxxx is deprecated. Use xxx instead.
+
+   出现该错误是因为GMT5重命名了几乎所有参数，而当前命令使用的是GMT4的老参数名。解决办法在警告信息中已经说了，使用GMT5的新参数名即可。

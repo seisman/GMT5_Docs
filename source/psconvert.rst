@@ -168,6 +168,15 @@ psconvert
 #. 转换为PDF、PNG时使用DEFALTE压缩；转换为TIFF时使用LZW压缩；
 #. psconvert还可以用于其他命令生成的PS文件；
 
+FAQ
+---
+
+#. 错误信息::
+
+       GMT PS format detected but file is not finalized. Maybe a -K in excess? No output created.
+
+   出现这种错误的最常见原因是最后一个绘图命令里多了一个 ``-K`` ，即本该只使用 ``-O`` 选项关闭PS文件的，但却使用了 ``-K -O`` 选项。
+
 BUGS
 ----
 
