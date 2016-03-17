@@ -12,10 +12,10 @@
 
 GMT参数中有一些与logo相关的参数：
 
-- :ref:`MAP_LOGO` 控制是否绘制时间戳，默认值为 ``FALSE``
-- :ref:`MAP_LOGO_POS` 用于控制时间戳的位置
-- :ref:`FORMAT_TIME_STAMP` 用于控制时间戳的显示格式
-- :ref:`FONT_LOGO` 时间戳中文本的字体
+- :ref:`MAP_LOGO <MAP_LOGO>` 控制是否绘制时间戳，默认值为 ``FALSE``
+- :ref:`MAP_LOGO_POS <MAP_LOGO_POS>` 用于控制时间戳的位置
+- :ref:`FORMAT_TIME_STAMP <FORMAT_TIME_STAMP>` 用于控制时间戳的显示格式
+- :ref:`FONT_LOGO <FONT_LOGO>` 时间戳中文本的字体
 
 命令::
 

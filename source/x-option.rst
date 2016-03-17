@@ -9,14 +9,13 @@ GMT中的某些模块支持OpenMP多线程并行。默认情况下，GMT会尝�
 - ``-<n>`` 表示使用 ``all - <n>`` 个核（若 ``<n>`` 太小，则设置 ``<n>`` 为1）
 
 支持该选项的模块包括：
-
-- :doc:`greenspline`
-- :doc:`grdmask`
-- :doc:`grdmath`
-- :doc:`grdfilter`
-- :doc:`grdsample`
-- :doc:`sph2grd`
-- :doc:`grdgravmag3d`
-- :doc:`talwani2d`
-- :doc:`talwani3d`
-- :doc:`x2sys_solve`
+:doc:`greenspline` 、
+:doc:`grdmask` 、
+:doc:`grdmath` 、
+:doc:`grdfilter` 、
+:doc:`grdsample` 、
+:doc:`sph2grd` 、
+:doc:`grdgravmag3d` 、
+:doc:`talwani2d` 、
+:doc:`talwani3d` 、
+:doc:`x2sys_solve` 。

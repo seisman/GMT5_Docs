@@ -12,4 +12,4 @@ verbose模式有6个等级，等级越高输出的信息越多，高等级会在
 - ``-Vl`` ：long；详细的进程报告；
 - ``-Vd`` ：debug；包含了大量调试信息；
 
-该选项仅对当前命令有效，若希望接下来所有的命令都具有某个verbose级别，可以修改GMT参数 :ref:`GMT_VERBOSE` 。
+该选项仅对当前命令有效，若希望接下来所有的命令都具有某个verbose级别，可以修改GMT参数 :ref:`GMT_VERBOSE <GMT_VERBOSE>` 。

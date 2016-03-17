@@ -83,9 +83,11 @@ psxy
         echo 5 5 1 0.5 | gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sc0.1c -Exy -W2p > test.ps
 
     使用 ``x+|y+`` 表明X方向和/或Y方向为非对称误差棒，此时输入数据的格式为::
+
         X  Y   [size]   [X_left_error X_right_error]  [Y_left_error Y_right_error] [others]
 
     例如::
+
         echo 5 5 1 0.4 0.5 0.25 | gmt psxy -R0/10/0/10 -JX10c/10c -B1 -Sc0.1c -Ex+y+ -W2p > test.ps
 
     使用 ``X`` 和 ``Y`` 则绘制box-and-whisker（即stem-and-leaf）符号。以 ``-EX`` 为例，此时数据数据格式为::

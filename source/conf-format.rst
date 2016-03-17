@@ -145,7 +145,7 @@ FORMAT参数
 **FORMAT_TIME_SECONDARY_MAP**
     二级标注中月份、周名的格式 [full]
 
-    见 :ref:`FORMAT_TIME_PRIMARY_MAP` 中的相关说明。
+    见 :ref:`FORMAT_TIME_PRIMARY_MAP <FORMAT_TIME_PRIMARY_MAP>` 中的相关说明。
 
 **FORMAT_TIME_STAMP**
     GMT时间戳中时间信息的显示格式 [ ``%Y %b %d %H:%M:%S`` ]
