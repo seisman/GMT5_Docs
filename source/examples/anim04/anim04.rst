@@ -20,6 +20,12 @@ expect to add this functionality in a future version.
 .. literalinclude:: ./anim04.sh
    :language: bash
 
-.. figure:: ./anim04.*
-   :width: 400px
-   :align: center
+.. only:: html
+
+   .. figure:: ./anim04.*
+      :width: 400px
+      :align: center
+
+.. only:: latex
+
+   由于PDF文件不支持显示动图，具体效果见\ `网页版 <http://gmt5.seisman.info/examples/anim04/anim04.html>`_ 。
