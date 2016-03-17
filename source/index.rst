@@ -1,6 +1,7 @@
 阅读须知
 ########
 
+
 本项目是GMT5的中文参考手册。
 
 本项目源码用 `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ 写成，利用 `Sphinx <http://sphinx-doc.org/>`_ 制作成网页，源码托管在 `GitHub <https://github.com/seisman/GMT5_Docs>`_ 上，网页渲染及托管由 `Read the Docs <http://readthedocs.org/projects/gmt5-docs/>`_ 提供。
@@ -55,9 +56,11 @@
    appendix
    faq
 
-快捷链接
-========
+.. only:: html
 
-* `GMT主页 <http://gmt.soest.hawaii.edu>`_
-* `GMT官方文档 <http://gmt.soest.hawaii.edu/doc/5.2.1/index.html>`_
-* :ref:`genindex`
+   快捷链接
+   ========
+
+   * `GMT主页 <http://gmt.soest.hawaii.edu>`_
+   * `GMT官方文档 <http://gmt.soest.hawaii.edu/doc/5.2.1/index.html>`_
+   * :ref:`genindex`
