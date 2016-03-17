@@ -1,9 +1,9 @@
 .. _anim01:
 
-Animation of the sine function
--------------------------------
+正弦函数动态图
+--------------
 
-Our first animation is not very ambitious: We wish to plot the sine
+We wish to plot the sine
 function from 0-360 and take snap shots every 20. To get a smooth curve
 we must sample the function much more frequently; we settle on 10 times
 more frequently than the frame spacing. We place a bright red circle at

@@ -45,20 +45,5 @@ while [ ${az} -lt 360 ]; do
 	frame=`gmt_set_framenext ${frame}`
 done
 convert -delay 10 -loop 0 +dither $$/${name_}*.tif ${name}.gif
-cat << END > ${name}.html
-<HTML>
-<TITLE>GMT 3-D perspective of Iceland</TITLE>
-<BODY bgcolor="#ffffff">
-<CENTER>
-<H1>GMT 3-D perspective of Iceland</H1>
-<IMG src="${name}.gif" border=1>
-</CENTER>
-<HR>
-Here we show ETOPO2 topography of Iceland as we move the view
-point around the island.
-<I>${name}.sh: Created by ${USER} on `date`</I>
-</BODY>
-</HTML>
-END
 # 4. Clean up temporary files
 gmt_cleanup .gmt

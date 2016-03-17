@@ -1,6 +1,5 @@
 #!/bin/bash
 #               GMT ANIMATION 01
-#               $Id$
 #
 # Purpose:      Make web page with simple animated GIF of sine function
 # GMT progs:    gmt gmtset, gmt gmtmath, gmt psbasemap, gmt pstext, gmt psxy, gmt psconvert
@@ -54,27 +53,8 @@ while [ ${frame} -le ${n_frames} ]; do
 	echo "Frame ${file} completed"
 	frame=`gmt_set_framenext ${frame}`
 done
-# 3. Create animated GIF file and HTML for web page
+# 3. Create animated GIF file
 convert -delay 20 -loop 0 $$/${name}_*.tif ${name}.gif
-cat << END > ${name}.html
-<HTML>
-<TITLE>GMT Trigonometry: The sine movie</TITLE>
-<BODY bgcolor="#ffffff">
-<CENTER>
-<H1>GMT Trigonometry: The sine movie</H1>
-<IMG src="${name}.gif">
-</CENTER>
-<HR>
-We demonstrate how the sine function <I>y = sin(a)</I> varies with <I>a</I> over
-the full 360-degree interval.  We plot a bright red circle at each
-new angle, letting previous circles turn dark red.  The underlying
-sine curve is sampled at 10 times the frame sampling rate in order to reproduce
-a smooth curve.  Our animation uses GraphicsMagick's convert tool to make an animated GIF file
-with a 0.2 second pause between frames, set to repeat forever.
-<HR>
-<I>${name}.sh: Created by ${USER} on `date`</I>
-</BODY>
-</HTML>
-END
+
 # 4. Clean up temporary files
 gmt_cleanup .gmt
