@@ -34,7 +34,7 @@
 
 .. _GMT_patterns:
 
-.. figure:: /images/GMT_patterns.*
+.. figure:: /images/GMT_patterns.png
    :width: 600 px
    :align: center
 
