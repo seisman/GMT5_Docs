@@ -15,12 +15,6 @@ we convert them to a single animated GIF file.
 .. literalinclude:: ./anim01.sh
    :language: bash
 
-Make sure you understand the purpose of all the steps in our script. In
-this case we did some trial-and-error to determine the exact values to
-use for the map projection, the region, the spacing around the frame,
-etc. so that the final result gave a reasonable layout. Do this planning
-on a single PostScript plot before running a lengthy animation script.
-
 .. only:: html
 
    .. figure:: ./anim01.*
