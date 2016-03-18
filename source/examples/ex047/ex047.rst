@@ -3,8 +3,8 @@
 震源机制分布图
 --------------
 
-.. literalinclude:: ./ex001.pl
-   :language: perl
+.. literalinclude:: ./ex001.sh
+   :language: bash
 
 .. figure:: ./ex047.png
    :width: 500 px
