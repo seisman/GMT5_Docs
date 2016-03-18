@@ -260,6 +260,7 @@ GMT示例
    examples/ex044/ex044.rst
    examples/ex045/ex045.rst
    examples/ex046/ex046.rst
+   examples/ex047/ex047.rst
 
 
 .. only:: html
