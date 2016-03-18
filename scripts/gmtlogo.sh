@@ -1,6 +1,4 @@
 #!/bin/bash
 PS=gmtlogo.ps
-gmt psxy -R0/1/0/1 -JX1c -T -K > $PS
-gmtlogo 0 0 0.2 >> $PS
-gmt psxy -R0/1/0/1 -JX1c -T -O >> $PS
+gmt logo -Dx0/0+w5.458i -P -X0 -Y0 > $PS
 rm gmt.*
