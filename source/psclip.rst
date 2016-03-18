@@ -32,6 +32,7 @@ psclip
 ----
 
 ::
+
     # 打开裁剪路径
     gmt psclip my_region.xy -R0/40/0/40 -Jm0.3i -K > clip_mask_on.ps
     # 其他绘图命令
