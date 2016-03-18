@@ -79,222 +79,223 @@
 
 - 计划整理的命令（按优先级排序，欢迎提交PR）
 
-  #. :doc:`grdtrack`
-  #. :doc:`makecpt`
-  #. :doc:`grd2cpt`
-  #. :doc:`gmtconvert`
-  #. :doc:`trend1d`
-  #. :doc:`grdcontour`
+  #. grdtrack
+  #. makecpt
+  #. grd2cpt
+  #. gmtconvert
+  #. trend1d
+  #. grdcontour
 
-  #. :doc:`psmask`
-  #. :doc:`grdview`
-  #. :doc:`grdgradient`
-  #. :doc:`grdmath`
-  #. :doc:`gmt2kml`
-  #. :doc:`trend2d`
-  #. :doc:`mapproject`
-  #. :doc:`surface`
-  #. :doc:`grdfilter`
-  #. :doc:`grdfft`
-  #. :doc:`splitxyz`
+  #. psmask
+  #. grdview
+  #. grdgradient
+  #. grdmath
+  #. gmt2kml
+  #. trend2d
+  #. mapproject
+  #. surface
+  #. grdfilter
+  #. grdfft
+  #. splitxyz
 
 - 没有整理计划的命令
 
-  #. :doc:`blockmean`
-  #. :doc:`blockmedian`
-  #. :doc:`blockmode`
-  #. :doc:`psxyz`
-  #. :doc:`pscontour`
-  #. :doc:`pssegy`
-  #. :doc:`pssegyz`
-  #. :doc:`pswiggle`
-  #. :doc:`grdgravmag3d`
-  #. :doc:`grdhisteq`
-  #. :doc:`grdpmodeler`
-  #. :doc:`grdredpol`
-  #. :doc:`grdrotater`
-  #. :doc:`dimfilter`
-  #. :doc:`triangulate`
-  #. :doc:`nearneighbor`
+  #. blockmean
+  #. blockmedian
+  #. blockmode
+  #. psxyz
+  #. pscontour
+  #. pssegy
+  #. pssegyz
+  #. pswiggle
+  #. grdgravmag3d
+  #. grdhisteq
+  #. grdpmodeler
+  #. grdredpol
+  #. grdrotater
+  #. dimfilter
+  #. triangulate
+  #. nearneighbor
 
-  #. :doc:`mgd77convert`
-  #. :doc:`mgd77info`
-  #. :doc:`mgd77list`
-  #. :doc:`mgd77magref`
-  #. :doc:`mgd77manage`
-  #. :doc:`mgd77path`
-  #. :doc:`mgd77sniffer`
-  #. :doc:`mgd77track`
+  #. mgd77convert
+  #. mgd77info
+  #. mgd77list
+  #. mgd77magref
+  #. mgd77manage
+  #. mgd77path
+  #. mgd77sniffer
+  #. mgd77track
 
-  #. :doc:`x2sys_binlist`
-  #. :doc:`x2sys_cross`
-  #. :doc:`x2sys_datalist`
-  #. :doc:`x2sys_get`
-  #. :doc:`x2sys_init`
-  #. :doc:`x2sys_list`
-  #. :doc:`x2sys_merge`
-  #. :doc:`x2sys_put`
-  #. :doc:`x2sys_report`
-  #. :doc:`x2sys_solve`
+  #. x2sys_binlist
+  #. x2sys_cross
+  #. x2sys_datalist
+  #. x2sys_get
+  #. x2sys_init
+  #. x2sys_list
+  #. x2sys_merge
+  #. x2sys_put
+  #. x2sys_report
+  #. x2sys_solve
 
-  #. :doc:`gmtswitch`
+  #. gmtswitch
 
-  #. :doc:`backtracker`
-  #. :doc:`gmtgravmag3d`
-  #. :doc:`gmtspatial`
-  #. :doc:`gmtvector`
-  #. :doc:`gravfft`
-  #. :doc:`grdseamount`
-  #. :doc:`grdspotter`
-  #. :doc:`greenspline`
-  #. :doc:`gshhg`
-  #. :doc:`hotspotter`
-  #. :doc:`img2google`
-  #. :doc:`img2grd`
-  #. :doc:`originator`
-  #. :doc:`rotconverter`
-  #. :doc:`segy2grd`
-  #. :doc:`spectrum1d`
-  #. :doc:`sph2grd`
-  #. :doc:`sphdistance`
-  #. :doc:`sphinterpolate`
-  #. :doc:`sphtriangulate`
+  #. backtracker
+  #. gmtgravmag3d
+  #. gmtspatial
+  #. gmtvector
+  #. gravfft
+  #. grdseamount
+  #. grdspotter
+  #. greenspline
+  #. gshhg
+  #. hotspotter
+  #. img2google
+  #. img2grd
+  #. originator
+  #. rotconverter
+  #. segy2grd
+  #. spectrum1d
+  #. sph2grd
+  #. sphdistance
+  #. sphinterpolate
+  #. sphtriangulate
 
 .. raw:: latex
 
    \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
-   \setcounter{secnumdepth}{1}
+   \setcounter{secnumdepth}{0}
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   backtracker
-   blockmean
-   blockmedian
-   blockmode
-   dimfilter
    filter1d
    fitcircle
    gmt
-   gmt2kml
    gmt5syntax
    gmtconnect
-   gmtconvert
    gmtdefaults
-   gmtflexure
    gmtget
-   gmtgravmag3d
    gmtinfo
    gmtlogo
-   gmtmath
-   gmtregress
    gmtselect
    gmtset
    gmtsimplify
-   gmtspatial
-   gmtswitch
-   gmtvector
-   gmtwhich
-   gravfft
-   grd2cpt
    grd2rgb
    grd2xyz
    grdblend
    grdclip
-   grdcontour
    grdcut
    grdedit
-   grdfft
-   grdfilter
-   grdflexure
-   grdgradient
-   grdgravmag3d
-   grdhisteq
    grdimage
    grdinfo
    grdlandmask
    grdmask
-   grdmath
    grdpaste
-   grdpmodeler
    grdproject
    grdraster
-   grdredpol
    grdconvert
-   grdrotater
    grdsample
-   grdseamount
-   grdspotter
    grdtrack
    grdtrend
    grdvector
-   grdview
    grdvolume
-   greenspline
-   gshhg
-   hotspotter
-   img2google
-   img2grd
    isogmt
    kml2gmt
    makecpt
    mapproject
-   mgd77convert
-   mgd77info
-   mgd77list
-   mgd77magref
-   mgd77manage
-   mgd77path
-   mgd77sniffer
-   mgd77track
-   nearneighbor
-   originator
    project
    psconvert
    psbasemap
    psclip
    pscoast
-   pscontour
    pscoupe
    pshistogram
    psimage
    pslegend
-   psmask
    psmeca
    pspolar
    psrose
    psscale
-   pssegy
-   pssegyz
    pstext
    psvelo
-   pswiggle
    psxy
-   psxyz
-   rotconverter
    sample1d
-   segy2grd
-   spectrum1d
-   sph2grd
-   sphdistance
-   sphinterpolate
-   sphtriangulate
-   splitxyz
-   surface
-   talwani2d
-   talwani3d
-   trend1d
-   trend2d
-   triangulate
-   x2sys_binlist
-   x2sys_cross
-   x2sys_datalist
-   x2sys_get
-   x2sys_init
-   x2sys_list
-   x2sys_merge
-   x2sys_put
-   x2sys_report
-   x2sys_solve
    xyz2grd
+
+.. backtracker
+.. blockmean
+.. blockmedian
+.. blockmode
+.. dimfilter
+.. gmt2kml
+.. gmtconvert
+.. gmtflexure
+.. gmtgravmag3d
+.. gmtmath
+.. gmtregress
+.. gmtspatial
+.. gmtswitch
+.. gmtvector
+.. gmtwhich
+.. grd2cpt
+.. grdcontour
+.. grdfft
+.. grdgradient
+.. grdredpol
+.. grdrotater
+.. grdseamount
+.. grdspotter
+.. grdmath
+.. grdpmodeler
+.. grdview
+.. gravfft
+.. grdfilter
+.. grdflexure
+.. grdgravmag3d
+.. grdhisteq
+.. greenspline
+.. gshhg
+.. hotspotter
+.. img2google
+.. img2grd
+.. mgd77convert
+.. mgd77info
+.. mgd77list
+.. mgd77magref
+.. mgd77manage
+.. mgd77path
+.. mgd77sniffer
+.. mgd77track
+.. nearneighbor
+.. originator
+.. pscontour
+.. psmask
+.. pssegy
+.. pssegyz
+.. pswiggle
+.. psxyz
+.. rotconverter
+.. segy2grd
+.. spectrum1d
+.. sph2grd
+.. sphdistance
+.. sphinterpolate
+.. sphtriangulate
+.. splitxyz
+.. surface
+.. talwani2d
+.. talwani3d
+.. trend1d
+.. trend2d
+.. triangulate
+.. x2sys_binlist
+.. x2sys_cross
+.. x2sys_datalist
+.. x2sys_get
+.. x2sys_init
+.. x2sys_list
+.. x2sys_merge
+.. x2sys_put
+.. x2sys_report
+.. x2sys_solve
