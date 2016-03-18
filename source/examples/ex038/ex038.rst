@@ -15,4 +15,3 @@ used here is :doc:`grdhisteq </grdhisteq>`.
    :align: center
 
    Histogram equalization of bathymetry grids.
-

@@ -21,7 +21,7 @@ we convert them to a single animated GIF file.
       :width: 400 px
       :align: center
 
-      Animation of a simple sine function.
+      正弦函数动态图
 
 .. only:: latex
 

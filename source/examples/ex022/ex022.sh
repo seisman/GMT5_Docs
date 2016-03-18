@@ -1,6 +1,4 @@
 #!/bin/bash
-#		GMT EXAMPLE 22
-#		$Id$
 #
 # Purpose:	Automatic map of last 7 days of world-wide seismicity
 # GMT progs:	gmtset, pscoast, psxy, pslegend
@@ -8,12 +6,6 @@
 #
 ps=ex022.ps
 gmt gmtset FONT_ANNOT_PRIMARY 10p FONT_TITLE 18p FORMAT_GEO_MAP ddd:mm:ssF
-
-# Get the data (-q quietly) from USGS using the wget (comment out in case
-# your system does not have wget or curl)
-
-#wget http://neic.usgs.gov/neis/gis/bulletin.asc -q -O neic_quakes.d
-#curl http://neic.usgs.gov/neis/gis/bulletin.asc -s > neic_quakes.d
 
 # Count the number of events (to be used in title later. one less due to header)
 

@@ -50,4 +50,4 @@ and b) completes the illustration.
    :width: 500 px
    :align: center
 
-   Color images from gridded data.
+   海洋深度图

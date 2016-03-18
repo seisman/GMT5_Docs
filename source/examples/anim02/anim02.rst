@@ -14,18 +14,13 @@ gridded data. The red arrow points in the direction of the illumination.
 .. literalinclude:: ./anim02.sh
    :language: bash
 
-As you can see, these sorts of animations are not terribly difficult to
-put together, especially since our vantage point is fixed. In the next
-example we will move the "camera" around and must therefore deal with
-how to frame perspective views.
-
 .. only:: html
 
    .. figure:: ./anim02.*
       :width: 400 px
       :align: center
 
-      Animation of a DEM using variable illumination.
+      DEM光照变化图
 
 .. only:: latex
 

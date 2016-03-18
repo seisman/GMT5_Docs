@@ -3,12 +3,7 @@
 地震活动性
 ----------
 
-The next example uses the command-line tool **wget** to obtain a data
-file from a specified URL [1]_. In the example script this line is
-commented out so the example will run even if you do not have **wget**
-(we use the supplied ``neic_quakes.d`` which normally would be created by **wget**);
-remove the comment to get the actual current seismicity plot using the
-live data. The main purpose of this script is not to show how to plot a
+The main purpose of this script is not to show how to plot a
 map background and a few circles, but rather demonstrate how a map
 legend may be composed using the new tool
 :doc:`pslegend </pslegend>`. Some scripting is used to
@@ -29,7 +24,3 @@ giving the URL where these and similar data can be obtained.
    :align: center
 
    World-wide seismicity the last 7 days.
-
-
-.. [1]
-   You can also use the utility **curl**

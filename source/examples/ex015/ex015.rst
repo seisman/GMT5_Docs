@@ -33,4 +33,3 @@ grid files using :doc:`grdinfo </grdinfo>`.
    :align: center
 
    Gridding, contouring, and masking of data.
-

@@ -18,4 +18,4 @@ from -5000 meter to sea-level. We produce the Figure by running this script:
    :width: 500 px
    :align: center
 
-   A 3-D histogram.
+   3D直方图

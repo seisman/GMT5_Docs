@@ -30,7 +30,6 @@ numbers indicate brightnesses between 0 and 1, with saturation fixed at 1.
 .. literalinclude:: ./ex011.sh
    :language: bash
 
-
 .. figure:: ./ex011.*
    :width: 500 px
    :align: center
