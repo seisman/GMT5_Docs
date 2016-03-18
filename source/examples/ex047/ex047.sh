@@ -24,6 +24,6 @@ gmt psmeca -J -R -CP5p -Sa1.3c -Z$CPT -K -O >> $PS << EOF
 104.2300  31.6100  62.0  86.00 63.00  -51.00  4.7 104.960  31.6900 G
 EOF
 
-gmt psscale -J -R -C$CPT -DjBL+w5c/0.5c+ml+o0.8c/0.4c -Bx+l"Depth" -By+lkm -L -S -K -O >> $PS
+gmt psscale -J -R -C$CPT -DjBL+w5c/0.5c+ml+o0.8c/0.4c -Bx+lDepth -By+lkm -L -S -K -O >> $PS
 gmt psxy -J -R -T -O >> $PS
 rm gmt.*

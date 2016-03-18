@@ -5,8 +5,7 @@
 
 We want to create two contour maps of the low order geoid using the
 Hammer equal area projection. Our gridded data file is called ``osu91a1f_16.nc`` and
-contains a global 1 by 1 gridded geoid (we will see how to make gridded
-files later). We would like to show one map centered on Greenwich and
+contains a global 1 by 1 gridded geoid. We would like to show one map centered on Greenwich and
 one centered on the dateline. Positive contours should be drawn with a
 solid pen and negative contours with a dashed pen. Annotations should
 occur for every 50 m contour level, and both contour maps should show

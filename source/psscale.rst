@@ -40,7 +40,7 @@ psscale
 ``-I[<max_intens>|<low_i>/<high_i>]``
     为色标加上光照效果
 
-    #. ``-I<max_intens>`` 光照强度为``[-<max_intens>, +<max_intens]``，默认值为1
+    #. ``-I<max_intens>`` 光照强度为 ``[-<max_intens>, +<max_intens]`` ，默认值为1
     #. ``-I<low_i>/<high_i>`` 指定非对称的光照强度范围
 
 ``-L[i][<gap>]``
