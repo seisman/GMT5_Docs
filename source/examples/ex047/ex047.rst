@@ -6,6 +6,6 @@
 .. literalinclude:: ./ex047.sh
    :language: bash
 
-.. figure:: ./ex047.png
+.. figure:: ./ex047.*
    :width: 500 px
    :align: center

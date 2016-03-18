@@ -1,7 +1,7 @@
 .. _ex046:
 
-A Vertical slice
-----------------
+垂直切片
+--------
 
 This is an example of how to graph a function p=f(x, y, z)
 and include in the graph a slice of it using GMT 5.
@@ -26,15 +26,6 @@ Maybe someone has the recipe to do it analytically.
 The grid in the horizontal plane is to make sure the slice is located exactly where it should be.
 
 I also had to re-draw the box, because the slice partially covered it.
-
-I tried to make the script as clear as possible with comments, but
-yet they can be tricky.
-
-Regards, Eduardo.-
-
---
-Eduardo A. Suarez
-Facultad de Ciencias Astronomicas y Geofisicas - UNLP
 
 .. literalinclude:: ./ex046.sh
    :language: bash
