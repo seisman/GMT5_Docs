@@ -1,0 +1,13 @@
+.. _ex001:
+
+震源机制剖面图
+--------
+
+.. literalinclude:: ./ex001.pl
+   :language: perl
+
+
+.. figure:: ./ex047.png
+   :width: 500 px
+   :align: center
+
