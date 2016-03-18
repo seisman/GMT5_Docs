@@ -1,7 +1,6 @@
 阅读须知
 ########
 
-
 本项目是GMT5的中文参考手册。
 
 本项目源码用 `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ 写成，利用 `Sphinx <http://sphinx-doc.org/>`_ 制作成网页，源码托管在 `GitHub <https://github.com/seisman/GMT5_Docs>`_ 上，网页渲染及托管由 `Read the Docs <http://readthedocs.org/projects/gmt5-docs/>`_ 提供。
@@ -19,12 +18,7 @@
 #. 不适合于快速入门GMT，只适合于系统学习GMT或日常查询
 #. 目前以网页版为主，虽提供PDF版，但无法保证排版效果
 #. 所有示例及代码仅在Linux下测试通过，其他平台下可能需要略作修改
-
-读者可以通过如下方法支持本文档：
-
-#. 提意见和建议。不管是错别字、语句不通，还是概念不清，欢迎指出
-#. GitHub用户可以直接Fork项目源码，完善文档并提交Pull Request
-#. 给我\ `捐赠 <http://seisman.info/donations.html>`_
+#. 本文档源码已开源，希望有更多人可以参与维护，详情见 :ref:`doc-maintenance`
 
 文档约定：
 

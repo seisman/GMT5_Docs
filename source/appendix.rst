@@ -19,3 +19,4 @@
    sun-raster
    grid-suffix
    isolation
+   doc-maintenance
