@@ -3,7 +3,7 @@
 震源机制分布图
 --------------
 
-.. literalinclude:: ./ex001.sh
+.. literalinclude:: ./ex047.sh
    :language: bash
 
 .. figure:: ./ex047.png
