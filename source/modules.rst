@@ -181,6 +181,7 @@
    gmtselect
    gmtset
    gmtsimplify
+   gmtwhich
    grd2rgb
    grd2xyz
    grdblend
@@ -237,7 +238,6 @@
 .. gmtspatial
 .. gmtswitch
 .. gmtvector
-.. gmtwhich
 .. grd2cpt
 .. grdcontour
 .. grdfft
