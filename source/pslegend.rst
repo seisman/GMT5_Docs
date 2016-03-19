@@ -142,9 +142,13 @@ pslegend
    :width: 600px
    :align: center
 
+   pslegend示例图1
+
 .. literalinclude:: ../scripts/pslegend_ex2.sh
    :language: bash
 
 .. figure:: /images/pslegend_ex2.*
    :width: 600px
    :align: center
+
+   pslegend示例图2

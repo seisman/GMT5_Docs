@@ -35,6 +35,8 @@
    :width: 500 px
    :align: center
 
+   ``+s`` 选项示意图
+
 端点箭头
 --------
 
@@ -50,3 +52,5 @@
 .. figure:: /images/GMT_linearrow.*
    :width: 500 px
    :align: center
+
+   线条端点箭头示意图

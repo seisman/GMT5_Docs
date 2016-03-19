@@ -13,7 +13,7 @@ gmt psvelo -R-10/10/-10/10 -Wthin,red \
    -1.    5.     3.0    3.0     1.0    1.0  0.100  3x3
 EOF
 
-gmt psvelo -Se0.2c/0.39/14 -R -J -A0.25c+p0.25p+e -O -Umeca_4 << EOF >> $ps
+gmt psvelo -Se0.2c/0.39/14 -R -J -A0.25c+p0.25p+e -O << EOF >> $ps
 # Long.   Lat.   Evel   Nvel   Esig   Nsig  CorEN SITE
 # (deg)  (deg)    (mm/yr)        (mm/yr)
    0.    -8.     0.0    0.0     4.0    6.0  0.100  4x6

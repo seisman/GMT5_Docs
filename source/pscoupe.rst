@@ -109,6 +109,8 @@ pscoupe
    :alt: pscoupe example 1
    :width: 600 px
 
+   pscoupe示例图1
+
 下面的示例将震源球投影到不同方位角的剖面上的效果：
 
 .. literalinclude:: ../scripts/pscoupe_ex2.sh
@@ -117,3 +119,5 @@ pscoupe
 .. figure:: /images/pscoupe_ex2.*
    :alt: pscoupe example 2
    :width: 600 px
+
+   pscoupe示例图1

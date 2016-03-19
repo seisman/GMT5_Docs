@@ -31,6 +31,8 @@ psxy
        :width: 500px
        :align: center
 
+       psxy -A选项示意图
+
     注：由于这里投影比较特别，所以沿着经线的线和沿着纬线的线，看上去都是直线，在其他投影方式下可能不会是这样。
 
     该选项的一个可能的用途见示例：http://seisman.info/plot-specified-gridline-on-maps.html
@@ -224,6 +226,8 @@ psxy
        :align: center
        :alt: psxy simple symbols
 
+       psxy -S选项示意图
+
     除了上述简单的符号之外，还有更多复杂的符号。
 
 ``-Sb|B[[<size><u>]][b[<base>]]``
@@ -312,6 +316,8 @@ psxy
        :align: center
        :alt: psxy -Sf example
 
+       psxy -Sf示意图
+
 ``-Sj|J``
     绘制旋转矩形
 
@@ -360,6 +366,8 @@ psxy
        :width: 500px
        :align: center
        :alt: psxy angle arc
+
+       psxy -Sm 示意图
 
 ``-Sq[<type>]<info>[:<labelinfo>]``
     绘制quoted lines，即带标注的线段，比如等值线、带断层名的断层线等
@@ -452,12 +460,10 @@ psxy
        :align: center
        :alt: psxy pie wedge
 
-       左边-Sw，右边-SW；图中1格表示1cm。
+       psxy -Sw示意图。左边-Sw，右边-SW；图中1格表示1cm。
 
 ``-S~[d|D|f|l|L|n|N|s|S|x|X]<info>[:<symbolinfo>]``
     绘制decorated line，即带有符号的线段。详见官方文档。
-
-
 
 输入数据格式
 ------------
@@ -524,6 +530,8 @@ psxy
    :width: 600px
    :align: center
 
+   psxy -F选项示意图
+
 ``-L`` 选项的示例：
 
 .. literalinclude:: ../scripts/psxy_-L.sh
@@ -532,3 +540,5 @@ psxy
 .. figure:: /images/psxy_-L.*
    :width: 600px
    :align: center
+
+   psxy -L选项示意图

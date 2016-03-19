@@ -19,8 +19,7 @@ grdraster
 选项
 ----
 
-<filenumber>
-
+``<filenumber>``
     ``grdraster.info`` 中某文件所对应的文件号。或者也可以使用 ``text pattern`` 找到 ``grdraster.info`` 中数据描述中匹配的行。
 
 ``-G<grdfile>``

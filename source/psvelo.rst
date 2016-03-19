@@ -107,12 +107,16 @@ psvelo
    :width: 600 px
    :align: center
 
+   psvelo示例图1
+
 .. literalinclude:: ../scripts/psvelo_ex2.sh
    :language: bash
 
 .. figure:: /images/psvelo_ex2.*
    :width: 600 px
    :align: center
+
+   psvelo示例图2
 
 下面的示例展示了如何绘制应变十字线::
 

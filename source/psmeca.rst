@@ -190,6 +190,8 @@ psmeca
    :alt: meca
    :width: 600 px
 
+   psmeca示例图1
+
 .. literalinclude:: ../scripts/psmeca_ex2.sh
    :language: bash
 
@@ -197,9 +199,13 @@ psmeca
    :alt: meca
    :width: 600 px
 
+   psmeca示例图2
+
 .. literalinclude:: ../scripts/psmeca_ex3.sh
    :language: bash
 
 .. figure:: /images/psmeca_ex3.*
    :alt: meca
    :width: 600 px
+
+   psmeca示例图3

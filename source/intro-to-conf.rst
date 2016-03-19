@@ -76,10 +76,16 @@ GMT配置示例
    :width: 600px
    :align: center
 
+   GMT参数示意图1
+
 .. figure:: /images/GMT_Defaults_1b.*
    :width: 600px
    :align: center
 
+   GMT参数示意图2
+
 .. figure:: /images/GMT_Defaults_1c.*
    :width: 600px
    :align: center
+
+   GMT参数示意图3

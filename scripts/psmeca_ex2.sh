@@ -5,7 +5,8 @@
 ps=psmeca_ex2.ps
 
 # Right lateral Strike Slip
-echo 0.0 5.0 0.0 0 90 0 5 0 0   Right Strike Slip | gmt psmeca -Sa2.5c -Gblack -R-1/4/0/6 -JM14c -P -B2 -K > $ps
+echo 0.0 5.0 0.0 0 90 0 5 0 0   Right Strike Slip | gmt psmeca -Sa2.5c -Gblack \
+    -R-1/4/0/6 -JM14c -P -B2 -K > $ps
 
 # Left lateral Strike Slip
 echo 2.0 5.0 0.0 0 90 180 5 0 0 Left Strike Slip | gmt psmeca -Sa2.5c -Gblack -R -J -K -O >> $ps

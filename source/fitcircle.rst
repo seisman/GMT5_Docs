@@ -46,3 +46,4 @@ fitcircle
    :width: 600 px
    :align: center
 
+   fitcircle示例

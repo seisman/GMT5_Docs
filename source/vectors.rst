@@ -74,3 +74,5 @@ GMT中的矢量可以分为三类：
 .. figure:: /images/GMT_arrows_types.*
    :width: 600 px
    :align: center
+
+   矢量示意图

@@ -35,20 +35,21 @@ by selecting a standard parallel different from the equator. Some
 selections for standard parallels have practical properties as shown in
 Table :ref:`JQ <tbl-JQ>`.
 
-
 .. _tbl-JQ:
 
-+-----------------------------------------------------+--------+
-+=====================================================+========+
-| Grafarend and Niermann, minimum linear distortion   | 61.7º  |
-+-----------------------------------------------------+--------+
-| Ronald Miller Equirectangular                       | 50.5º  |
-+-----------------------------------------------------+--------+
-| Ronald Miller, minimum continental distortion       | 43.5º  |
-+-----------------------------------------------------+--------+
-| Grafarend and Niermann                              | 42º    |
-+-----------------------------------------------------+--------+
-| Ronald Miller, minimum overall distortion           | 37.5º  |
-+-----------------------------------------------------+--------+
-| Plate Carrée, Simple Cylindrical, Plain/Plane       | 0º     |
-+-----------------------------------------------------+--------+
+.. table::
+
+   +-----------------------------------------------------+--------+
+   +=====================================================+========+
+   | Grafarend and Niermann, minimum linear distortion   | 61.7º  |
+   +-----------------------------------------------------+--------+
+   | Ronald Miller Equirectangular                       | 50.5º  |
+   +-----------------------------------------------------+--------+
+   | Ronald Miller, minimum continental distortion       | 43.5º  |
+   +-----------------------------------------------------+--------+
+   | Grafarend and Niermann                              | 42º    |
+   +-----------------------------------------------------+--------+
+   | Ronald Miller, minimum overall distortion           | 37.5º  |
+   +-----------------------------------------------------+--------+
+   | Plate Carrée, Simple Cylindrical, Plain/Plane       | 0º     |
+   +-----------------------------------------------------+--------+

@@ -127,6 +127,8 @@ psbasemap
        :width: 600px
        :align: center
 
+       方向玫瑰图
+
        （左） ``-Tdg0/0+w1i+jCM``
        （中） ``-Tdg0/0+w1i+f1+jCM``
        （右） ``-Tdg0/0+w1i+f3+l+jCM``
@@ -176,6 +178,8 @@ psbasemap
    :width: 600px
    :align: center
 
+   用psbasemap命令-D选项绘制另一种图中图
+
 下面的脚本绘制了磁场玫瑰图：
 
 .. literalinclude:: ../scripts/psbasemap_ex4.sh
@@ -184,6 +188,8 @@ psbasemap
 .. figure:: /images/psbasemap_ex4.*
    :width: 600px
    :align: center
+
+   磁场玫瑰图
 
 BUGS
 ----
