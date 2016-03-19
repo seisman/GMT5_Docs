@@ -163,7 +163,7 @@
 .. raw:: latex
 
    \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
-   \setcounter{secnumdepth}{0}
+   \setcounter{secnumdepth}{1}
 
 .. toctree::
    :maxdepth: 1
