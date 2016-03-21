@@ -1,6 +1,8 @@
 阅读须知
 ########
 
+**近期网页版经常出现页面无法访问，或图片加载失败的问题。多刷新几次即可，这个问题稍后会解决。**
+
 本项目是GMT5的中文参考手册。
 
 本项目源码用 `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ 写成，利用 `Sphinx <http://sphinx-doc.org/>`_ 制作成网页，源码托管在 `GitHub <https://github.com/seisman/GMT5_Docs>`_ 上，网页渲染及托管由 `Read the Docs <http://readthedocs.org/projects/gmt5-docs/>`_ 提供。
