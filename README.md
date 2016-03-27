@@ -1,5 +1,7 @@
 # GMT5参考手册
 
+**本项目已转移至GMT中文社区，见 https://github.com/gmt-china/GMT_docs**
+
 这是介绍GMT5的语法及用法的中文手册。
 
 ## 简介
